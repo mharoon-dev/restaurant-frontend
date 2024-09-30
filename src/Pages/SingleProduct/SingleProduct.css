@@ -1,0 +1,144 @@
+.singleProductContainer {
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 1200px;
+    margin: 0 auto;
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.product-image img {
+    max-width: 100%;
+    border-radius: 10px;
+}
+
+.product-image {
+    flex: 1 1 50%;
+    padding-right: 20px;
+}
+
+.product-details {
+    flex: 1 1 50%;
+}
+
+.product-details h1 {
+    font-size: 1.5rem;
+    margin-bottom: 5px;
+}
+
+.price {
+    font-size: 1.3rem;
+    color: #c00;
+    margin-bottom: 20px;
+    font-weight: 600;
+}
+
+.description {
+    font-size: 0.9rem;
+    line-height: 1.5;
+    margin-bottom: 20px;
+}
+
+.offer h3 {
+    font-size: 1.25rem;
+    margin-bottom: 10px;
+}
+
+.offer ul {
+    list-style: none;
+    margin-bottom: 20px;
+}
+
+.offer ul li {
+    margin-bottom: 5px;
+    color: green;
+}
+
+.stock-info {
+    margin-bottom: 20px;
+}
+
+.stock-info p {
+    font-size: 1rem;
+}
+
+.stock-info .hurry {
+    color: #c00;
+    font-weight: bold;
+}
+
+.size-guide {
+    font-size: 0.9rem;
+    margin-bottom: 20px;
+}
+
+.size-guide a {
+    color: #666;
+    text-decoration: none;
+    margin-right: 10px;
+}
+
+.size-guide a:hover {
+    text-decoration: underline;
+}
+
+.purchase-options {
+    display: flex;
+    align-items: center;
+}
+
+.quantity {
+    margin-right: 20px;
+}
+
+.quantity input {
+    width: 60px;
+    padding: 5px;
+    font-size: 1rem;
+}
+
+.add-to-cart,
+.buy-now {
+    background-color: #458c00;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    margin-right: 10px;
+}
+
+.buy-now {
+    background-color: #222429;
+}
+
+.add-to-cart:hover,
+.buy-now:hover {
+    opacity: 0.9;
+}
+
+@media (max-width: 768px) {
+    .singleProductContainer {
+        flex-direction: column;
+        text-align: center !important;
+    }
+
+    .purchase-options {
+        flex-direction: column;
+        align-items: center !important;
+        justify-content: space-between;
+        text-align: center !important;
+    }
+
+    .add-to-cart {
+        margin-bottom: 10px;
+        margin-top: 10px;
+    }
+
+    .product-image {
+        padding-right: 0;
+        margin-bottom: 20px;
+    }
+}

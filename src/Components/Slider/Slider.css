@@ -1,0 +1,116 @@
+.carousel-content {
+    position: absolute;
+    top: 25%;
+    left: 55%;
+    color: #fff;
+    padding: 15px;
+    border-radius: 5px;
+}
+
+.carousel-content h1 {
+    font-size: 3rem !important;
+}
+
+.carousel-content button {
+    padding: 12px 25px;
+    border: none !important;
+    background-color: #000;
+    color: #fff;
+    margin-top: 30px;
+    font-weight: bolder;
+}
+
+.carousel-content button:hover {
+    background-color: #fff;
+    color: #000;
+    transition: 0.3s;
+}
+
+.sliderBtn {
+    color: #fff !important;
+}
+
+.carousel-content p {
+    font-size: 1rem;
+    margin: 0;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1024px) {
+    .carousel-content {
+        top: 20%;
+    }
+
+    .carousel-content h1 {
+        font-size: 2rem !important;
+    }
+
+}
+
+@media (max-width: 768px) {
+    .carousel-content {
+        top: 18%;
+        /* Adjust for smaller screens */
+        right: 10%;
+        /* Adjust for smaller screens */
+    }
+
+    .carousel-content h1 {
+        font-size: 1.5rem !important;
+    }
+
+    .carousel-content p {
+        font-size: 0.9rem;
+    }
+
+    .carousel-content button {
+        padding: 8px 15px;
+        font-size: 0.5rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .carousel-content {
+        top: 18%;
+        /* Adjust for smaller screens */
+        right: 8%;
+        /* Adjust for smaller screens */
+    }
+
+    .carousel-content h1 {
+        font-size: 0.8rem !important;
+    }
+
+    .carousel-content p {
+        font-size: 0.5rem;
+    }
+
+    .carousel-content button {
+        margin-top: 15px !important;
+        padding: 6px 10px;
+        font-size: 0.5rem;
+    }
+}
+
+@media (max-width: 376px) {
+    .carousel-content {
+        top: 18%;
+        /* Adjust for smaller screens */
+        right: 6% !important;
+        /* Adjust for smaller screens */
+    }
+
+    .carousel-content h1 {
+        font-size: 0.6rem !important;
+    }
+
+    .carousel-content p {
+        font-size: 0.4rem;
+    }
+
+    .carousel-content button {
+        margin-top: 15px !important;
+        padding: 5px 8px !important;
+        font-size: 0.4rem !important;
+    }
+}

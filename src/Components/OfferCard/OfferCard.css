@@ -1,0 +1,67 @@
+.offerCardContainer {
+    position: relative;
+    height: 300px;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.offerCardContainer img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+
+.offerCardContent {
+    position: absolute;
+    top: 25%;
+    color: #fff;
+    padding: 15px;
+    border-radius: 5px;
+}
+
+.offerCardContent p {
+    font-weight: 500;
+    color: rgb(220, 4, 4);
+}
+
+.offerCardContent h5 {
+    font-size: 1.6rem;
+    font-weight: 700;
+}
+
+.offerCardContent button {
+    border: none !important;
+    background-color: transparent !important;
+    color: #fff;
+    margin-top: 10px;
+    font-weight: 500;
+    font-size: 0.85rem;
+}
+
+.offerCardContent button:hover {
+    scale: 1.1;
+    transition: 0.3s;
+    cursor: pointer;
+    color: #000 !important;
+}
+
+@media (max-width: 769px) {
+
+    .offerCardContent h5 {
+        font-size: 1.2rem;
+    }
+
+    .offerCardContent p {
+        font-size: 0.8rem;
+    }
+
+    .offerCardContent button {
+        font-size: 0.7rem;
+    }
+
+    .offerCardContent {
+        top: 20%;
+    }
+
+}
