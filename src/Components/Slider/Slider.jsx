@@ -1,35 +1,49 @@
 import "./Slider.css";
+import Aos from "aos";
+import "aos/dist/aos.css";
+import { useEffect } from "react";
 
 const Slider = () => {
+  useEffect(() => {
+    Aos.init({ duration: 2000 });
+  }, []);
   return (
-    <div id="carouselExampleFade" className="carousel slide carousel-fade">
+    <div
+      id="carouselExampleFade"
+      className="carousel slide carousel-fade"
+      data-aos="fade-up"
+    >
       <div className="carousel-inner">
         <div className="carousel-item active position-relative">
           <img
-            src="https://foodic-store-demo.myshopify.com/cdn/shop/files/slideshowV1-bg1.jpg?v=1658203510"
+            src="/assets/Slider/img.png"
             className="d-block w-100"
             alt="..."
           />
           <div className="carousel-content">
-            <p style={{ color: "white", fontWeight: "bold" }}>FOODIC STORE</p>
-            <h1>Delicious Burger</h1>
-            <button>Shop Now</button>
+            <p>Order Restaurant food, takeaway and groceries.</p>
+            <h1>Feast Your Senses,</h1>
+            <h1 className="span">Fast and Fresh</h1>
+            <button data-aos="fade-left" data-aos-duration="1000">Shop Now</button>
           </div>
         </div>
-        <div className="carousel-item position-relative">
+        {/* <div className="carousel-item position-relative">
           <img
-            src="https://foodic-store-demo.myshopify.com/cdn/shop/files/slideshowV1-bg2.jpg?v=1658203511"
+            src="/assets/Slider/img.png"
             className="d-block w-100"
             alt="..."
           />
           <div className="carousel-content">
-            <p style={{ color: "white", fontWeight: "bold" }}>SPECIAL OFFER</p>
-            <h1>Deliver And Freshly </h1>
+            <p style={{ color: "white", fontWeight: "bold" }}>
+              Order Restaurant food, takeaway and groceries.
+            </p>
+            <h1>Feast Your Senses</h1>
+            <h1>Fast and Fresh</h1>
             <button>Shop Now</button>
           </div>
-        </div>
+        </div> */}
       </div>
-      <button
+      {/* <button
         className="carousel-control-prev sliderBtn"
         type="button"
         data-bs-target="#carouselExampleFade"
@@ -46,7 +60,7 @@ const Slider = () => {
       >
         <span className="carousel-control-next-icon" aria-hidden="true"></span>
         <span className="visually-hidden">Next</span>
-      </button>
+      </button> */}
     </div>
   );
 };

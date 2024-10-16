@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import "./Login.css";
 import { useState } from "react";
 import axios from "axios";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import {
   loginFailure,
@@ -16,10 +16,16 @@ const api = axios.create({
 });
 
 const Login = () => {
+  const user = useSelector((state) => state?.user?.user);
+  console.log(user);
   const [password, setPassword] = useState("");
   const [email, setEmail] = useState("");
   const dispatch = useDispatch();
   const navigate = useNavigate();
+
+  if (user) {
+    navigate("/");
+  }
 
   const handleSubmit = async (e) => {
     e.preventDefault();

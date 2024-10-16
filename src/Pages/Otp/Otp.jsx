@@ -53,7 +53,7 @@ const Otp = () => {
         <form onSubmit={(e) => handleSubmit(e)}>
           <label htmlFor="otp">OTP</label>
           <input
-            type="text"
+            type=""
             className="inp"
             name="otp"
             required

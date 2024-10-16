@@ -1,166 +1,210 @@
 import "./Footer.css";
+import Aos from "aos";
+import "aos/dist/aos.css";
+import { useEffect } from "react";
 
 const Footer = () => {
+  useEffect(() => {
+    Aos.init({ duration: 5000 });
+  }, []);
   return (
     <>
       <footer className="footer-section">
-        <div className="container">
-          <div className="footer-cta pt-5 pb-5">
-            <div className="row">
-              <div className="col-xl-4 col-md-4 mb-30">
-                <div className="single-cta">
-                  <i className="fas fa-map-marker-alt"></i>
-                  <div className="cta-text">
-                    <h4>Find us</h4>
-                    <span>1010 Avenue, sw 54321, chandigarh</span>
-                  </div>
-                </div>
-              </div>
-              <div className="col-xl-4 col-md-4 mb-30">
-                <div className="single-cta">
-                  <i className="fas fa-phone"></i>
-                  <div className="cta-text">
-                    <h4>Call us</h4>
-                    <span>9876543210 0</span>
-                  </div>
-                </div>
-              </div>
-              <div className="col-xl-4 col-md-4 mb-30">
-                <div className="single-cta">
-                  <i className="far fa-envelope-open"></i>
-                  <div className="cta-text">
-                    <h4>Mail us</h4>
-                    <span>mail@info.com</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
+        <div className="container-fluid">
+          <div className="footer-cta pt-5 pb-5"></div>
           <div className="footer-content pt-5 pb-5">
             <div className="row">
-              <div className="col-xl-4 col-lg-4 mb-50">
+              <div
+                className="offset-xl-1 col-xl-2 col-lg-4 mb-50"
+                data-aos="fade-right"
+              >
                 <div className="footer-widget">
-                  <div className="footer-logo">
+                  <div className="footer-logo" data-aos="fade-down">
                     <a href="index.html">
                       <img
-                        src="/assets/white-logo.png"
+                        src="/assets/logo.png"
                         className="img-fluid"
                         alt="logo"
                       />
                     </a>
                   </div>
-                  <div className="footer-text">
+                  <img
+                    src="/assets/Footer/footerImg.png"
+                    width={200}
+                    alt="Footer Image"
+                  />
+                  <div className="footer-text" data-aos="zoom-in">
                     <p>
-                      Lorem ipsum dolor sit amet, consec tetur adipisicing elit,
-                      sed do eiusmod tempor incididuntut consec tetur
-                      adipisicing elit,Lorem ipsum dolor sit amet.
+                      <br />
+                      Company # 490039-445, Registered with House of companies.
                     </p>
-                  </div>
-                  <div className="footer-social-icon">
-                    <span>Follow us</span>
-                    <a href="#">
-                      <i className="fab fa-facebook-f facebook-bg"></i>
-                    </a>
-                    <a href="#">
-                      <i className="fab fa-twitter twitter-bg"></i>
-                    </a>
-                    <a href="#">
-                      <i className="fab fa-google-plus-g google-bg"></i>
-                    </a>
                   </div>
                 </div>
               </div>
-              <div className="col-xl-4 col-lg-4 col-md-6 mb-30">
+
+              <div
+                className="offset-xl-1 col-xl-3 col-lg-3 col-md-6 mb-50"
+                data-aos="fade-down"
+              >
+                <div className="footer-widget">
+                  <div className="footer-widget-heading" data-aos="fade-up">
+                    <h3>Get Exclusive Deals in your Inbox</h3>
+                  </div>
+
+                  <div className="subscribe-form" data-aos="flip-left">
+                    <div class="subscribe-container">
+                      <form>
+                        <input
+                          type="email"
+                          placeholder="youremail@gmail.com"
+                          class="email-input"
+                          required
+                        />
+                        <button class="subscribe-btn">Subscribe</button>
+                      </form>
+                    </div>
+                  </div>
+                  {/* <div className="footer-text mb-25">
+                    <p>we wont spam, read our email policy</p>
+                  </div> */}
+
+                  <div className="footer-social-icon">
+                    <br />
+                    <br />
+                    <ul className="d-flex flex-row align-items-center justify-content-start" data-aos="fade-down">
+                      <li>
+                        <a
+                          href="https://www.facebook.com/"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          <img src="/assets/icons/fb.png" width={30} alt="" />
+                        </a>
+                      </li>
+                      <li>
+                        <a
+                          href="https://twitter.com/"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          <img src="/assets/icons/t.png" width={30} alt="" />
+                        </a>
+                      </li>
+                      <li>
+                        <a
+                          href="https://www.linkedin.com/"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          <img
+                            src="/assets/icons/tiktok.png"
+                            width={30}
+                            alt=""
+                          />
+                        </a>
+                      </li>
+                      <li>
+                        <a
+                          href="https://www.instagram.com/"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          <img
+                            src="/assets/icons/insta.png"
+                            width={30}
+                            alt=""
+                          />
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+
+              <div
+                className="offset-xl-1 col-xl-2 col-lg-2 col-md-6 mb-30"
+                data-aos="fade-up"
+              >
                 <div className="footer-widget">
                   <div className="footer-widget-heading">
-                    <h3>Useful Links</h3>
+                    <h3>Legal Pages</h3>
                   </div>
                   <ul>
                     <li>
-                      <a href="#">Home</a>
+                      <a href="">Terms and conditions</a>
                     </li>
                     <li>
-                      <a href="#">about</a>
+                      <a href="">Privacy</a>
                     </li>
                     <li>
-                      <a href="#">services</a>
+                      <a href="">Cookies</a>
                     </li>
                     <li>
-                      <a href="#">portfolio</a>
-                    </li>
-                    <li>
-                      <a href="#">Contact</a>
-                    </li>
-                    <li>
-                      <a href="#">About us</a>
-                    </li>
-                    <li>
-                      <a href="#">Our Services</a>
-                    </li>
-                    <li>
-                      <a href="#">Expert Team</a>
-                    </li>
-                    <li>
-                      <a href="#">Contact us</a>
-                    </li>
-                    <li>
-                      <a href="#">Latest News</a>
+                      <a href="">Modern Slavery Statement</a>
                     </li>
                   </ul>
                 </div>
               </div>
-              <div className="col-xl-4 col-lg-4 col-md-6 mb-50">
+
+              <div
+                className="col-xl-2 col-lg-2 col-md-6 mb-30"
+                data-aos="fade-left"
+              >
                 <div className="footer-widget">
                   <div className="footer-widget-heading">
-                    <h3>Subscribe</h3>
+                    <h3>Important Links</h3>
                   </div>
-                  <div className="footer-text mb-25">
-                    <p>
-                      Don’t miss to subscribe to our new feeds, kindly fill the
-                      form below.
-                    </p>
-                  </div>
-                  <div className="subscribe-form">
-                    <form action="#">
-                      <input type="text" placeholder="Email Address" />
-                      <button>
-                        <i className="fab fa-telegram-plane"></i>
-                      </button>
-                    </form>
-                  </div>
+                  <ul>
+                    <li>
+                      <a href="">Get help</a>
+                    </li>
+                    <li>
+                      <a href="">Add your restaurant</a>
+                    </li>
+                    <li>
+                      <a href="">Sign up to deliver</a>
+                    </li>
+                    <li>
+                      <a href="">Create a business account</a>
+                    </li>
+                  </ul>
                 </div>
               </div>
             </div>
           </div>
         </div>
-        <div className="copyright-area">
+
+        <div className="copyright-area" data-aos="fade-right">
           <div className="container">
             <div className="row">
               <div className="col-xl-6 col-lg-6 text-center text-lg-left">
-                <div className="copyright-text">
+                <div className="copyright-text" data-aos="fade-up">
                   <p>
-                    Copyright &copy; 2018, All Right Reserved{" "}
-                    <a href="https://codepen.io/anupkumar92/">Anup</a>
+                    Copyright &copy; 2018, All Rights Reserved
+                    <a href="https://codepen.io/anupkumar92/"> Anup</a>
                   </p>
                 </div>
               </div>
-              <div className="col-xl-6 col-lg-6 d-none d-lg-block text-right">
+
+              <div
+                className="col-xl-6 col-lg-6 d-none d-lg-block text-right"
+                data-aos="fade-down"
+              >
                 <div className="footer-menu">
                   <ul>
                     <li>
-                      <a href="#">Home</a>
+                      <a href="">Privacy Policy</a>
                     </li>
                     <li>
-                      <a href="#">Terms</a>
+                      <a href="">Terms</a>
                     </li>
                     <li>
-                      <a href="#">Privacy</a>
+                      <a href="">Pricing</a>
                     </li>
                     <li>
-                      <a href="#">Policy</a>
-                    </li>
-                    <li>
-                      <a href="#">Contact</a>
+                      <a href="">
+                        Do not sell or share my personal information
+                      </a>
                     </li>
                   </ul>
                 </div>

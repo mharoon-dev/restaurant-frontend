@@ -10,14 +10,14 @@ const categoriesSlice = createSlice({
   name: "categories",
   initialState,
   reducers: {
-    categoriesStart: (state) => {
+    getCategoriesStart: (state) => {
       state.loading = true;
     },
-    categoriesSuccess: (state, action) => {
+    getCategoriesSuccess: (state, action) => {
       state.loading = false;
       state.categories = action.payload;
     },
-    categoriesFailure: (state, action) => {
+    getCategoriesFailure: (state, action) => {
       state.loading = false;
       state.error = action.payload;
     },
@@ -26,7 +26,7 @@ const categoriesSlice = createSlice({
 
 const actions = categoriesSlice.actions;
 
-export const { categoriesStart, categoriesSuccess, categoriesFailure } =
+export const {  getCategoriesStart, getCategoriesSuccess, getCategoriesFailure } =
   actions;
 
 export default categoriesSlice.reducer;

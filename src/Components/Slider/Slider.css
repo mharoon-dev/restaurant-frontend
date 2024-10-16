@@ -1,116 +1,141 @@
+#carouselExampleFade {
+  border: none !important;
+}
+
 .carousel-content {
-    position: absolute;
-    top: 25%;
-    left: 55%;
-    color: #fff;
-    padding: 15px;
-    border-radius: 5px;
-}
-
-.carousel-content h1 {
-    font-size: 3rem !important;
-}
-
-.carousel-content button {
-    padding: 12px 25px;
-    border: none !important;
-    background-color: #000;
-    color: #fff;
-    margin-top: 30px;
-    font-weight: bolder;
-}
-
-.carousel-content button:hover {
-    background-color: #fff;
-    color: #000;
-    transition: 0.3s;
-}
-
-.sliderBtn {
-    color: #fff !important;
+  position: absolute;
+  top: 25%;
+  left: 8%;
+  color: var(--black-color);
+  padding: 15px;
+  border-radius: 0 !important;
 }
 
 .carousel-content p {
-    font-size: 1rem;
-    margin: 0;
+  font-size: 16px;
+  margin-bottom: 8px !important;
+}
+.carousel-content h1 {
+  font-size: 54px !important;
+  font-weight: 600;
 }
 
-/* Responsive adjustments */
+.carousel-content > .span {
+  color: var(--main-color);
+}
+
+.carousel-content button {
+  padding: 18px 50px;
+  border: none !important;
+  background-color: var(--main-color);
+  color: #fff;
+  font-size: 16px;
+  border-radius: 30px;
+  font-weight: 600;
+  margin-top: 35px !important;
+}
+
+.carousel-content button:hover {
+  background-color: #fff;
+  color: var(--black-color);
+  transition: 0.3s;
+  border: 2px solid var(--main-color) !important;
+  scale: 1.1;
+}
+
+.cart-section {
+  background-color: var(--secondary-color);
+  padding: 20px;
+  color: var(--white-color) !important;
+  border-radius: 0 0 10px 10px !important;
+}
+
 @media (max-width: 1024px) {
-    .carousel-content {
-        top: 20%;
-    }
+  .carousel-content {
+    top: 20%;
+  }
 
-    .carousel-content h1 {
-        font-size: 2rem !important;
-    }
+  .carousel-content h1 {
+    font-size: 2rem !important;
+  }
 
+  .carousel-content p {
+    display: none !important;
+  }
+  .promo-section,
+  .location-section {
+    display: none !important;
+  }
+}
+@media (max-width: 1450px) {
+  .carousel-content {
+    left: 3% !important; 
+  }
+  
 }
 
 @media (max-width: 768px) {
-    .carousel-content {
-        top: 18%;
-        /* Adjust for smaller screens */
-        right: 10%;
-        /* Adjust for smaller screens */
-    }
+  .carousel-content {
+    top: 18%;
+    right: 10%;
+  }
 
-    .carousel-content h1 {
-        font-size: 1.5rem !important;
-    }
+  .carousel-content h1 {
+    font-size: 1.5rem !important;
+  }
 
-    .carousel-content p {
-        font-size: 0.9rem;
-    }
+  .carousel-content p {
+    font-size: 0.9rem;
+  }
 
-    .carousel-content button {
-        padding: 8px 15px;
-        font-size: 0.5rem;
-    }
+  .carousel-content button {
+    padding: 8px 15px;
+    font-size: 0.5rem;
+  }
 }
 
 @media (max-width: 576px) {
-    .carousel-content {
-        top: 18%;
-        /* Adjust for smaller screens */
-        right: 8%;
-        /* Adjust for smaller screens */
-    }
+  .carousel-content {
+    top: 18%;
+    /* Adjust for smaller screens */
+    right: 8%;
+    /* Adjust for smaller screens */
+  }
 
-    .carousel-content h1 {
-        font-size: 0.8rem !important;
-    }
+  .carousel-content h1 {
+    font-size: 0.8rem !important;
+  }
 
-    .carousel-content p {
-        font-size: 0.5rem;
-    }
+  .carousel-content p {
+    font-size: 0.5rem;
+  }
 
-    .carousel-content button {
-        margin-top: 15px !important;
-        padding: 6px 10px;
-        font-size: 0.5rem;
-    }
+  .carousel-content button {
+    margin-top: 15px !important;
+    padding: 6px 10px;
+    font-size: 0.5rem;
+  }
 }
 
 @media (max-width: 376px) {
-    .carousel-content {
-        top: 18%;
-        /* Adjust for smaller screens */
-        right: 6% !important;
-        /* Adjust for smaller screens */
-    }
+  .carousel-content {
+    top: 18%;
+    /* Adjust for smaller screens */
+    right: 6% !important;
+    /* Adjust for smaller screens */
+  }
 
-    .carousel-content h1 {
-        font-size: 0.6rem !important;
-    }
+  .carousel-content h1 {
+    font-size: 0.6rem !important;
+  }
 
-    .carousel-content p {
-        font-size: 0.4rem;
-    }
+  .carousel-content p {
+    font-size: 0.4rem;
+  }
 
-    .carousel-content button {
-        margin-top: 15px !important;
-        padding: 5px 8px !important;
-        font-size: 0.4rem !important;
-    }
+  .carousel-content button {
+    margin-top: 15px !important;
+    padding: 5px 8px !important;
+    font-size: 0.4rem !important;
+  }
 }

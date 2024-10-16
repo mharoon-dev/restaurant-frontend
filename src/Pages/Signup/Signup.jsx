@@ -13,6 +13,7 @@ const Signup = () => {
   const [email, setEmail] = useState("");
   const [cNo, setCNo] = useState("");
   const [address, setAddress] = useState("");
+  const [zipCode, setZipCode] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
 
@@ -25,7 +26,9 @@ const Signup = () => {
     }
 
     try {
-      let data = { userName: username, email, contact: cNo, address, password };
+      let data = { userName: username, email, contact: cNo, address, password, zipCode };
+      console.log(data, "====>> data");
+
       const response = await api.post("/auth/signup", data);
       console.log(response?.data);
 
@@ -47,15 +50,16 @@ const Signup = () => {
         </h1>
       </div>
       <form onSubmit={handleSubmit}>
-        <label for="username">UserName</label>
+
+        <label htmlFor="username">UserName</label>
         <input
-          type="text"
+          type=""
           className="inp"
           name="username"
           onChange={(e) => setUsername(e.target.value)}
           required
         />
-        <label for="email">Email</label>
+        <label htmlFor="email">Email</label>
         <input
           type="email"
           className="inp"
@@ -63,7 +67,7 @@ const Signup = () => {
           onChange={(e) => setEmail(e.target.value)}
           required
         />
-        <label for="cNo">Contact Number</label>
+        <label htmlFor="cNo">Contact Number</label>
         <input
           type="tel"
           className="inp"
@@ -71,15 +75,25 @@ const Signup = () => {
           onChange={(e) => setCNo(e.target.value)}
           required
         />
-        <label for="address">Address</label>
+        <label htmlFor="address">Address</label>
         <input
-          type="text"
+          type="tel"
           className="inp"
           name="address"
           onChange={(e) => setAddress(e.target.value)}
           required
         />
-        <label for="password">Password</label>
+        <label htmlFor="zipCode">Zip Code</label>
+        <input
+          type="tel"
+          className="inp"
+          name="zipCode"
+          onChange={(e) => setZipCode(e.target.value)}
+          required
+        />
+
+
+        <label htmlFor="password">Password</label>
         <input
           type="password"
           className="inp"

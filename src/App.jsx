@@ -4,7 +4,7 @@ import Categories from "./Pages/Categories/Categories.jsx";
 import Category from "./Pages/Category/Category.jsx";
 import SingleProduct from "./Pages/SingleProduct/SingleProduct.jsx";
 import Cart from "./Pages/Cart/Cart.jsx";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import Signup from "./Pages/Signup/Signup.jsx";
 import Login from "./Pages/Login/Login.jsx";
 import Otp from "./Pages/Otp/Otp.jsx";
@@ -16,22 +16,28 @@ import {
 } from "./Redux/Slices/userSlice";
 import { url } from "../utils/url.js";
 import axios from "axios";
+import {
+  productsFailure,
+  productsStart,
+  productsSuccess,
+} from "./Redux/Slices/productsSlice.jsx";
+
 
 const api = axios.create({
   baseURL: url,
 });
 
 function App() {
+  const pathName = window.location.pathname.split("/")[1];
+  useEffect(() => {
+    console.log(pathName);
+  }, [pathName]);
+
+  // if (pathName !== "/products") {
   const dispatch = useDispatch();
   const { user } = useSelector((state) => state.user);
-  console.log(user);
+  // console.log(user);
   const navigate = useNavigate();
-
-  useEffect(() => {
-    if (user) {
-      navigate("/");
-    }
-  }, [user, navigate]);
 
   useEffect(() => {
     const isUserLoggedIn = async () => {
@@ -62,7 +68,7 @@ function App() {
         });
 
         if (res.data) {
-          console.log(res?.data);
+          // console.log(res?.data);
           dispatch(loginSuccess(res?.data?.data));
         }
       } catch (error) {
@@ -100,10 +106,7 @@ function App() {
 
   return (
     <Routes>
-      <Route
-        path="/"
-        element={!user ? <Login /> : <Home offersCard={offersCard} />}
-      />
+      <Route path="/" element={<Home offersCard={offersCard} />} />
       <Route path="/signup" element={<Signup />} />
       <Route path="/otp" element={<Otp />} />
       <Route path="/login" element={<Login />} />
