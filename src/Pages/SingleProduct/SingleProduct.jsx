@@ -37,10 +37,7 @@ const SingleProduct = () => {
   }, []);
 
   const handleVariationChange = (variation) => {
-    const selectedVar = product.variations.find(
-      (singleVariation) => singleVariation === variation
-    );
-    setSelectedVariation(selectedVar);
+    setSelectedVariation(variation); // Set the selected variation and deselect others
   };
 
   const handleQuantityChange = (event) => {
@@ -77,33 +74,43 @@ const SingleProduct = () => {
   return (
     <>
       <Navbar />
+      <br />
+      <br />
+      <br />
       <div className="singleProductContainer">
-        <div className="product-image">
+        <div className="singleProduct-image">
           <img src={product?.img} alt={product?.title} />
         </div>
         <div className="product-details">
           <h1>{product?.title}</h1>
           <p className="price">{product?.price}</p>
           <p className="description">{product?.desc}</p>
-          <div className="variations">
+          <div className="size-options">
             {product?.variations.map((variation) => (
-              <div key={variation._id} className="variation">
-                <input
-                  type="radio"
-                  name="variation"
-                  value={variation._id}
-                  onChange={() => handleVariationChange(variation)}
-                />
-                <span>
-                  {variation.size} | ${variation.price}
-                </span>
-              </div>
+              <button
+                key={variation?._id}
+                data-aos="flip-left"
+                style={{
+                  backgroundColor:
+                    selectedVariation?._id === variation._id
+                      ? "var(--black-color) !important"
+                      : "var(--white-color) !important",
+                  color:
+                    selectedVariation?._id === variation._id
+                      ? "var(--white-color) !important"
+                      : "var(--black-color) !important",
+                }}
+                className={`size large `} // Apply selected class only to the selected variation
+                onClick={() => handleVariationChange(variation)} // Set the variation on button click
+              >
+                {variation?.size} <span>GBP {variation?.price}</span>
+              </button>
             ))}
           </div>
           <br />
           {/* Quantity input field */}
           <div className="quantity">
-            <label htmlFor="quantity">Quantity:</label>
+            <label htmlFor="quantity">Quantity:&nbsp;</label>
             <input
               type="number"
               id="quantity"
@@ -118,12 +125,17 @@ const SingleProduct = () => {
             <button className="add-to-cart" onClick={handleAddToCart}>
               Add to Cart
             </button>
-            <Link to="/cart">
-              <button className="buy-now">View Cart</button>
+            <Link to="/cart" className="ViewCart">
+              View Cart
             </Link>
           </div>
         </div>
       </div>
+
+      <br />
+      <br />
+      <br />
+      <br />
       <Footer />
     </>
   );

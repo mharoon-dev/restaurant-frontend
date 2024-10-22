@@ -6,6 +6,10 @@
   position: sticky !important;
 }
 
+.nav-logo {
+  margin-left: 140px;
+}
+
 .navbar-brand {
   margin-left: 130px !important;
 }
@@ -73,6 +77,13 @@
   margin: 0px !important;
   font-size: 18px !important;
   font-weight: normal !important;
+}
+
+.cartBox {
+  position: absolute;
+  z-index: 2;
+  right: 0px;
+  top: 0px;
 }
 
 .authBtn {
@@ -196,6 +207,9 @@
 }
 
 @media (max-width: 1024px) {
+  /* .cartBox {
+    right: 340px;
+  } */
   .nav-ul {
     display: none !important;
   }
@@ -207,4 +221,30 @@
   .navIconsContainer {
     display: none !important;
   }
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.7);
+  z-index: 10;
+}
+
+@media (max-width: 768px) {
+  /* .cartBox {
+    right: 240px;
+    width: 100%;
+    left: 120px;
+  } */
+}
+
+@media (max-width: 576px) {
+  /* .cartBox {
+    right: 0px;
+    left: 0;
+    top: 35px;
+  } */
 }

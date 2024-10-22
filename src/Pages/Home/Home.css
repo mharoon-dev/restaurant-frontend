@@ -489,9 +489,9 @@
   }
 
   li.menu-item {
-    display: inline-flex; /* Align items horizontally */
-    flex: 0 0 auto; /* Prevent items from growing or shrinking */
-    margin-right: 15px; /* Add space between items */
+    display: inline-flex;
+    flex: 0 0 auto;
+    margin-right: 15px;
   }
 }
 
@@ -504,7 +504,6 @@
 
   .menu-list {
     display: block;
-    /* Keep vertical layout for larger screens */
   }
 
   .menu-item {

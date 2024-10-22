@@ -7,7 +7,7 @@ import PersonOutlineOutlinedIcon from "@mui/icons-material/PersonOutlineOutlined
 import ShoppingBagOutlinedIcon from "@mui/icons-material/ShoppingBagOutlined";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import * as React from "react";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
@@ -48,6 +48,8 @@ const Navbar = () => {
   const [dropdown, setDropdown] = useState(false);
   const [dropdown2, setDropdown2] = useState(false);
   const [open, setOpen] = useState(false);
+  const [cartBox, setCartBox] = useState(false);
+  const cartBoxRef = useRef(null); // Add a ref to the cart box
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
   const dispatch = useDispatch();
@@ -63,6 +65,7 @@ const Navbar = () => {
     (acc, item) => acc + item?.selectedVariation?.price * item?.quantity,
     0
   );
+
   useEffect(() => {
     Aos.init({ duration: 2000 });
   }, []);
@@ -98,9 +101,103 @@ const Navbar = () => {
     getCategories();
   }, []);
 
+  // Function to close cart box when clicking outside
+  const handleClickOutside = (event) => {
+    if (cartBoxRef.current && !cartBoxRef.current.contains(event.target)) {
+      setCartBox(false); // Close cartBox when clicking outside
+    }
+  };
+
+  useEffect(() => {
+    if (cartBox) {
+      document.addEventListener("mousedown", handleClickOutside);
+    } else {
+      document.removeEventListener("mousedown", handleClickOutside);
+    }
+
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [cartBox]);
+
   return (
     <>
-      <div class="container-fluid header-container p-0">
+      <div className="container-fluid header-container p-0">
+        {cartBox && (
+          <>
+            <div className="overlay"
+             data-aos="fade-right"
+            //  data-aos="zoom-in"
+            ></div>
+            <div
+              className="col-lg-3 d-flex justify-content-end col-12 p-3 pe-0 pt-0 pb-0 my-0 cartBox"
+              data-aos="fade-left"
+              style={{
+                height: "100vh",
+                zIndex: "100",
+              }}
+              ref={cartBoxRef} // Attach the ref here
+            >
+              <div className="basket-container py-4">
+                <div
+                  className="basket-header d-flex align-items-center justify-content-center gap-3"
+                  data-aos="fade-right"
+                >
+                  <img
+                    src="/assets/icons/ShoppingBasket.png"
+                    width={40}
+                    alt=""
+                  />
+                  <h2>My Basket</h2>
+                </div>
+                <div className="basket-items">
+                  {cart?.map((item) => (
+                    <div
+                      key={item?._id}
+                      className="basket-item"
+                      data-aos="fade-left"
+                    >
+                      <div className="item-info">
+                        <div>
+                          <span className="item-qty">{item?.quantity}x</span>
+                        </div>
+                        <div className="d-flex flex-column" data-aos="zoom-in">
+                          <div className="item-price">
+                            GBP {item?.selectedVariation?.price}
+                          </div>
+                          <span className="item-name">{item?.title}</span>
+                          <p className="item-details">
+                            {item?.desc.slice(0, 50)}...
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+                <div className="basket-summary">
+                  <div className="summary-item">
+                    <span data-aos="fade-right">Sub Total:</span>
+                    <span data-aos="fade-left">{"GBP " + totalAmount}</span>
+                  </div>
+                  <div className="total-pay" data-aos="flip-left">
+                    <span>Total to pay</span>
+                    <span>{"GBP " + totalAmount}</span>
+                  </div>
+                </div>
+                <div className="checkout-container mb-0" data-aos="fade-down">
+                  <button className="checkout-btn">
+                    <Link
+                      to="/cart"
+                      style={{ textDecoration: "none", color: "inherit" }}
+                    >
+                      Checkout!
+                    </Link>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </>
+        )}
         <div className="container-fluid d-flex justify-content-md-around justify-content-center align-items-center">
           <div className="promo-section" data-aos="zoom-in">
             <span className="promo-text">🌟 Get 5% Off your first order, </span>
@@ -112,7 +209,6 @@ const Navbar = () => {
           <div className="cart-section p-0 m-0" data-aos="fade-down">
             <div className="cart-icon p-3 h-100 m-0" style={{}}>
               <Link to="/cart">
-                {" "}
                 <img src="/assets/icons/ShoppingBasket.png" width={30} />
               </Link>
             </div>
@@ -122,7 +218,10 @@ const Navbar = () => {
             <div className="cart-details p-3 h-100 m-0" style={{}}>
               <span className="cart-total">GBP {totalAmount.toFixed(2)}</span>
             </div>
-            <div className="cart-icon p-3 h-100 m-0" style={{}}>
+            <div
+              className="cart-icon p-3 h-100 m-0"
+              onClick={() => setCartBox((prev) => !prev)}
+            >
               <span>
                 <img src="/assets/icons/ForwardButton.png" width={30} />
               </span>
@@ -132,14 +231,21 @@ const Navbar = () => {
       </div>
 
       <nav
-        className="navbar sticky-top navbarContainer"
-        style={{ backgroundColor: "#fff" }}
+        className="navbar navbarContainer"
+        style={{
+          backgroundColor: "#fff",
+          position: "relative !important",
+          width: "100%",
+        }}
       >
-        <div className="container-fluid p-3 d-flex justify-content-between">
-          <Link to="/" data-aos="fade-right">
-            <a className="navbar-brand">
-              <img className="ms-4" src={logo} width="150px" alt="" />
-            </a>
+        <div
+          className="container-fluid p-3 d-flex justify-content-between"
+          style={{
+            zIndex: "9",
+          }}
+        >
+          <Link to="/" className="nav-logo" data-aos="fade-right">
+            <img className="ms-4" src={logo} width="150px" alt="" />
           </Link>
           <div className="nav-ul" data-aos="fade-left">
             <ul className="nav-ul justify-content-end d-flex flex-grow-1 pe-3">
@@ -151,7 +257,7 @@ const Navbar = () => {
                   fontWeight: "600",
                 }}
               >
-                <Link to="/" className="nav-link ">
+                <Link to="/" className="nav-link">
                   Home
                 </Link>
               </li>
@@ -166,18 +272,15 @@ const Navbar = () => {
                   fontWeight: "600",
                 }}
               >
-                <a
-                  data-mdb-dropdown-init
-                  className={`nav-link`}
+                <span
+                  className="nav-link"
                   id="navbarDropdown"
                   role="button"
-                  data-mdb-toggle="dropdown"
                   aria-expanded="false"
                   onClick={handleDropdownToggle}
                 >
                   Restaurants
-                  {/* {dropdown ? <KeyboardArrowUpIcon /> : <KeyboardArrowDownIcon />} */}
-                </a>
+                </span>
 
                 <div
                   className={`dropdown-menu w-100 mt-0 ${
@@ -202,17 +305,16 @@ const Navbar = () => {
                               style={{
                                 textDecoration: "none",
                                 color: "black",
-                                border: "none",
                               }}
                             >
-                              <a className="list-group-item list-group-item-action p-4">
+                              <span className="list-group-item list-group-item-action p-4">
                                 <img
                                   src={item?.img}
                                   width={50}
                                   alt={item?.name}
                                 />
                                 &nbsp; {item?.name}
-                              </a>
+                              </span>
                             </Link>
                           ))}
                         </div>
@@ -255,14 +357,18 @@ const Navbar = () => {
             >
               {!user ? (
                 <Link to="/login" className="authBtn">
-                  <img src="/assets/icons/user-icon.png" width={50} />{" "}
+                  <img
+                    src="/assets/icons/user-icon.png"
+                    width={50}
+                    alt="Login Icon"
+                  />
                   Login/Signup
                 </Link>
               ) : (
                 <img
                   src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png"
                   style={{ width: "55px", borderRadius: "50%" }}
-                  alt=""
+                  alt="User Profile"
                 />
               )}
             </li>
@@ -276,7 +382,7 @@ const Navbar = () => {
             aria-controls="offcanvasNavbar"
             aria-label="Toggle navigation"
           >
-            <MenuIcon style={{ border: "none !important", fontSize: "55px" }} />
+            <MenuIcon style={{ fontSize: "55px" }} />
           </button>
           <div
             className="offcanvas offcanvas-end"
@@ -289,7 +395,7 @@ const Navbar = () => {
                 <img
                   src="https://foodic-store-demo.myshopify.com/cdn/shop/files/logo.png?v=1658832482"
                   width="100px"
-                  alt=""
+                  alt="Shop Logo"
                 />
               </h5>
               <button
@@ -300,37 +406,21 @@ const Navbar = () => {
               ></button>
             </div>
             <div className="offcanvas-body">
-              <ul className="navbar-nav justify-content-end ">
-                <li className={`nav-item}`}>
-                  <Link
-                    to="/"
-                    style={{ textDecoration: "none", color: "inherit" }}
-                  >
-                    <a
-                      className={`nav-link navLinkA ${
-                        isActive("/") ? "activeLi" : ""
-                      }`}
-                      aria-current="page"
-                    >
-                      Home
-                    </a>
+              <ul className="navbar-nav justify-content-end">
+                <li className="nav-item">
+                  <Link to="/" className="nav-link">
+                    Home
                   </Link>
                 </li>
-                <li className={`nav-item dropdown position-static`}>
-                  <a
-                    className={`nav-link navLinkA ${
-                      isCategoryActive ? "activeLi" : ""
-                    }`}
-                    data-mdb-dropdown-init
-                    href="#"
+                <li className="nav-item dropdown position-static">
+                  <span
+                    className="nav-link"
                     id="navbarDropdown"
                     role="button"
-                    data-mdb-toggle="dropdown"
-                    aria-expanded="false"
                     onClick={handleDropdownToggle2}
                   >
                     Restaurants
-                  </a>
+                  </span>
 
                   <div
                     className="container"
@@ -341,17 +431,18 @@ const Navbar = () => {
                         <div className="list-group list-group-flush">
                           {catLine1?.map((item) => (
                             <Link
+                              key={item?._id}
                               to={`/category/${item?.name}`}
                               style={{ textDecoration: "none", color: "black" }}
                             >
-                              <a className="list-group-item list-group-item-action p-4">
+                              <span className="list-group-item list-group-item-action p-4">
                                 <img
                                   src={item?.img}
                                   width={50}
                                   alt={item?.name}
                                 />
                                 &nbsp;{item?.name}
-                              </a>
+                              </span>
                             </Link>
                           ))}
                         </div>
@@ -359,10 +450,8 @@ const Navbar = () => {
                     </div>
                   </div>
                 </li>
-                <li className="nav-item ">
-                  <a className="nav-link navLinkA" aria-current="page" href="#">
-                    Special Offers
-                  </a>
+                <li className="nav-item">
+                  <span className="nav-link">Special Offers</span>
                 </li>
               </ul>
 
@@ -380,14 +469,18 @@ const Navbar = () => {
                 >
                   {!user ? (
                     <Link to="/login" className="authBtn">
-                      <img src="/assets/icons/user-icon.png" width={50} />{" "}
+                      <img
+                        src="/assets/icons/user-icon.png"
+                        width={50}
+                        alt="Login Icon"
+                      />
                       Login/Signup
                     </Link>
                   ) : (
                     <img
                       src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png"
                       style={{ width: "55px", borderRadius: "50%" }}
-                      alt=""
+                      alt="User Profile"
                     />
                   )}
                 </li>
@@ -398,39 +491,34 @@ const Navbar = () => {
       </nav>
 
       {/* search modal  */}
-      <div>
-        <Modal
-          open={open}
-          onClose={handleClose}
-          aria-labelledby="modal-modal-title"
-          aria-describedby="modal-modal-description"
-        >
-          <Box sx={style}>
-            <Typography id="modal-modal-title" variant="h6" component="h2">
-              <div className="input-group mb-3">
-                <input
-                  type="text"
-                  className="form-control sidebarSearchInput"
-                  placeholder="Search"
-                  aria-label="Recipient's username"
-                  aria-describedby="basic-addon2"
-                />
-                <span
-                  className="input-group-text sidebarSearchInput pb-0 pe-0"
-                  style={{ width: "55px" }}
-                  id="basic-addon2"
-                >
-                  <button className="btn p-0" type="submit">
-                    <SearchIcon
-                      style={{ fontSize: "35px", color: "#458c00 !important" }}
-                    />
-                  </button>
-                </span>
-              </div>
-            </Typography>
-          </Box>
-        </Modal>
-      </div>
+      <Modal
+        open={open}
+        onClose={handleClose}
+        aria-labelledby="modal-modal-title"
+        aria-describedby="modal-modal-description"
+      >
+        <Box sx={style}>
+          <Typography id="modal-modal-title" variant="h6" component="h2">
+            <div className="input-group mb-3">
+              <input
+                type="text"
+                className="form-control sidebarSearchInput"
+                placeholder="Search"
+              />
+              <span
+                className="input-group-text sidebarSearchInput pb-0 pe-0"
+                style={{ width: "55px" }}
+              >
+                <button className="btn p-0" type="submit">
+                  <SearchIcon
+                    style={{ fontSize: "35px", color: "#458c00 !important" }}
+                  />
+                </button>
+              </span>
+            </div>
+          </Typography>
+        </Box>
+      </Modal>
     </>
   );
 };

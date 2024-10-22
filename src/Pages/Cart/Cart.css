@@ -504,7 +504,7 @@ input[type="text"] {
 }
 
 .basket-header {
-  background-color: #35b65b;
+  background-color: var(--secondary-color);
   color: white;
   padding: 15px;
   border-radius: 5px;
@@ -614,7 +614,7 @@ input[type="text"] {
 }
 
 .checkout-btn {
-  background-color: #35b65b;
+  background-color: var(--secondary-color);
   color: white;
   padding: 15px;
   border: none;
@@ -623,6 +623,12 @@ input[type="text"] {
   font-size: 16px;
   font-weight: bold;
   cursor: pointer;
+}
+
+@media (max-width: 1440px) {
+  .nav-logo {
+    margin-left: 0px;
+  }
 }
 
 /* Responsive Styles */

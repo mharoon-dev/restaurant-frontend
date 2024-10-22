@@ -9,6 +9,9 @@ const Slider = () => {
   }, []);
   return (
     <div
+      style={{
+        zIndex: "-1",
+      }}
       id="carouselExampleFade"
       className="carousel slide carousel-fade"
       data-aos="fade-up"
@@ -24,7 +27,9 @@ const Slider = () => {
             <p>Order Restaurant food, takeaway and groceries.</p>
             <h1>Feast Your Senses,</h1>
             <h1 className="span">Fast and Fresh</h1>
-            <button data-aos="fade-left" data-aos-duration="1000">Shop Now</button>
+            <button data-aos="fade-left" data-aos-duration="1000">
+              Shop Now
+            </button>
           </div>
         </div>
         {/* <div className="carousel-item position-relative">

@@ -104,7 +104,10 @@ const Home = ({ offersCard }) => {
 
       <div className="container-fluid">
         <div className="row">
-          <div className="offset-xl-1 col-xl-10 col-12 deal-section">
+          <div
+            className="offset-xl-1 col-xl-10 col-12 deal-section"
+            style={{ zIndex: "-1" }}
+          >
             <div class="deal-header" data-aos="fade-right">
               <h1>
                 Up to -40% <span class="icon">🎉</span> Exclusive deals
@@ -126,8 +129,16 @@ const Home = ({ offersCard }) => {
             </div>
           </div>
         </div>
-        <div className="row  catCardsRow align-items-center justify-content-center">
-          <div class="offerCard" data-aos="fade-right" data-aos-duration="2000">
+        <div
+          className="row  catCardsRow align-items-center justify-content-center"
+          style={{ zIndex: "-1" }}
+        >
+          <div
+            class="offerCard"
+            data-aos="fade-right"
+            data-aos-duration="2000"
+            style={{ zIndex: "-1" }}
+          >
             <img
               src="/assets/OfferCards/offerCard1.png"
               alt="Chef Burgers London"
@@ -138,7 +149,12 @@ const Home = ({ offersCard }) => {
               <div class="title">Chef Burgers London</div>
             </div>
           </div>
-          <div class="offerCard" data-aos="zoom-in" data-aos-duration="2000">
+          <div
+            class="offerCard"
+            data-aos="zoom-in"
+            data-aos-duration="2000"
+            style={{ zIndex: "-1" }}
+          >
             <img
               src="/assets/OfferCards/offerCard1.png"
               alt="Chef Burgers London"
@@ -149,7 +165,12 @@ const Home = ({ offersCard }) => {
               <div class="title">Chef Burgers London</div>
             </div>
           </div>
-          <div class="offerCard" data-aos="fade-left" data-aos-duration="2000">
+          <div
+            class="offerCard"
+            data-aos="fade-left"
+            data-aos-duration="2000"
+            style={{ zIndex: "-1" }}
+          >
             <img
               src="/assets/OfferCards/offerCard1.png"
               alt="Chef Burgers London"
@@ -271,7 +292,12 @@ const Home = ({ offersCard }) => {
       <div className="container-fluid  reviewsSectionDev">
         <div className="row px-md-5 mx-md-5 ">
           <div className="col-12">
-            <h1 className=" text-center text-lg-left mb-4" data-aos="fade-right">Customer Reviews</h1>
+            <h1
+              className=" text-center text-lg-left mb-4"
+              data-aos="fade-right"
+            >
+              Customer Reviews
+            </h1>
           </div>
           <br />
         </div>
