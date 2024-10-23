@@ -75,19 +75,18 @@ const Cart = () => {
 
   const cart = useSelector((state) => state?.cart?.cart);
 
-  const totalAmount = cart
-    ?.reduce(
-      (acc, item) => acc + item?.selectedVariation?.price * item?.quantity,
-      0
-    )
-    .toFixed(2);
-
   const [address, setAddress] = useState("");
   const [phoneNumber, setPhoneNumber] = useState("");
   const [paymentError, setPaymentError] = useState("");
   const [paymentSuccess, setPaymentSuccess] = useState(false);
   const [paymentMethod, setPaymentMethod] = useState("");
   const [open, setOpen] = useState(false);
+  const [couponView, setCouponView] = useState(false);
+  const [couponInput, setCouponInput] = useState("");
+  const [discount, setDiscount] = useState(0);
+  const [couponError, setCouponError] = useState("");
+  const [isCouponApplied, setIsCouponApplied] = useState(false);
+
   const navigate = useNavigate();
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
@@ -111,6 +110,41 @@ const Cart = () => {
     dispatch(updateCartSuccess(updatedCart));
   };
 
+  const handleCouponApply = async () => {
+    try {
+      const response = await api.get(
+        `/coupens/singlecoupen?code=${couponInput}`
+      );
+      console.log(response.data);
+      console.log("couped response ");
+
+      if (response.data) {
+        const sliceData = response.data?.slice(0, 1);
+        console.log(sliceData, "sliceData");
+        const { discount } = sliceData[0];
+        setDiscount(discount);
+        setCouponError("");
+        setIsCouponApplied(true);
+      } else {
+        setCouponError("No coupon found!");
+      }
+    } catch (error) {
+      setCouponError("Coupon validation failed. Please try again.");
+    }
+  };
+
+  const totalAmount = cart
+    ?.reduce(
+      (acc, item) => acc + item?.selectedVariation?.price * item?.quantity,
+      0
+    )
+    .toFixed(2);
+
+  const discountedAmount = (
+    totalAmount -
+    (totalAmount * discount) / 100
+  ).toFixed(2);
+
   const handleCheckout = async (e) => {
     e.preventDefault();
 
@@ -119,7 +153,7 @@ const Cart = () => {
         const orderResponse = await api.post("/orders", {
           userDetails: user,
           products: cart,
-          amount: totalAmount,
+          amount: discountedAmount,
           address,
           phoneNumber,
           cashOnDelivery: true,
@@ -132,6 +166,7 @@ const Cart = () => {
           setOpen(false);
           dispatch(updateCartStart());
           dispatch(reset([]));
+          alert("Order created successfully");
         } else {
           setPaymentError("Order creation failed");
         }
@@ -144,7 +179,7 @@ const Cart = () => {
     if (paymentMethod === "online") {
       const cardElement = elements.getElement(CardElement);
 
-      const totalAmountInPence = Math.round(totalAmount * 100);
+      const totalAmountInPence = Math.round(discountedAmount * 100);
 
       try {
         const paymentResponse = await api.post("/create-payment-intent", {
@@ -153,7 +188,6 @@ const Cart = () => {
         });
 
         const { clientSecret } = paymentResponse.data;
-        console.log("Client Secret:", clientSecret);
 
         const paymentResult = await stripe.confirmCardPayment(clientSecret, {
           payment_method: {
@@ -164,18 +198,13 @@ const Cart = () => {
           },
         });
 
-        console.log("Payment Result:", paymentResult);
-
         if (paymentResult.error) {
-          console.error("Payment error: ", paymentResult.error);
           setPaymentError(paymentResult.error.message);
         } else if (paymentResult.paymentIntent?.status === "succeeded") {
-          console.log("Payment successful: ", paymentResult.paymentIntent);
-
           const orderResponse = await api.post("/orders", {
             userDetails: user,
             products: cart,
-            amount: totalAmount,
+            amount: discountedAmount,
             address,
             phoneNumber,
             cashOnDelivery: false,
@@ -189,15 +218,12 @@ const Cart = () => {
             dispatch(updateCartStart());
             dispatch(reset([]));
           } else {
-            console.error("Order creation failed: ", orderResponse);
             setPaymentError("Order creation failed");
           }
         } else {
-          console.error("Unexpected payment result: ", paymentResult);
           setPaymentError("Unexpected payment result");
         }
       } catch (error) {
-        console.error("Payment processing error: ", error);
         setPaymentError("Payment failed. Please try again.");
       }
     }
@@ -223,29 +249,10 @@ const Cart = () => {
                     <h2 data-aos="fade-right">{item?.title}</h2>
                     <div className="spicy-level" data-aos="fade-left">
                       <span>🌶️</span>
-                      <span>🌶️</span>
-                      <span>🌶️</span>
-                      <span>🌶️</span>
-                      <span>🌶️</span>
                     </div>
                     <p className="mb-3" data-aos="zoom-in">
                       {item?.desc.slice(0, 100)}...
                     </p>
-                    <div className="size-options">
-                      {item?.variations?.map((variation) => (
-                        <button
-                          data-aos="flip-left"
-                          key={variation?._id}
-                          className={`size large ${
-                            item?.selectedVariation?._id === variation?._id
-                              ? "selected"
-                              : ""
-                          }`}
-                        >
-                          {variation?.size} <span>GBP {variation?.price}</span>
-                        </button>
-                      ))}
-                    </div>
                   </div>
                   <div className="product-image" data-aos="fade-left">
                     <img src={item?.img} alt="Pizza" />
@@ -282,22 +289,71 @@ const Cart = () => {
                             GBP {item?.selectedVariation?.price}
                           </div>
                           <span className="item-name">{item?.title}</span>
-                          <p className="item-details">
-                            {item?.desc.slice(0, 50)}...
-                          </p>
                         </div>
                       </div>
                     </div>
                   ))}
                 </div>
+
+                {/* Coupon Code Section */}
+                {!couponView ? (
+                  <div
+                    className="coupon-section"
+                    onClick={() => setCouponView(true)}
+                  >
+                    <button className="use-coupon-btn">Use Coupon Code</button>
+                  </div>
+                ) : (
+                  <>
+                    {!isCouponApplied ? (
+                      <div className="apply-coupon-section">
+                        <button
+                          className="use-coupon-back-btn"
+                          onClick={() => setCouponView(false)}
+                        >
+                          Back
+                        </button>
+                        <input
+                          type="text"
+                          value={couponInput}
+                          onChange={(e) => setCouponInput(e.target.value)}
+                          placeholder="Enter coupon code"
+                        />
+                        <button
+                          className="apply-coupon-btn"
+                          onClick={handleCouponApply}
+                        >
+                          Apply
+                        </button>
+                        {couponError && (
+                          <div className="error">{couponError}</div>
+                        )}
+                      </div>
+                    ) : (
+                      <div>
+                        Coupon applied successfully! Discount: {discount}%
+                      </div>
+                    )}
+                  </>
+                )}
+
+                {/* Basket Summary */}
                 <div className="basket-summary">
                   <div className="summary-item">
                     <span data-aos="fade-right">Sub Total:</span>
-                    <span data-aos="fade-left">{"GBP " + totalAmount}</span>
+                    <span data-aos="fade-left">
+                      {"GBP " + discountedAmount}
+                    </span>
                   </div>
+                  {discount > 0 && (
+                    <div className="summary-item">
+                      <span data-aos="fade-right">Discount:</span>
+                      <span data-aos="fade-left">{discount}%</span>
+                    </div>
+                  )}
                   <div className="total-pay" data-aos="flip-left">
                     <span>Total to pay</span>
-                    <span>{"GBP " + totalAmount}</span>
+                    <span>{"GBP " + discountedAmount}</span>
                   </div>
                 </div>
                 <div className="checkout-container mb-0" data-aos="fade-down">
@@ -314,9 +370,6 @@ const Cart = () => {
           <h2>Cart is empty</h2>
         </div>
       )}
-      <br />
-      <br />
-      <br />
 
       <Footer />
 
@@ -356,6 +409,9 @@ const Cart = () => {
                   className="cash-on-delivery-btn"
                   disabled={!address || !phoneNumber}
                   onClick={() => setPaymentMethod("cash")}
+                  style={{
+                    border: paymentMethod === "cash" ? "3px solid black" : "",
+                  }}
                 >
                   Cash on Delivery
                 </button>
@@ -364,6 +420,9 @@ const Cart = () => {
                   className="online-payment-btn"
                   disabled={!address || !phoneNumber}
                   onClick={() => setPaymentMethod("online")}
+                  style={{
+                    border: paymentMethod === "online" ? "3px solid black" : "",
+                  }}
                 >
                   Online Payment
                 </button>

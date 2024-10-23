@@ -3,11 +3,11 @@
   border-radius: 15px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   display: flex;
+  flex-direction: column;
   justify-content: space-around;
   align-items: center;
-  padding: 10px 0px 10px 10px !important;
   max-width: 100%;
-  width: 600px !important;
+  width: 300px !important;
   position: relative;
   box-shadow: 1px 0px 17px -4px rgba(0, 0, 0, 0.7);
   -webkit-box-shadow: 1px 0px 17px -4px rgba(0, 0, 0, 0.7);
@@ -15,20 +15,22 @@
 }
 
 .meal-text {
-  max-width: 60%;
+  max-width: 100%;
+  padding: 15px;
+  text-align: left;
 }
 
 .meal-name {
-  font-size: 18px !important;
+  font-size: 20px !important;
   font-weight: 700 !important;
   color: var(--black-color);
-  text-align: center !important;
 }
 
 .meal-text h2 {
   font-size: 20px !important;
   font-weight: 700 !important;
   margin-bottom: 10px;
+  color: var(--main-color);
 }
 
 .meal-text p {
@@ -44,33 +46,34 @@
 }
 
 .meal-image img {
-  max-width: 200px;
+  max-width: 100%;
   border-radius: 10px;
 }
 
 .add-btn {
   position: absolute;
-  right: 0;
-  bottom: 0;
-  background-color: var(--black-color);
+  left: 0;
+  top: 0;
+  background-color: var(--white-color);
   color: var(--white-color);
   border: none;
-  border-radius: 200px 0px 44px 0px !important;
-  width: 80px;
-  height: 80px;
+  border-radius: 10px 0px 60px 0px;
+  -webkit-border-radius: 10px 0px 60px 0px;
+  -moz-border-radius: 10px 0px 60px 0px;
+  width: 80px !important;
+  height: 70px !important;
   display: flex;
-  justify-content: flex-end !important;
+  justify-content: center !important;
   align-items: center !important;
-  padding-top: 10px !important;
   padding-right: 10px !important;
+  padding-bottom: 10px !important;
   text-align: center;
   cursor: pointer;
   /* box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); */
 }
 
-@media (max-width: 768px) {
+/* @media (max-width: 768px) {
   .meal-card {
-    flex-direction: column;
     align-items: flex-start;
   }
 
@@ -82,4 +85,4 @@
   .meal-image img {
     max-width: 100px;
   }
-}
+} */

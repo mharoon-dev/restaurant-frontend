@@ -696,3 +696,63 @@ input[type="text"] {
   padding: 20px 40px;
   text-align: center;
 }
+
+.use-coupon-btn {
+  background-color: var(--secondary-color);
+  color: white;
+  padding: 15px;
+  border: none;
+  width: 100%;
+  border-radius: 5px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  margin-bottom: 10px;
+}
+
+.apply-coupon-section {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.apply-coupon-section input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  font-size: 16px !important;
+}
+
+.apply-coupon-btn {
+  background-color: var(--secondary-color);
+  color: white;
+  padding: 15px;
+  border: none;
+  width: 100%;
+  border-radius: 5px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  margin-bottom: 10px;
+}
+
+.use-coupon-back-btn {
+  background-color: var(--secondary-color);
+  color: white;
+  padding: 15px;
+  border: none;
+  width: 100%;
+  border-radius: 5px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  margin-bottom: 10px;
+}
+
+.error {
+  color: red;
+}

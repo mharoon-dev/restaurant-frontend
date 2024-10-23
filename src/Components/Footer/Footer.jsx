@@ -52,15 +52,15 @@ const Footer = () => {
                   </div>
 
                   <div className="subscribe-form" data-aos="flip-left">
-                    <div class="subscribe-container">
+                    <div className="subscribe-container">
                       <form>
                         <input
                           type="email"
                           placeholder="youremail@gmail.com"
-                          class="email-input"
+                          className="email-input"
                           required
                         />
-                        <button class="subscribe-btn">Subscribe</button>
+                        <button className="subscribe-btn">Subscribe</button>
                       </form>
                     </div>
                   </div>
@@ -71,7 +71,10 @@ const Footer = () => {
                   <div className="footer-social-icon">
                     <br />
                     <br />
-                    <ul className="d-flex flex-row align-items-center justify-content-start" data-aos="fade-down">
+                    <ul
+                      className="d-flex flex-row align-items-center justify-content-start"
+                      data-aos="fade-down"
+                    >
                       <li>
                         <a
                           href="https://www.facebook.com/"

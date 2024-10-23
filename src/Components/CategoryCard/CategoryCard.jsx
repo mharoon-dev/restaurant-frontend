@@ -10,12 +10,12 @@ const CategoryCard = ({ item }) => {
   // console.log(item);
   return (
     <>
-      <div class="col-3 card border-0 catCard" data-aos="fade-right" style={{ width: "18rem" }}>
-        <img src={item?.img} class="" alt="..." />
-        <div class="card-body">
-          <h5 class="card-title text-left">{item?.name}</h5>
-          {/* <h5 class="text-left totalProductsCount ">32 products</h5> */}
-          {/* <a href="#" class="btn btn-primary">Go somewhere</a> */}
+      <div className="col-3 card border-0 catCard" data-aos="fade-right" style={{ width: "18rem" }}>
+        <img src={item?.img} className="" alt="..." />
+        <div className="card-body">
+          <h5 className="card-title text-left">{item?.name}</h5>
+          {/* <h5 className="text-left totalProductsCount ">32 products</h5> */}
+          {/* <a href="#" className="btn btn-primary">Go somewhere</a> */}
         </div>
       </div>
     </>

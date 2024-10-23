@@ -34,38 +34,38 @@ const Categories = ({ offersCard }) => {
       <div className="container-fluid">
         <div className="row">
           <div className="offset-xl-1 col-xl-10 col-12 deal-section">
-            <div class="deal-header">
+            <div className="deal-header">
               <h1>
-                Up to -40% <span class="icon">🎉</span> Exclusive deals
+                Up to -40% <span className="icon">🎉</span> Exclusive deals
               </h1>
             </div>
-            <div class="categories">
-              <a href="#" class="category">
+            <div className="categories">
+              <a href="#" className="category">
                 Vegan
               </a>
-              <a href="#" class="category">
+              <a href="#" className="category">
                 Sushi
               </a>
-              <a href="#" class="category active">
+              <a href="#" className="category active">
                 Pizza & Fast food
               </a>
-              <a href="#" class="category">
+              <a href="#" className="category">
                 Others
               </a>
             </div>
           </div>
         </div>
 
-        <div class="offer-section container">
-          <h1 class="offers-title">All Offers from McDonald’s East London</h1>
-          <div class="search-box">
+        <div className="offer-section container">
+          <h1 className="offers-title">All Offers from McDonald’s East London</h1>
+          <div className="search-box">
             <input
               type="text"
               placeholder="Search from categories..."
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
             />
-            <button class="search-icon">
+            <button className="search-icon">
               <SearchIcon sx={{ color: "black" }} />
             </button>
           </div>

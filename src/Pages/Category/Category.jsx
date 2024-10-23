@@ -93,37 +93,37 @@ const Category = ({ offersCard }) => {
             </div>
           </div>
           <div className="row catCardsRow align-items-center justify-content-center">
-            <div class="offerCard">
+            <div className="offerCard">
               <img
                 src="/assets/OfferCards/offerCard1.png"
                 alt="Chef Burgers London"
               />
-              <div class="discount">-40%</div>
-              <div class="info">
-                <div class="category">Restaurant</div>
-                <div class="title">Chef Burgers London</div>
+              <div className="discount">-40%</div>
+              <div className="info">
+                <div className="category">Restaurant</div>
+                <div className="title">Chef Burgers London</div>
               </div>
             </div>{" "}
-            <div class="offerCard">
+            <div className="offerCard">
               <img
                 src="/assets/OfferCards/offerCard1.png"
                 alt="Chef Burgers London"
               />
-              <div class="discount">-40%</div>
-              <div class="info">
-                <div class="category">Restaurant</div>
-                <div class="title">Chef Burgers London</div>
+              <div className="discount">-40%</div>
+              <div className="info">
+                <div className="category">Restaurant</div>
+                <div className="title">Chef Burgers London</div>
               </div>
             </div>{" "}
-            <div class="offerCard">
+            <div className="offerCard">
               <img
                 src="/assets/OfferCards/offerCard1.png"
                 alt="Chef Burgers London"
               />
-              <div class="discount">-40%</div>
-              <div class="info">
-                <div class="category">Restaurant</div>
-                <div class="title">Chef Burgers London</div>
+              <div className="discount">-40%</div>
+              <div className="info">
+                <div className="category">Restaurant</div>
+                <div className="title">Chef Burgers London</div>
               </div>
             </div>
             {/* {categories.map((item) => {

@@ -125,9 +125,10 @@ const Navbar = () => {
       <div className="container-fluid header-container p-0">
         {cartBox && (
           <>
-            <div className="overlay"
-             data-aos="fade-right"
-            //  data-aos="zoom-in"
+            <div
+              className="overlay"
+              data-aos="fade-right"
+              //  data-aos="zoom-in"
             ></div>
             <div
               className="col-lg-3 d-flex justify-content-end col-12 p-3 pe-0 pt-0 pb-0 my-0 cartBox"
@@ -155,13 +156,12 @@ const Navbar = () => {
                     <div
                       key={item?._id}
                       className="basket-item"
-                      data-aos="fade-left"
                     >
                       <div className="item-info">
                         <div>
                           <span className="item-qty">{item?.quantity}x</span>
                         </div>
-                        <div className="d-flex flex-column" data-aos="zoom-in">
+                        <div className="d-flex flex-column">
                           <div className="item-price">
                             GBP {item?.selectedVariation?.price}
                           </div>
@@ -179,12 +179,13 @@ const Navbar = () => {
                     <span data-aos="fade-right">Sub Total:</span>
                     <span data-aos="fade-left">{"GBP " + totalAmount}</span>
                   </div>
-                  <div className="total-pay" data-aos="flip-left">
+                  <div className="total-pay" 
+                  >
                     <span>Total to pay</span>
                     <span>{"GBP " + totalAmount}</span>
                   </div>
                 </div>
-                <div className="checkout-container mb-0" data-aos="fade-down">
+                <div className="checkout-container mb-0">
                   <button className="checkout-btn">
                     <Link
                       to="/cart"
@@ -286,12 +287,14 @@ const Navbar = () => {
                   className={`dropdown-menu w-100 mt-0 ${
                     dropdown ? "show" : ""
                   }`}
+
                   aria-labelledby="navbarDropdown"
                   style={{
                     borderTopLeftRadius: 0,
                     borderTopRightRadius: 0,
                     left: 0,
                     top: "90%",
+                    zIndex: "999 !important",
                   }}
                 >
                   <div className="container">

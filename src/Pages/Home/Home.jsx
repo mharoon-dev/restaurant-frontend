@@ -108,22 +108,22 @@ const Home = ({ offersCard }) => {
             className="offset-xl-1 col-xl-10 col-12 deal-section"
             style={{ zIndex: "-1" }}
           >
-            <div class="deal-header" data-aos="fade-right">
+            <div className="deal-header" data-aos="fade-right">
               <h1>
-                Up to -40% <span class="icon">🎉</span> Exclusive deals
+                Up to -40% <span className="icon">🎉</span> Exclusive deals
               </h1>
             </div>
-            <div class="categories" data-aos="fade-left">
-              <a href="" class="category">
+            <div className="categories" data-aos="fade-left">
+              <a href="" className="category">
                 Vegan
               </a>
-              <a href="" class="category">
+              <a href="" className="category">
                 Sushi
               </a>
-              <a href="" class="category active">
+              <a href="" className="category active">
                 Pizza & Fast food
               </a>
-              <a href="" class="category">
+              <a href="" className="category">
                 Others
               </a>
             </div>
@@ -134,7 +134,7 @@ const Home = ({ offersCard }) => {
           style={{ zIndex: "-1" }}
         >
           <div
-            class="offerCard"
+            className="offerCard"
             data-aos="fade-right"
             data-aos-duration="2000"
             style={{ zIndex: "-1" }}
@@ -143,14 +143,14 @@ const Home = ({ offersCard }) => {
               src="/assets/OfferCards/offerCard1.png"
               alt="Chef Burgers London"
             />
-            <div class="discount">-40%</div>
-            <div class="info">
-              <div class="category">Restaurant</div>
-              <div class="title">Chef Burgers London</div>
+            <div className="discount">-40%</div>
+            <div className="info">
+              <div className="category">Restaurant</div>
+              <div className="title">Chef Burgers London</div>
             </div>
           </div>
           <div
-            class="offerCard"
+            className="offerCard"
             data-aos="zoom-in"
             data-aos-duration="2000"
             style={{ zIndex: "-1" }}
@@ -159,14 +159,14 @@ const Home = ({ offersCard }) => {
               src="/assets/OfferCards/offerCard1.png"
               alt="Chef Burgers London"
             />
-            <div class="discount">-40%</div>
-            <div class="info">
-              <div class="category">Restaurant</div>
-              <div class="title">Chef Burgers London</div>
+            <div className="discount">-40%</div>
+            <div className="info">
+              <div className="category">Restaurant</div>
+              <div className="title">Chef Burgers London</div>
             </div>
           </div>
           <div
-            class="offerCard"
+            className="offerCard"
             data-aos="fade-left"
             data-aos-duration="2000"
             style={{ zIndex: "-1" }}
@@ -175,10 +175,10 @@ const Home = ({ offersCard }) => {
               src="/assets/OfferCards/offerCard1.png"
               alt="Chef Burgers London"
             />
-            <div class="discount">-40%</div>
-            <div class="info">
-              <div class="category">Restaurant</div>
-              <div class="title">Chef Burgers London</div>
+            <div className="discount">-40%</div>
+            <div className="info">
+              <div className="category">Restaurant</div>
+              <div className="title">Chef Burgers London</div>
             </div>
           </div>
           {/* {categories.map((item) => {
@@ -198,7 +198,7 @@ const Home = ({ offersCard }) => {
       <div className="container-fluid">
         <div className="row">
           <div className="offset-xl-1 text-center col-xl-10 col-12 deal-section">
-            <div class="catH">
+            <div className="catH">
               <h1 data-aos="fade-right">Popular Categories 🤩</h1>
             </div>
           </div>
@@ -229,15 +229,15 @@ const Home = ({ offersCard }) => {
       <div className="container-fluid ">
         <div className="row">
           <div className="offset-xl-1 col-xl-2 col-12" data-aos="zoom-in">
-            <div class="menu-container">
-              <div class="menu-header" data-aos="zoom-out">
+            <div className="menu-container">
+              <div className="menu-header" data-aos="zoom-out">
                 <img
                   src="/assets/icons/menu.png"
                   alt="Menu Icon"
                   width={35}
-                  class="menu-icon"
+                  className="menu-icon"
                 />
-                <span class="menu-title">Menu</span>
+                <span className="menu-title">Menu</span>
               </div>
               <ul className="menu-list">
                 {categories?.map((item) => {
@@ -260,17 +260,17 @@ const Home = ({ offersCard }) => {
 
           <div className="col-xl-9 col-12 catCardsDiv">
             <div className="container-fluid">
-              <div className="row">
+              <div className="row justify-content-center align-items-center flex-wrap">
                 {mostSellsProducts?.map((item) => {
                   return (
-                    <div className="col-md-6 col-12 mb-3">
+                    <div className="col-lg-3 col-md-4 col-sm-6 col-12 mb-3">
                       <Card item={item} />
                     </div>
                   );
                 })}
               </div>
               <div className="row">
-                <div className="col-12 d-flex justify-content-end align-items-center  mt-4 ">
+                <div className="col-12 d-flex justify-conten-md-end justify-content-start align-items-center  mt-4 ">
                   <Link to={`/category/${selectedCategory}`}>
                     <button className="viewMoreBtn" data-aos="zoom-in">
                       View More
@@ -308,7 +308,7 @@ const Home = ({ offersCard }) => {
           {reviews?.map((item) => {
             return (
               <div className="col-xl-4 col-12 mb-3 py-3 m-0">
-                <ReviewCard item={item} />
+                <ReviewCard key={item._id} item={item} />
               </div>
             );
           })}
