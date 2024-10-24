@@ -2,6 +2,7 @@ import "./Footer.css";
 import Aos from "aos";
 import "aos/dist/aos.css";
 import { useEffect } from "react";
+import { Link } from "react-router-dom";
 
 const Footer = () => {
   useEffect(() => {
@@ -137,7 +138,9 @@ const Footer = () => {
                       <a href="">Terms and conditions</a>
                     </li>
                     <li>
-                      <a href="">Privacy</a>
+                      <Link to="/privacy">
+                        <a href="">Privacy</a>
+                      </Link>
                     </li>
                     <li>
                       <a href="">Cookies</a>

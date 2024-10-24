@@ -1,0 +1,37 @@
+.bannerText {
+  color: var(--white-color) !important;
+  font-size: 85px !important;
+  font-weight: bold !important;
+  z-index: 99 !important;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+@media (max-width: 992px) {
+  .bannerText {
+    font-size: 50px !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .bannerText {
+    font-size: 40px !important;
+  }
+
+  .bannerContainerFluid {
+    height: 350px !important;
+  }
+}
+
+@media (max-width: 576px) {
+  .bannerText {
+    font-size: 25px !important;
+  }
+}

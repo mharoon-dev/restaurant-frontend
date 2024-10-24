@@ -21,6 +21,7 @@ import {
   productsStart,
   productsSuccess,
 } from "./Redux/Slices/productsSlice.jsx";
+import Privacy from "./Pages/Privacy/Privacy.jsx";
 
 
 const api = axios.create({
@@ -111,6 +112,7 @@ function App() {
       <Route path="/otp" element={<Otp />} />
       <Route path="/login" element={<Login />} />
       <Route path="/cart" element={<Cart />} />
+      <Route path="/privacy" element={<Privacy />} />
       <Route
         path="/category/:category"
         element={<Category offersCard={offersCard} />}
