@@ -11,7 +11,7 @@ const Card = ({ imgSize, item }) => {
   });
   return (
     <>
-      <div className="meal-card my-3" data-aos="zoom-in">
+      <div className="meal-card mb-3" data-aos="zoom-in">
         <div className="meal-image">
           <img src={item?.img} data-aos="fade-left" alt="Meal image" />
           <p className="meal-name">{item?.name}</p>
@@ -28,8 +28,8 @@ const Card = ({ imgSize, item }) => {
           <Link to={`/product/${item?._id}`}>
             <button className="add-btn">
               <img
-                src="/assets/icons/ShoppingBasket (2).svg"
-                width={50}
+                src="/assets/icons/ShoppingBasket.png"
+                width={40}
                 alt=""
               />
             </button>

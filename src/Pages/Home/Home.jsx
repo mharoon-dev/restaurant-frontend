@@ -260,10 +260,10 @@ const Home = ({ offersCard }) => {
 
           <div className="col-xl-9 col-12 catCardsDiv">
             <div className="container-fluid">
-              <div className="row justify-content-center align-items-center flex-wrap">
-                {mostSellsProducts?.map((item) => {
+              <div className="row gap-5 jsustify-content-center align-items-center  mt-0 pt-0 flex-wrap">
+                {mostSellsProducts?.slice(0, 3)?.map((item) => {
                   return (
-                    <div className="col-lg-3 col-md-4 col-sm-6 col-12 mb-3">
+                    <div className="col-xl-3 col-md-4 col-sm-6 col-12 mb-3 mt-0 pt-0">
                       <Card item={item} />
                     </div>
                   );
