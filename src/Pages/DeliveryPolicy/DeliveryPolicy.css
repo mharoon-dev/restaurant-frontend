@@ -1,0 +1,35 @@
+.deliveryPolicyH1 {
+    color: var(--main-color);
+    font-size: 40px;
+    font-weight: bold;
+    margin-top: 30px;
+    margin-bottom: 30px;
+  }
+  
+  .deliveryPolicySpan {
+    color: var(--black-color);
+    font-weight: 600;
+  }
+  
+  .deliveryPolicyP {
+    color: var(--black-color);
+    font-size: 18px;
+  }
+  
+  @media (max-width: 768px) {
+    .deliveryPolicyH1 {
+      font-size: 30px;
+    }
+  
+    .deliveryPolicyP,
+    .deliveryPolicySpan {
+      font-size: 16px;
+    }
+  
+    .deliveryPolicyH1,
+    .deliveryPolicySpan,
+    .deliveryPolicyP {
+      text-align: center;
+    }
+  }
+  

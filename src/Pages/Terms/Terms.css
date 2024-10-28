@@ -1,0 +1,35 @@
+.termsH1 {
+    color: var(--main-color);
+    font-size: 40px;
+    font-weight: bold;
+    margin-top: 30px;
+    margin-bottom: 30px;
+  }
+  
+  .termsSpan {
+    color: var(--black-color);
+    font-weight: 600;
+  }
+  
+  .termsP {
+    color: var(--black-color);
+    font-size: 18px;
+  }
+  
+  @media (max-width: 768px) {
+    .termsH1 {
+      font-size: 30px;
+    }
+  
+    .termsP,
+    .termsSpan {
+      font-size: 16px;
+    }
+  
+    .termsH1,
+    .termsSpan,
+    .termsP {
+      text-align: center;
+    }
+  }
+  

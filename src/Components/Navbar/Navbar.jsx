@@ -134,9 +134,12 @@ const Navbar = () => {
     <>
       {/* dropDown 1 */}
 
-      <div className="dropDown1" style={{
-        display: dropDown ? "block" : "none",
-      }}>
+      <div
+        className="dropDown1"
+        style={{
+          display: dropDown ? "block" : "none",
+        }}
+      >
         <ul>
           <li>
             <Link className=" dropdown-item" to="/userProfile">
@@ -300,9 +303,14 @@ const Navbar = () => {
                   id="navbarDropdown"
                   role="button"
                   aria-expanded="false"
-                  onClick={handleDropdownToggle}
+                  // onClick={handleDropdownToggle}
                 >
-                  Restaurants
+                  <Link
+                    to={`/category/Burger`}
+                    style={{ textDecoration: "none", color: "inherit" }}
+                  >
+                    Restaurants
+                  </Link>
                 </span>
 
                 <div
@@ -349,15 +357,15 @@ const Navbar = () => {
               </li>
 
               <li
-                className="ms-5"
+                className={`ms-5 ${isActive("/faqs") ? "activeLi" : ""}`}
                 style={{
                   listStyle: "none",
                   fontSize: "20px",
                   fontWeight: "600",
                 }}
               >
-                <Link to="/special-offers" className="nav-link">
-                  Special Offers
+                <Link to="/faqs" className="nav-link">
+                  FAQS
                 </Link>
               </li>
 

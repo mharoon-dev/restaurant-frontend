@@ -28,6 +28,9 @@ import {
   getOrdersSuccess,
   getOrdersFailure,
 } from "./Redux/Slices/userOrderSlice.jsx";
+import { Terms } from "./Pages/Terms/Terms.jsx";
+import { DeliveryPolicy } from "./Pages/DeliveryPolicy/DeliveryPolicy.jsx";
+import Faqs from "./Pages/Faqs/Faqs.jsx";
 
 const api = axios.create({
   baseURL: url,
@@ -140,6 +143,9 @@ function App() {
       <Route path="/login" element={<Login />} />
       <Route path="/cart" element={<Cart />} />
       <Route path="/privacy" element={<Privacy />} />
+      <Route path="/terms" element={<Terms />} />
+      <Route path="/delivery" element={<DeliveryPolicy />} />
+      <Route path="/faqs" element={<Faqs />} />
       <Route
         path="/category/:category"
         element={<Category offersCard={offersCard} />}

@@ -123,7 +123,12 @@ const Footer = () => {
                   </div>
                   <ul>
                     <li>
-                      <a href="">Terms and conditions</a>
+                      <Link
+                        to="/terms"
+                        style={{ textDecoration: "none", color: "inherit" }}
+                      >
+                        <a href="">Terms and conditions</a>
+                      </Link>
                     </li>
                     <li>
                       <Link to="/privacy">
@@ -131,10 +136,15 @@ const Footer = () => {
                       </Link>
                     </li>
                     <li>
-                      <a href="">Cookies</a>
-                    </li>
-                    <li>
-                      <a href="">Modern Slavery Statement</a>
+                      <Link
+                        to="/delivery"
+                        style={{
+                          textDecoration: "none",
+                          color: "inherit",
+                        }}
+                      >
+                        <a href="">Delivery Policy</a>
+                      </Link>
                     </li>
                   </ul>
                 </div>
