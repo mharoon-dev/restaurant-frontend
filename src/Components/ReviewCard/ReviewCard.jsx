@@ -9,21 +9,21 @@ const ReviewCard = ({ item }) => {
   });
   return (
     <>
-      <div className="review-card" data-aos="fade-up">
+      <div className="review-card">
         <div className="user-info">
-          <img src={item?.img} alt="User Image" data-aos="fade-down-right" />
+          <img src={item?.img} alt="User Image" />
           <div className="user-details">
-            <h3 data-aos="fade-down">{item?.name}</h3>
-            <p data-aos="fade-up">{item?.city}</p>
+            <h3>{item?.name}</h3>
+            <p>{item?.city}</p>
           </div>
         </div>
-        <div className="review-date" data-aos="fade-right">
+        <div className="review-date">
           <p>{item?.date}</p>
         </div>
-        <div className="review-rating" data-aos="fade-left">
+        <div className="review-rating">
           <span>★★★★★</span>
         </div>
-        <div className="review-text" data-aos="fade-up">
+        <div className="review-text">
           <p>{item?.review}</p>
         </div>
       </div>

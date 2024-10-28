@@ -89,7 +89,6 @@ const SingleProduct = () => {
             {product?.variations.map((variation) => (
               <button
                 key={variation?._id}
-                data-aos="flip-left"
                 style={{
                   backgroundColor:
                     selectedVariation?._id === variation._id

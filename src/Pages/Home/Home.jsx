@@ -226,11 +226,11 @@ const Home = ({ offersCard }) => {
 
       {/* categories */}
 
-      <div className="container-fluid ">
+      <div className="container-fluid " data-aos="fade-right">
         <div className="row">
-          <div className="offset-xl-1 col-xl-2 col-12" data-aos="zoom-in">
-            <div className="menu-container">
-              <div className="menu-header" data-aos="zoom-out">
+          <div className=" offset-xl-1  col-xl-2 col-12">
+            <div className="ms-xl-2 menu-container">
+              <div className="menu-header">
                 <img
                   src="/assets/icons/menu.png"
                   alt="Menu Icon"
@@ -243,7 +243,6 @@ const Home = ({ offersCard }) => {
                 {categories?.map((item) => {
                   return (
                     <li
-                      data-aos="fade-right"
                       key={item.name}
                       className={`menu-item ${
                         selectedCategory === item.name ? "active" : ""
@@ -259,22 +258,16 @@ const Home = ({ offersCard }) => {
           </div>
 
           <div className="col-xl-9 col-12 catCardsDiv">
-            <div className="container-fluid">
-              <div className="row gap-5 jsustify-content-center align-items-center  mt-0 pt-0 flex-wrap">
+            <div className="container-fluid ">
+              <div className="row gap-5 d-flex jsustify-content-center align-items-center  mt-0 p-0 flex-wrap">
                 {mostSellsProducts?.slice(0, 3)?.map((item) => {
-                  return (
-                    <div className="col-xl-3 col-md-4 col-sm-6 col-12 mb-3 mt-0 pt-0">
-                      <Card item={item} />
-                    </div>
-                  );
+                  return <Card category={selectedCategory} item={item} />;
                 })}
               </div>
               <div className="row">
                 <div className="col-12 d-flex justify-conten-md-end justify-content-start align-items-center  mt-4 ">
                   <Link to={`/category/${selectedCategory}`}>
-                    <button className="viewMoreBtn" data-aos="zoom-in">
-                      View More
-                    </button>
+                    <button className="viewMoreBtn">View More</button>
                   </Link>
                 </div>
               </div>
@@ -292,12 +285,7 @@ const Home = ({ offersCard }) => {
       <div className="container-fluid  reviewsSectionDev">
         <div className="row px-md-5 mx-md-5 ">
           <div className="col-12">
-            <h1
-              className=" text-center text-lg-left mb-4"
-              data-aos="fade-right"
-            >
-              Customer Reviews
-            </h1>
+            <h1 className=" text-center text-lg-left mb-4">Customer Reviews</h1>
           </div>
           <br />
         </div>

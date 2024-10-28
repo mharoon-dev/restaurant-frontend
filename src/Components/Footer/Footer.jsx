@@ -15,12 +15,9 @@ const Footer = () => {
           <div className="footer-cta pt-5 pb-5"></div>
           <div className="footer-content pt-5 pb-5">
             <div className="row">
-              <div
-                className="offset-xl-1 col-xl-2 col-lg-4 mb-50"
-                data-aos="fade-right"
-              >
+              <div className="offset-xl-1 col-xl-2 col-lg-4 mb-50">
                 <div className="footer-widget">
-                  <div className="footer-logo" data-aos="fade-down">
+                  <div className="footer-logo">
                     <a href="index.html">
                       <img
                         src="/assets/logo.png"
@@ -34,7 +31,7 @@ const Footer = () => {
                     width={200}
                     alt="Footer Image"
                   />
-                  <div className="footer-text" data-aos="zoom-in">
+                  <div className="footer-text">
                     <p>
                       <br />
                       Company # 490039-445, Registered with House of companies.
@@ -43,16 +40,13 @@ const Footer = () => {
                 </div>
               </div>
 
-              <div
-                className="offset-xl-1 col-xl-3 col-lg-3 col-md-6 mb-50"
-                data-aos="fade-down"
-              >
+              <div className="offset-xl-1 col-xl-3 col-lg-3 col-md-6 mb-50">
                 <div className="footer-widget">
-                  <div className="footer-widget-heading" data-aos="fade-up">
+                  <div className="footer-widget-heading">
                     <h3>Get Exclusive Deals in your Inbox</h3>
                   </div>
 
-                  <div className="subscribe-form" data-aos="flip-left">
+                  <div className="subscribe-form">
                     <div className="subscribe-container">
                       <form>
                         <input
@@ -72,10 +66,7 @@ const Footer = () => {
                   <div className="footer-social-icon">
                     <br />
                     <br />
-                    <ul
-                      className="d-flex flex-row align-items-center justify-content-start"
-                      data-aos="fade-down"
-                    >
+                    <ul className="d-flex flex-row align-items-center justify-content-start">
                       <li>
                         <a
                           href="https://www.facebook.com/"
@@ -125,10 +116,7 @@ const Footer = () => {
                 </div>
               </div>
 
-              <div
-                className="offset-xl-1 col-xl-2 col-lg-2 col-md-6 mb-30"
-                data-aos="fade-up"
-              >
+              <div className="offset-xl-1 col-xl-2 col-lg-2 col-md-6 mb-30">
                 <div className="footer-widget">
                   <div className="footer-widget-heading">
                     <h3>Legal Pages</h3>
@@ -152,10 +140,7 @@ const Footer = () => {
                 </div>
               </div>
 
-              <div
-                className="col-xl-2 col-lg-2 col-md-6 mb-30"
-                data-aos="fade-left"
-              >
+              <div className="col-xl-2 col-lg-2 col-md-6 mb-30">
                 <div className="footer-widget">
                   <div className="footer-widget-heading">
                     <h3>Important Links</h3>
@@ -180,11 +165,11 @@ const Footer = () => {
           </div>
         </div>
 
-        <div className="copyright-area" data-aos="fade-right">
+        <div className="copyright-area">
           <div className="container">
             <div className="row">
               <div className="col-xl-6 col-lg-6 text-center text-lg-left">
-                <div className="copyright-text" data-aos="fade-up">
+                <div className="copyright-text">
                   <p>
                     Copyright &copy; 2018, All Rights Reserved
                     <a href="https://codepen.io/anupkumar92/"> Anup</a>
@@ -192,10 +177,7 @@ const Footer = () => {
                 </div>
               </div>
 
-              <div
-                className="col-xl-6 col-lg-6 d-none d-lg-block text-right"
-                data-aos="fade-down"
-              >
+              <div className="col-xl-6 col-lg-6 d-none d-lg-block text-right">
                 <div className="footer-menu">
                   <ul>
                     <li>

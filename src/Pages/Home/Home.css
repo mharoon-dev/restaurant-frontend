@@ -315,7 +315,7 @@
 
 /* // offer card */
 .offerCard {
-  max-width: 540px !important;
+  max-width: 530px !important;
   margin: 0 !important;
   position: relative;
   border-radius: 10px;
@@ -510,3 +510,6 @@
     margin-right: 0; /* Reset margin for larger screens */
   }
 }
+
+
+

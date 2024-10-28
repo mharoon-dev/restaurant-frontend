@@ -246,15 +246,13 @@ const Cart = () => {
               {cart?.map((item) => (
                 <div key={item?._id} className="product-card">
                   <div className="product-info">
-                    <h2 data-aos="fade-right">{item?.title}</h2>
-                    <div className="spicy-level" data-aos="fade-left">
+                    <h2>{item?.title}</h2>
+                    <div className="spicy-level">
                       <span>🌶️</span>
                     </div>
-                    <p className="mb-3" data-aos="zoom-in">
-                      {item?.desc.slice(0, 100)}...
-                    </p>
+                    <p className="mb-3">{item?.desc.slice(0, 100)}...</p>
                   </div>
-                  <div className="product-image" data-aos="fade-left">
+                  <div className="product-image">
                     <img src={item?.img} alt="Pizza" />
                   </div>
                 </div>
@@ -262,10 +260,7 @@ const Cart = () => {
             </div>
             <div className="offset-md-1 col-md-4 col-12 py-3 mt-4">
               <div className="basket-container py-4">
-                <div
-                  className="basket-header d-flex align-items-center justify-content-center gap-3"
-                  data-aos="fade-right"
-                >
+                <div className="basket-header d-flex align-items-center justify-content-center gap-3">
                   <img
                     src="/assets/icons/ShoppingBasket.png"
                     width={40}
@@ -275,16 +270,14 @@ const Cart = () => {
                 </div>
                 <div className="basket-items">
                   {cart?.map((item) => (
-                    <div
-                      key={item?._id}
-                      className="basket-item"
-                      data-aos="fade-left"
-                    >
+                    <div key={item?._id} className="basket-item">
                       <div className="item-info">
                         <div>
-                          <span className="item-qty">{item?.quantity}x</span>
+                          <span className="item-qty">
+                            <img src={item?.img} alt="" />
+                          </span>
                         </div>
-                        <div className="d-flex flex-column" data-aos="zoom-in">
+                        <div className="d-flex flex-column">
                           <div className="item-price">
                             GBP {item?.selectedVariation?.price}
                           </div>
@@ -340,23 +333,21 @@ const Cart = () => {
                 {/* Basket Summary */}
                 <div className="basket-summary">
                   <div className="summary-item">
-                    <span data-aos="fade-right">Sub Total:</span>
-                    <span data-aos="fade-left">
-                      {"GBP " + discountedAmount}
-                    </span>
+                    <span>Sub Total:</span>
+                    <span>{"GBP " + discountedAmount}</span>
                   </div>
                   {discount > 0 && (
                     <div className="summary-item">
-                      <span data-aos="fade-right">Discount:</span>
-                      <span data-aos="fade-left">{discount}%</span>
+                      <span>Discount:</span>
+                      <span>{discount}%</span>
                     </div>
                   )}
-                  <div className="total-pay" data-aos="flip-left">
+                  <div className="total-pay">
                     <span>Total to pay</span>
                     <span>{"GBP " + discountedAmount}</span>
                   </div>
                 </div>
-                <div className="checkout-container mb-0" data-aos="fade-down">
+                <div className="checkout-container mb-0">
                   <button className="checkout-btn" onClick={handleOpen}>
                     Checkout!
                   </button>

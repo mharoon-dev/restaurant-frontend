@@ -165,8 +165,8 @@ const Category = ({ offersCard }) => {
         {/* Product Display Section */}
         <div className="container-fluid">
           <div className="row">
-            <div className="col-xl-3 col-12">
-              <div className="menu-container">
+            <div className=" col-xl-3 col-12">
+              <div className="ms-xl-2 menu-container">
                 <div className="menu-header">
                   <img
                     src="/assets/icons/menu.png"
@@ -180,9 +180,9 @@ const Category = ({ offersCard }) => {
                   {categories?.map((item) => {
                     return (
                       <Link
-                        to={`/category/${item?.name}`}
+                        to={`/category/${item.name}`}
                         key={item.name}
-                        style={{ textDecoration: "none" }}
+                        style={{ textDecoration: "none", color: "inherit" }}
                       >
                         <li
                           key={item.name}
@@ -202,10 +202,13 @@ const Category = ({ offersCard }) => {
 
             <div className="col-xl-9 col-12 ">
               <div className="container-fluid">
-                <div className="row d-flex ">
+                <div className="row d-flex  justify-content-center align-items-center ">
                   {filteredProducts?.map((item) => {
                     return (
-                      <div className="col-md-6 col-12 mb-3" key={item.id}>
+                      <div
+                        className="col-md-6 col-xl-4 col-12 mb-3"
+                        key={item.id}
+                      >
                         <Link
                           to={`/product/${item?._id}`}
                           style={{ textDecoration: "none", color: "inherit" }}

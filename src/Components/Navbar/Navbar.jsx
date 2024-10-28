@@ -58,6 +58,8 @@ const Navbar = () => {
   const [catLine3, setCatLine3] = useState([]);
   const user = useSelector((state) => state?.user?.user);
   const cart = useSelector((state) => state?.cart?.cart);
+  const [dropDown, setDropDown] = useState(false);
+  const [dropDown2, setDropDown2] = useState(false);
   const isActive = (path) => location.pathname === path;
   const isCategoryActive = location.pathname.startsWith("/category");
   const categories = useSelector((state) => state?.categories?.categories);
@@ -67,7 +69,7 @@ const Navbar = () => {
   );
 
   useEffect(() => {
-    Aos.init({ duration: 2000 });
+    Aos.init({ duration: 1000 });
   }, []);
 
   useEffect(() => {
@@ -84,6 +86,14 @@ const Navbar = () => {
 
   const handleDropdownToggle2 = () => {
     setDropdown2((prev) => !prev);
+  };
+
+  const dropDownDisplay = () => {
+    setDropDown(!dropDown);
+  };
+
+  const dropDown2Display = () => {
+    setDropDown2(!dropDown2);
   };
 
   useEffect(() => {
@@ -122,6 +132,24 @@ const Navbar = () => {
 
   return (
     <>
+      {/* dropDown 1 */}
+
+      <div className="dropDown1" style={{
+        display: dropDown ? "block" : "none",
+      }}>
+        <ul>
+          <li>
+            <Link className=" dropdown-item" to="/userProfile">
+              Profile
+            </Link>
+          </li>
+          <li>
+            <Link className=" dropdown-item" to="/logout">
+              Logout
+            </Link>
+          </li>
+        </ul>
+      </div>
       <div className="container-fluid header-container p-0">
         {cartBox && (
           <>
@@ -131,19 +159,17 @@ const Navbar = () => {
               //  data-aos="zoom-in"
             ></div>
             <div
+              id="cartBoxNav"
               className="col-lg-3 d-flex justify-content-end col-12 p-3 pe-0 pt-0 pb-0 my-0 cartBox"
-              data-aos="fade-left"
               style={{
                 height: "100vh",
                 zIndex: "100",
               }}
-              ref={cartBoxRef} // Attach the ref here
+              data-aos="fade-left"
+              ref={cartBoxRef}
             >
               <div className="basket-container py-4">
-                <div
-                  className="basket-header d-flex align-items-center justify-content-center gap-3"
-                  data-aos="fade-right"
-                >
+                <div className="basket-header d-flex align-items-center justify-content-center gap-3">
                   <img
                     src="/assets/icons/ShoppingBasket.png"
                     width={40}
@@ -153,13 +179,12 @@ const Navbar = () => {
                 </div>
                 <div className="basket-items">
                   {cart?.map((item) => (
-                    <div
-                      key={item?._id}
-                      className="basket-item"
-                    >
+                    <div key={item?._id} className="basket-item">
                       <div className="item-info">
                         <div>
-                          <span className="item-qty">{item?.quantity}x</span>
+                          <span className="item-qty">
+                            <img src={item?.img} alt="" />
+                          </span>
                         </div>
                         <div className="d-flex flex-column">
                           <div className="item-price">
@@ -176,11 +201,10 @@ const Navbar = () => {
                 </div>
                 <div className="basket-summary">
                   <div className="summary-item">
-                    <span data-aos="fade-right">Sub Total:</span>
-                    <span data-aos="fade-left">{"GBP " + totalAmount}</span>
+                    <span>Sub Total:</span>
+                    <span>{"GBP " + totalAmount}</span>
                   </div>
-                  <div className="total-pay" 
-                  >
+                  <div className="total-pay">
                     <span>Total to pay</span>
                     <span>{"GBP " + totalAmount}</span>
                   </div>
@@ -235,8 +259,6 @@ const Navbar = () => {
         className="navbar navbarContainer"
         style={{
           backgroundColor: "#fff",
-          position: "relative !important",
-          width: "100%",
         }}
       >
         <div
@@ -245,10 +267,10 @@ const Navbar = () => {
             zIndex: "9",
           }}
         >
-          <Link to="/" className="nav-logo" data-aos="fade-right">
+          <Link to="/" className="nav-logo">
             <img className="ms-4" src={logo} width="150px" alt="" />
           </Link>
-          <div className="nav-ul" data-aos="fade-left">
+          <div className="nav-ul">
             <ul className="nav-ul justify-content-end d-flex flex-grow-1 pe-3">
               <li
                 className={`ms-5 ${isActive("/") ? "activeLi" : ""}`}
@@ -287,7 +309,6 @@ const Navbar = () => {
                   className={`dropdown-menu w-100 mt-0 ${
                     dropdown ? "show" : ""
                   }`}
-
                   aria-labelledby="navbarDropdown"
                   style={{
                     borderTopLeftRadius: 0,
@@ -369,7 +390,11 @@ const Navbar = () => {
                 </Link>
               ) : (
                 <img
-                  src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png"
+                  onClick={() => dropDownDisplay()}
+                  src={
+                    user?.img ||
+                    "https://cdn-icons-png.flaticon.com/512/3135/3135715.png"
+                  }
                   style={{ width: "55px", borderRadius: "50%" }}
                   alt="User Profile"
                 />
@@ -377,7 +402,6 @@ const Navbar = () => {
             </li>
           </div>
           <button
-            data-aos="fade-left"
             className="hamburger"
             type="button"
             data-bs-toggle="offcanvas"
@@ -481,7 +505,10 @@ const Navbar = () => {
                     </Link>
                   ) : (
                     <img
-                      src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png"
+                      src={
+                        user?.img ||
+                        "https://cdn-icons-png.flaticon.com/512/3135/3135715.png"
+                      }
                       style={{ width: "55px", borderRadius: "50%" }}
                       alt="User Profile"
                     />

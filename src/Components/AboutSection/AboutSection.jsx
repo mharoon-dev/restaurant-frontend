@@ -10,19 +10,16 @@ const AboutSection = ({ item }) => {
   // console.log(item);
   return (
     <>
-      <div className="container-fluid">
+      <div className="container-fluid" data-aos="fade-up">
         <div className="row pb-3">
           <div className="offset-xl-1 col-xl-10 col-12 deal-section ps-0">
             <div className="deal-header">
-              <h1
-                style={{ fontWeight: "700", fontSize: "32px" }}
-                data-aos="fade-right"
-              >
+              <h1 style={{ fontWeight: "700", fontSize: "32px" }}>
                 Know more about us!
               </h1>
               <br />
             </div>
-            <div className="categories" data-aos="fade-left">
+            <div className="categories">
               <a href="#" className="category">
                 Frequent Questions
               </a>
@@ -44,7 +41,7 @@ const AboutSection = ({ item }) => {
             style={{ backgroundColor: "var(--black-color)" }}
             className="offset-md-1 col-md-4 col-12 d-flex justify-content-between align-items-center"
           >
-            <div className="faq-section" data-aos="zoom-in">
+            <div className="faq-section">
               <h2 className="mt-4 mt-md-0">How does Order.UK work?</h2>
               <ul>
                 <li>What payment methods are accepted?</li>
@@ -62,25 +59,25 @@ const AboutSection = ({ item }) => {
             style={{ backgroundColor: "var(--black-color)" }}
           >
             <div className="info-section">
-              <div className="info-box" data-aos="fade-left">
+              <div className="info-box">
                 <h3 style={{ color: "var(--black-color)" }}>Track Progress</h3>
                 <img src="/assets/aboutSection/3.png" alt="Track Progress" />
                 <p>You can track your order status with delivery time</p>
               </div>
-              <div className="info-box" data-aos="zoom-in">
+              <div className="info-box">
                 <h3 style={{ color: "var(--black-color)" }}>Place an Order!</h3>
                 <img src="/assets/aboutSection/2.png" alt="Place Order" />
                 <p>Place order through our website or Mobile app</p>
               </div>
 
-              <div className="info-box" data-aos="fade-right">
+              <div className="info-box">
                 <h3 style={{ color: "var(--black-color)" }}>Get your Order!</h3>
                 <img src="/assets/aboutSection/1.png" alt="Get your Order" />
                 <p>Receive your order at lightning fast speed!</p>
               </div>
             </div>
 
-            <div className="description-section" data-aos="zoom-in-up">
+            <div className="description-section">
               <p>
                 Order.UK simplifies the food ordering process. Browse through
                 our diverse menu, select your favorite dishes, and proceed to

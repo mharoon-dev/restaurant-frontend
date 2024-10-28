@@ -22,7 +22,12 @@ import {
   productsSuccess,
 } from "./Redux/Slices/productsSlice.jsx";
 import Privacy from "./Pages/Privacy/Privacy.jsx";
-
+import UserProfile from "./Pages/UserProfile/UserProfile.jsx";
+import {
+  getOrdersStart,
+  getOrdersSuccess,
+  getOrdersFailure,
+} from "./Redux/Slices/userOrderSlice.jsx";
 
 const api = axios.create({
   baseURL: url,
@@ -78,8 +83,29 @@ function App() {
       }
     };
 
-    isUserLoggedIn();
+    setTimeout(() => {
+      isUserLoggedIn();
+    }, 1000);
   }, [dispatch]);
+
+  useEffect(() => {
+    const fetchUserOrders = async () => {
+      try {
+        dispatch(getOrdersStart());
+        const res = await api.get(`/orders/find/${user._id}`);
+        console.log(res.data);
+        dispatch(getOrdersSuccess(res.data));
+      } catch (error) {
+        console.log(error);
+        dispatch(getOrdersFailure(error));
+      }
+    };
+    if (user) {
+      fetchUserOrders();
+    } else {
+      console.log("No user LoggedIn");
+    }
+  }, [user, navigate]);
 
   const offersCard = [
     {
@@ -109,6 +135,7 @@ function App() {
     <Routes>
       <Route path="/" element={<Home offersCard={offersCard} />} />
       <Route path="/signup" element={<Signup />} />
+      <Route path="/userProfile" element={<UserProfile />} />
       <Route path="/otp" element={<Otp />} />
       <Route path="/login" element={<Login />} />
       <Route path="/cart" element={<Cart />} />
