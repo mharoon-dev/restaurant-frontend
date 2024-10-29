@@ -33,7 +33,6 @@ import ReviewCard from "../../Components/ReviewCard/ReviewCard.jsx";
 const api = axios.create({
   baseURL: url,
 });
-
 const Home = ({ offersCard }) => {
   useEffect(() => {
     Aos.init({ duration: 2000 });
@@ -265,10 +264,23 @@ const Home = ({ offersCard }) => {
                 })}
               </div>
               <div className="row">
-                <div className="col-12 d-flex justify-conten-md-end justify-content-start align-items-center  mt-4 ">
-                  <Link to={`/category/${selectedCategory}`}>
-                    <button className="viewMoreBtn">View More</button>
-                  </Link>
+                <div className="col-12 text-end  mt-4 ">
+                  <button className="viewMoreBtn">
+                    <Link
+                      to={`/category/${selectedCategory}`}
+                      style={{ textDecoration: "none", color: "inherit" }}
+                    >
+                      View More&nbsp;&nbsp;&nbsp;
+                      <img
+                        src={"/assets/icons/Arrow-01.png"}
+                        style={{
+                          width: "30%",
+                          height: "50%",
+                        }}
+                        alt=""
+                      />
+                    </Link>
+                  </button>
                 </div>
               </div>
             </div>

@@ -69,7 +69,7 @@ const Navbar = () => {
   );
 
   useEffect(() => {
-    Aos.init({ duration: 1000 });
+    Aos.init();
   }, []);
 
   useEffect(() => {
@@ -159,6 +159,8 @@ const Navbar = () => {
             <div
               className="overlay"
               data-aos="fade-right"
+              data-aos-duration="300"
+
               //  data-aos="zoom-in"
             ></div>
             <div
@@ -169,6 +171,7 @@ const Navbar = () => {
                 zIndex: "100",
               }}
               data-aos="fade-left"
+              data-aos-duration="300"
               ref={cartBoxRef}
             >
               <div className="basket-container py-4">

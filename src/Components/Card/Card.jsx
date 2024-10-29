@@ -30,7 +30,7 @@ const Card = ({ category, imgSize, item }) => {
             <h2>{item?.title}</h2>
             <p>{item?.desc.slice(0, 130)}...</p>
             {item?.variations && (
-              <p className="price">${item?.variations[0]?.price}</p>
+              <p className="price">GBP{item?.variations[0]?.price}</p>
             )}
           </div>
         </div>

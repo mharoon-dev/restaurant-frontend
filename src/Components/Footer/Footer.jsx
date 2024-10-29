@@ -14,8 +14,8 @@ const Footer = () => {
         <div className="container-fluid">
           <div className="footer-cta pt-5 pb-5"></div>
           <div className="footer-content pt-5 pb-5">
-            <div className="row">
-              <div className="offset-xl-1 col-xl-2 col-lg-4 mb-50">
+            <div className="row ">
+              <div className="offset-xl-1 col-xl-3 col-lg-4 mb-50">
                 <div className="footer-widget">
                   <div className="footer-logo">
                     <a href="index.html">
@@ -26,16 +26,17 @@ const Footer = () => {
                       />
                     </a>
                   </div>
-                  <img
+                  {/* <img
                     src="/assets/Footer/footerImg.png"
                     width={200}
                     alt="Footer Image"
-                  />
+                  /> */}
                   <div className="footer-text">
                     <p>
                       <br />
                       Company # 490039-445, Registered with House of companies.
                     </p>
+                    <p>+91 1234567890</p>
                   </div>
                 </div>
               </div>
@@ -150,7 +151,7 @@ const Footer = () => {
                 </div>
               </div>
 
-              <div className="col-xl-2 col-lg-2 col-md-6 mb-30">
+              {/* <div className="col-xl-2 col-lg-2 col-md-6 mb-30">
                 <div className="footer-widget">
                   <div className="footer-widget-heading">
                     <h3>Important Links</h3>
@@ -170,7 +171,7 @@ const Footer = () => {
                     </li>
                   </ul>
                 </div>
-              </div>
+              </div> */}
             </div>
           </div>
         </div>
@@ -178,7 +179,7 @@ const Footer = () => {
         <div className="copyright-area">
           <div className="container">
             <div className="row">
-              <div className="col-xl-6 col-lg-6 text-center text-lg-left">
+              <div className="col-12 text-center text-lg-left">
                 <div className="copyright-text">
                   <p>
                     Copyright &copy; 2018, All Rights Reserved
@@ -187,7 +188,7 @@ const Footer = () => {
                 </div>
               </div>
 
-              <div className="col-xl-6 col-lg-6 d-none d-lg-block text-right">
+              {/* <div className="col-xl-6 col-lg-6 d-none d-lg-block text-right">
                 <div className="footer-menu">
                   <ul>
                     <li>
@@ -206,7 +207,7 @@ const Footer = () => {
                     </li>
                   </ul>
                 </div>
-              </div>
+              </div> */}
             </div>
           </div>
         </div>
