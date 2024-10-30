@@ -10,7 +10,11 @@ export default function Faqs() {
     setActiveIndex(activeIndex === index ? null : index);
   };
   const faqs = [
-    { question: "Question 1?", answer: "This is the answer to question 1.This is the answer to question 1.This is the answer to question 1.This is the answer to question 1.This is the answer to question 1.This is the answer to question 1.This is the answer to question 1.This is the answer to question 1.This is the answer to question 1.This is the answer to question 1.This is the answer to question 1.This is the answer to question 1.This is the answer to question 1.This is the answer to question 1.This is the answer to question 1." },
+    {
+      question: "Question 1?",
+      answer:
+        "This is the answer to question 1.This is the answer to question 1.This is the answer to question 1.This is the answer to question 1.This is the answer to question 1.This is the answer to question 1.This is the answer to question 1.This is the answer to question 1.This is the answer to question 1.This is the answer to question 1.This is the answer to question 1.This is the answer to question 1.This is the answer to question 1.This is the answer to question 1.This is the answer to question 1.",
+    },
     { question: "Question 2?", answer: "This is the answer to question 2." },
     { question: "Question 3?", answer: "This is the answer to question 3." },
   ];
@@ -18,7 +22,7 @@ export default function Faqs() {
     <>
       <Navbar />
       <Banner
-        img="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR-KRSXasVXyXWjjB-rxwD7NdRbxXsM1iiQnQ&s"
+        img="https://www.shutterstock.com/image-illustration/question-mark-front-color-wall-260nw-1706677192.jpg"
         text="FAQS"
       />
 

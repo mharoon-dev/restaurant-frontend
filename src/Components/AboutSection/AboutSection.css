@@ -85,6 +85,11 @@
   margin: 25px !important;
 }
 
+.active:hover {
+  background-color: var(--main-color) !important;
+  color: var(--white-color) !important;
+}
+
 @media (max-width: 768px) {
   .info-section {
     flex-direction: column;

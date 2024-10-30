@@ -19,17 +19,14 @@ const AboutSection = ({ item }) => {
               </h1>
               <br />
             </div>
-            <div className="categories">
-              <a href="#" className="category">
-                Frequent Questions
-              </a>
-              <a href="#" className="category">
+            <div className="categories ">
+              <a href="" className="category my-4">
                 Who we are?
               </a>
-              <a href="#" className="category active">
+              <a href="" className="category my-4 active ">
                 Partner Program
               </a>
-              <a href="#" className="category">
+              <a href="" className="category my-4">
                 Help & Support
               </a>
             </div>

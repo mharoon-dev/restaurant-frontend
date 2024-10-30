@@ -312,7 +312,7 @@ const Navbar = () => {
                     to={`/category/Burger`}
                     style={{ textDecoration: "none", color: "inherit" }}
                   >
-                    Restaurants
+                    Menu
                   </Link>
                 </span>
 
@@ -372,18 +372,18 @@ const Navbar = () => {
                 </Link>
               </li>
 
-              <li
-                className="ms-5"
+              {/* <li
+                className={`ms-5 ${isActive("/cart") ? "activeLi" : ""}`}
                 style={{
                   listStyle: "none",
                   fontSize: "20px",
                   fontWeight: "600",
                 }}
               >
-                <Link to="/track-order" className="nav-link">
-                  Track Order
+                <Link to="/cart" className="nav-link">
+                  Checkout
                 </Link>
-              </li>
+              </li> */}
             </ul>
 
             <li
@@ -445,19 +445,35 @@ const Navbar = () => {
             </div>
             <div className="offcanvas-body">
               <ul className="navbar-nav justify-content-end">
-                <li className="nav-item">
-                  <Link to="/" className="nav-link">
+                <li
+                  style={{
+                    fontWeight: "500",
+                    color: isActive("/") && "var(--white-color)",
+                  }}
+                  className={`nav-item p-2 text-center  ${
+                    isActive("/") ? "activeLi" : ""
+                  }`}
+                >
+                  <Link
+                    to="/"
+                    style={{ textDecoration: "none", color: "inherit" }}
+                  >
                     Home
                   </Link>
                 </li>
-                <li className="nav-item dropdown position-static">
+                <li
+                  style={{ fontWeight: "500" }}
+                  className={` nav-item p-2 text-center ${
+                    isCategoryActive ? "activeLi" : ""
+                  }`}
+                >
                   <span
-                    className="nav-link"
+                    className="text-center"
                     id="navbarDropdown"
                     role="button"
                     onClick={handleDropdownToggle2}
                   >
-                    Restaurants
+                    Menu
                   </span>
 
                   <div
@@ -488,9 +504,42 @@ const Navbar = () => {
                     </div>
                   </div>
                 </li>
-                <li className="nav-item">
-                  <span className="nav-link">Special Offers</span>
+                <li
+                  style={{
+                    fontWeight: "500",
+                    color: isActive("/faqs") && "var(--white-color)",
+                  }}
+                  className={`nav-item p-2 text-center  ${
+                    isActive("/faqs") ? "activeLi" : ""
+                  }`}
+                >
+                  <span className="text-center">
+                    <Link
+                      to={"/faqs"}
+                      style={{ textDecoration: "none", color: "inherit" }}
+                    >
+                      FAQS
+                    </Link>
+                  </span>
                 </li>
+                {/* <li
+                  style={{
+                    fontWeight: "500",
+                    color: isActive("/cart") && "var(--white-color)",
+                  }}
+                  className={`nav-item p-2 text-center  ${
+                    isActive("/cart") ? "activeLi" : ""
+                  }`}
+                >
+                  <span className="text-center">
+                    <Link
+                      to={"/cart"}
+                      style={{ textDecoration: "none", color: "inherit" }}
+                    >
+                      Checkout
+                    </Link>
+                  </span>
+                </li> */}
               </ul>
 
               <form

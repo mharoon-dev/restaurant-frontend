@@ -71,7 +71,6 @@ const Cart = () => {
   const stripe = useStripe();
   const elements = useElements();
   const user = useSelector((state) => state?.user?.user);
-  console.log(user, "user");
 
   const cart = useSelector((state) => state?.cart?.cart);
 
@@ -115,18 +114,19 @@ const Cart = () => {
       const response = await api.get(
         `/coupens/singlecoupen?code=${couponInput}`
       );
-      console.log(response.data);
-      console.log("couped response ");
 
-      if (response.data) {
+      if (response.data && response.data[0]?.active) {
         const sliceData = response.data?.slice(0, 1);
-        console.log(sliceData, "sliceData");
         const { discount } = sliceData[0];
         setDiscount(discount);
         setCouponError("");
         setIsCouponApplied(true);
       } else {
-        setCouponError("No coupon found!");
+        setCouponError(
+          response.data[0]?.active === false
+            ? "This Coupon is not Active"
+            : "No coupon found!"
+        );
       }
     } catch (error) {
       setCouponError("Coupon validation failed. Please try again.");
@@ -147,6 +147,11 @@ const Cart = () => {
 
   const handleCheckout = async (e) => {
     e.preventDefault();
+
+    if (!user) {
+      alert("Please login firstly!");
+      return;
+    }
 
     if (paymentMethod === "cash") {
       try {
