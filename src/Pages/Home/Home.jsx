@@ -29,6 +29,11 @@ import {
 } from "../../Redux/Slices/mostSellsSlice.jsx";
 import AboutSection from "../../Components/AboutSection/AboutSection.jsx";
 import ReviewCard from "../../Components/ReviewCard/ReviewCard.jsx";
+import {
+  getDealsFailure,
+  getDealsStart,
+  getDealsSuccess,
+} from "../../Redux/Slices/dealsSlice.jsx";
 
 const api = axios.create({
   baseURL: url,
@@ -45,6 +50,10 @@ const Home = ({ offersCard }) => {
   const [singleCatProducts, setSingleCatProducts] = useState([]);
   const dispatch = useDispatch();
   const [selectedCategory, setSelectedCategory] = useState("Burger");
+  const deals = useSelector((state) => state?.deals?.deals);
+  useEffect(() => {
+    console.log("Deals state in component:", deals);
+  }, [deals]);
 
   const reviews = [
     {
@@ -75,6 +84,21 @@ const Home = ({ offersCard }) => {
   useEffect(() => {
     console.log("mostSellsProducts", mostSellsProducts);
   }, [mostSellsProducts]);
+
+  useEffect(() => {
+    const fetchDeals = async () => {
+      try {
+        dispatch(getDealsStart());
+        const res = await api.get("/deals/active-deals");
+        console.log("Fetched deals data:", res.data); // Check if data is fetched
+        dispatch(getDealsSuccess(res.data));
+      } catch (error) {
+        console.error("Error fetching deals:", error); // Capture any errors
+        dispatch(getDealsFailure([]));
+      }
+    };
+    fetchDeals();
+  }, [dispatch]); // Add `dispatch` as dependency to avoid warnings
 
   useEffect(() => {
     const fetchProducts = async () => {
@@ -132,65 +156,26 @@ const Home = ({ offersCard }) => {
           className="row  catCardsRow align-items-center justify-content-center"
           style={{ zIndex: "-1" }}
         >
-          <div
-            className="offerCard"
-            data-aos="fade-right"
-            data-aos-duration="2000"
-            style={{ zIndex: "-1" }}
-          >
-            <img
-              src="/assets/OfferCards/offerCard1.png"
-              alt="Chef Burgers London"
-            />
-            <div className="discount">-40%</div>
-            <div className="info">
-              <div className="category">Restaurant</div>
-              <div className="title">Chef Burgers London</div>
-            </div>
-          </div>
-          <div
-            className="offerCard"
-            data-aos="zoom-in"
-            data-aos-duration="2000"
-            style={{ zIndex: "-1" }}
-          >
-            <img
-              src="/assets/OfferCards/offerCard1.png"
-              alt="Chef Burgers London"
-            />
-            <div className="discount">-40%</div>
-            <div className="info">
-              <div className="category">Restaurant</div>
-              <div className="title">Chef Burgers London</div>
-            </div>
-          </div>
-          <div
-            className="offerCard"
-            data-aos="fade-left"
-            data-aos-duration="2000"
-            style={{ zIndex: "-1" }}
-          >
-            <img
-              src="/assets/OfferCards/offerCard1.png"
-              alt="Chef Burgers London"
-            />
-            <div className="discount">-40%</div>
-            <div className="info">
-              <div className="category">Restaurant</div>
-              <div className="title">Chef Burgers London</div>
-            </div>
-          </div>
-          {/* {categories.map((item) => {
+          {deals?.map((item) => {
             return (
-              <Link
-                to={`/category/${item.name}`}
-                key={item.name}
-                className="catLink"
+              <div
+                className="offerCard"
+                data-aos="fade-right"
+                data-aos-duration="2000"
+                style={{ zIndex: "-1" }}
               >
-                <CategoryCard item={item} />
-              </Link>
+                <img
+                  src={item?.img}
+                  alt="Chef Burgers London"
+                />
+                <div className="discount">-{item?.discountPercentage}%</div>
+                <div className="info">
+                  <div className="category">{item?.title}</div>
+                  <div className="title">{item?.description}</div>
+                </div>
+              </div>
             );
-          })} */}
+          })}
         </div>
       </div>
 

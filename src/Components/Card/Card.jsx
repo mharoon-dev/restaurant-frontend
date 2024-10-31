@@ -43,6 +43,8 @@ const Card = ({ category, imgSize, item }) => {
         )}
       </div>
     </div>
+
+    
   );
 };
 

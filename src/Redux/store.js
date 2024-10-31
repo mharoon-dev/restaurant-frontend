@@ -6,6 +6,7 @@ import userReducer from "./Slices/userSlice.jsx";
 import cartReducer from "./Slices/cartSlice.jsx";
 import mostSellsReducer from "./Slices/mostSellsSlice.jsx";
 import userOrderReducer from "./Slices/userOrderSlice.jsx";
+import dealsReducer from "./Slices/dealsSlice.jsx";
 
 const store = configureStore(
   {
@@ -15,7 +16,8 @@ const store = configureStore(
       products: productsReducer,
       cart: cartReducer,
       mostSelles: mostSellsReducer,
-      userOrders : userOrderReducer
+      userOrders: userOrderReducer,
+      deals: dealsReducer,
     },
   },
   +window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()

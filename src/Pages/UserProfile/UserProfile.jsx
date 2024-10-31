@@ -28,7 +28,6 @@ const UserProfile = () => {
     address: user?.address,
     zipCode: user?.zipCode,
   });
-  const [orders, setOrders] = useState([]);
   const userOrders = useSelector((state) => state.userOrders.orders);
   console.log(userOrders);
 
