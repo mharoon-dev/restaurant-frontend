@@ -25,7 +25,7 @@ const Slider = () => {
           />
           <div className="carousel-content">
             <p>Order Restaurant food, takeaway and groceries.</p>
-            <h1>Feast Your Senses,</h1>
+            <h1>Enjoy Every Bite</h1>
             <h1 className="span">Fast and Fresh</h1>
             <button data-aos="fade-left" data-aos-duration="1000">
               Shop Now

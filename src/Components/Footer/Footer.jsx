@@ -10,7 +10,7 @@ const Footer = () => {
   }, []);
   return (
     <>
-      <footer className="footer-section">
+      <footer className="footer-section indexClass ">
         <div className="container-fluid">
           <div className="footer-cta pt-5 pb-5"></div>
           <div className="footer-content pt-5 pb-5">

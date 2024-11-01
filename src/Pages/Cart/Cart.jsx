@@ -133,12 +133,11 @@ const Cart = () => {
     }
   };
 
-  const totalAmount = cart
-    ?.reduce(
-      (acc, item) => acc + item?.selectedVariation?.price * item?.quantity,
-      0
-    )
-    .toFixed(2);
+  const totalAmount = cart?.reduce(
+    (acc, item) =>
+      acc + (item?.selectedVariation?.price || item?.price) * item?.quantity,
+    0
+  );
 
   const discountedAmount = (
     totalAmount -
@@ -255,7 +254,40 @@ const Cart = () => {
                     <div className="spicy-level">
                       <span>🌶️</span>
                     </div>
-                    <p className="mb-3">{item?.desc.slice(0, 100)}...</p>
+                    <p className="mb-3">
+                      {item?.desc?.slice(0, 100) ||
+                        item?.description?.slice(0, 100)}
+                    </p>
+                    {item?.selectedVariation && (
+                      <>
+                        <button
+                          key={item?.selectedVariation?._id}
+                          style={{
+                            backgroundColor:
+                              item?.selectedVariation?._id ===
+                              item?.selectedVariation?._id
+                                ? "var(--black-color) !important"
+                                : "var(--white-color) !important",
+                            color:
+                              item?.selectedVariation?._id ===
+                              item?.selectedVariation?._id
+                                ? "var(--white-color) !important"
+                                : "var(--black-color) !important",
+                          }}
+                          className={`size large `} // Apply selected class only to the selected variation
+                          onClick={() => handleVariationChange(variation)} // Set the variation on button click
+                        >
+                          {item?.selectedVariation?.size}&nbsp;
+                          <span>GBP {item?.selectedVariation?.price}</span>
+                        </button>
+                      </>
+                    )}
+                    {/* <button
+                      onClick={() => dispatch(removeFromCart(item))}
+                      className="remove-button"
+                    >
+                      Remove
+                    </button> */}
                   </div>
                   <div className="product-image">
                     <img src={item?.img} alt="Pizza" />
@@ -284,7 +316,9 @@ const Cart = () => {
                         </div>
                         <div className="d-flex flex-column">
                           <div className="item-price">
-                            GBP {item?.selectedVariation?.price}
+                            GBP{" "}
+                            {item?.selectedVariation?.price.toFixed(2) ||
+                              item?.price.toFixed(2)}
                           </div>
                           <span className="item-name">{item?.title}</span>
                         </div>

@@ -31,6 +31,7 @@ import {
 import { Terms } from "./Pages/Terms/Terms.jsx";
 import { DeliveryPolicy } from "./Pages/DeliveryPolicy/DeliveryPolicy.jsx";
 import Faqs from "./Pages/Faqs/Faqs.jsx";
+import SingleDeal from "./Pages/SingleDeal/SingleDeal.jsx";
 
 const api = axios.create({
   baseURL: url,
@@ -153,6 +154,10 @@ function App() {
       <Route
         path="/product/:product"
         element={<SingleProduct offersCard={offersCard} />}
+      />
+      <Route
+        path="/deal/:deal"
+        element={<SingleDeal offersCard={offersCard} />}
       />
       <Route
         path="/categories"

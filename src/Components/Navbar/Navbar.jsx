@@ -64,7 +64,8 @@ const Navbar = () => {
   const isCategoryActive = location.pathname.startsWith("/category");
   const categories = useSelector((state) => state?.categories?.categories);
   const totalAmount = cart?.reduce(
-    (acc, item) => acc + item?.selectedVariation?.price * item?.quantity,
+    (acc, item) =>
+      acc + (item?.selectedVariation?.price || item?.price) * item?.quantity,
     0
   );
 
@@ -194,11 +195,14 @@ const Navbar = () => {
                         </div>
                         <div className="d-flex flex-column">
                           <div className="item-price">
-                            GBP {item?.selectedVariation?.price}
+                            GBP{" "}
+                            {item?.selectedVariation?.price.toFixed(2) ||
+                              item?.price.toFixed(2)}
                           </div>
                           <span className="item-name">{item?.title}</span>
                           <p className="item-details">
-                            {item?.desc.slice(0, 50)}...
+                            {item?.desc?.slice(0, 50) ||
+                              item?.description?.slice(0, 50)}
                           </p>
                         </div>
                       </div>
@@ -208,11 +212,11 @@ const Navbar = () => {
                 <div className="basket-summary">
                   <div className="summary-item">
                     <span>Sub Total:</span>
-                    <span>{"GBP " + totalAmount}</span>
+                    <span>{"GBP " + totalAmount.toFixed(2)}</span>
                   </div>
                   <div className="total-pay">
                     <span>Total to pay</span>
-                    <span>{"GBP " + totalAmount}</span>
+                    <span>{"GBP " + totalAmount.toFixed(2)}</span>
                   </div>
                 </div>
                 <div className="checkout-container mb-0">
@@ -423,8 +427,10 @@ const Navbar = () => {
             <MenuIcon style={{ fontSize: "55px" }} />
           </button>
           <div
+            style={{
+              zIndex: "9999999 !important",
+            }}
             className="offcanvas offcanvas-end"
-            tabIndex="-1"
             id="offcanvasNavbar"
             aria-labelledby="offcanvasNavbarLabel"
           >

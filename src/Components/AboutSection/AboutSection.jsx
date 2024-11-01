@@ -10,15 +10,17 @@ const AboutSection = ({ item }) => {
   // console.log(item);
   return (
     <>
-      <div className="container-fluid" data-aos="fade-up">
+      <div className="container-fluid indexClass" data-aos="fade-up">
         <div className="row pb-3">
           <div className="offset-xl-1 col-xl-10 col-12 deal-section ps-0">
             <div className="deal-header">
               <h1 style={{ fontWeight: "700", fontSize: "32px" }}>
                 Know more about us!
               </h1>
+
               <br />
             </div>
+
             <div className="categories ">
               <a href="" className="category my-4">
                 Who we are?

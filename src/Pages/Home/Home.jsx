@@ -18,7 +18,7 @@ import cat5 from "../../../public/assets/categories/5.png";
 import cat6 from "../../../public/assets/categories/6.png";
 import cat7 from "../../../public/assets/categories/7.png";
 import cat8 from "../../../public/assets/categories/8.png";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import axios from "axios";
 import { url } from "../../../utils/url.js";
@@ -51,6 +51,7 @@ const Home = ({ offersCard }) => {
   const dispatch = useDispatch();
   const [selectedCategory, setSelectedCategory] = useState("Burger");
   const deals = useSelector((state) => state?.deals?.deals);
+  const navigate = useNavigate();
   useEffect(() => {
     console.log("Deals state in component:", deals);
   }, [deals]);
@@ -89,7 +90,7 @@ const Home = ({ offersCard }) => {
     const fetchDeals = async () => {
       try {
         dispatch(getDealsStart());
-        const res = await api.get("/deals/active-deals");
+        const res = await api.get("/deals/deals");
         console.log("Fetched deals data:", res.data); // Check if data is fetched
         dispatch(getDealsSuccess(res.data));
       } catch (error) {
@@ -125,23 +126,23 @@ const Home = ({ offersCard }) => {
       <Slider />
       <br />
 
-      <div className="container-fluid">
+      <div
+        className="container-fluid position-relative "
+        style={{ zIndex: "-1 !important" }}
+      >
         <div className="row">
-          <div
-            className="offset-xl-1 col-xl-10 col-12 deal-section"
-            style={{ zIndex: "-1" }}
-          >
+          <div className="offset-xl-1 col-xl-10 col-12 deal-section indexClass">
             <div className="deal-header" data-aos="fade-right">
               <h1>
                 Up to -40% <span className="icon">🎉</span> Exclusive deals
               </h1>
             </div>
-            <div className="categories" data-aos="fade-left">
+            {/* <div className="categories" data-aos="fade-left">
               <a href="" className="category">
-                Vegan
+                Offers
               </a>
               <a href="" className="category">
-                Sushi
+                Midnight
               </a>
               <a href="" className="category active">
                 Pizza & Fast food
@@ -149,37 +150,36 @@ const Home = ({ offersCard }) => {
               <a href="" className="category">
                 Others
               </a>
-            </div>
+            </div> */}
           </div>
         </div>
         <div
-          className="row  catCardsRow align-items-center justify-content-center"
-          style={{ zIndex: "-1" }}
+          className="row catCardsRow align-items-center justify-content-center"
+          style={{ zIndex: "1" }}
         >
           {deals?.map((item) => {
             return (
               <div
-                className="offerCard"
+                className="offerCard "
                 data-aos="fade-right"
                 data-aos-duration="2000"
-                style={{ zIndex: "-1" }}
+                style={{ zIndex: "99",position:"relative" }}
               >
-                <img
-                  src={item?.img}
-                  alt="Chef Burgers London"
-                />
-                <div className="discount">-{item?.discountPercentage}%</div>
-                <div className="info">
-                  <div className="category">{item?.title}</div>
-                  <div className="title">{item?.description}</div>
-                </div>
+                <Link to={`/deal/${item?._id}`} style={{ zIndex: "1" }}>
+                  <img src={item?.img} alt="Chef Burgers London" />
+                  <div className="discount">-{item?.discountPercentage}%</div>
+                  <div className="info">
+                    <div className="dealTitle">{item?.title}</div>
+                    {/* <div className="title">{item?.description}</div> */}
+                  </div>
+                </Link>
               </div>
             );
           })}
         </div>
       </div>
 
-      <div className="container-fluid">
+      <div className="container-fluid position-relative indexClass">
         <div className="row">
           <div className="offset-xl-1 text-center col-xl-10 col-12 deal-section">
             <div className="catH">
@@ -210,7 +210,11 @@ const Home = ({ offersCard }) => {
 
       {/* categories */}
 
-      <div className="container-fluid " data-aos="fade-right">
+      <div
+        className="container-fluid position-relative indexClass"
+        style={{ zIndex: "-1 !important" }}
+        data-aos="fade-right"
+      >
         <div className="row">
           <div className=" offset-xl-1  col-xl-2 col-12">
             <div className="ms-xl-2 menu-container">
@@ -279,7 +283,10 @@ const Home = ({ offersCard }) => {
       <br />
       <br />
       <br />
-      <div className="container-fluid  reviewsSectionDev">
+      <div
+        className="container-fluid position-relative reviewsSectionDev indexClass"
+        style={{ zIndex: "-1 !important" }}
+      >
         <div className="row px-md-5 mx-md-5 ">
           <div className="col-12">
             <h1 className=" text-center text-lg-left mb-4">Customer Reviews</h1>
