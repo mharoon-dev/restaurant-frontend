@@ -11,12 +11,21 @@ export default function Faqs() {
   };
   const faqs = [
     {
-      question: "Question 1?",
+      question:
+        "How do I place an order, and what payment methods are available?",
       answer:
-        "This is the answer to question 1.This is the answer to question 1.This is the answer to question 1.This is the answer to question 1.This is the answer to question 1.This is the answer to question 1.This is the answer to question 1.This is the answer to question 1.This is the answer to question 1.This is the answer to question 1.This is the answer to question 1.This is the answer to question 1.This is the answer to question 1.This is the answer to question 1.This is the answer to question 1.",
+        "Placing an order is simple: browse our menu on our website or app, select your favorite dishes, and add them to your cart. At checkout, you can choose from various payment options, including credit/debit cards, mobile wallets, and cash on delivery for your convenience. ",
     },
-    { question: "Question 2?", answer: "This is the answer to question 2." },
-    { question: "Question 3?", answer: "This is the answer to question 3." },
+    {
+      question: "What should I do if my order is delayed or incorrect?",
+      answer:
+        "If your order is delayed or incorrect, please contact our customer support team immediately via the app or website. We are committed to resolving any issues promptly to ensure you receive the correct order as quickly as possible.",
+    },
+    {
+      question: " Do you accommodate food allergies and dietary restrictions?",
+      answer:
+        "Absolutely. We take food allergies and dietary restrictions seriously. Our menu includes allergen information for each item, and if you have specific concerns, please reach out to our customer support team before placing your order to ensure your needs are fully accommodated.",
+    },
   ];
   return (
     <>

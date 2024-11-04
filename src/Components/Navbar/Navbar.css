@@ -44,12 +44,13 @@
 
 .sidebarSearchInput {
   border: none !important;
-  border-bottom: 2px solid #458c00 !important;
-  border-radius: 0 !important;
+  border: 2px solid var(--main-color) !important;
   background-color: transparent !important;
-  color: #458c00 !important;
+  color: var(--main-color) !important;
   font-weight: 700 !important;
   font-size: 20px !important;
+  border-radius: 25px;
+  padding: 3px  15px;
 }
 
 .sidebarSearchInput:focus {
@@ -293,4 +294,62 @@
   #cartBoxNav {
     width: 85% !important;
   }
+}
+
+/* sideNav */
+.sidenav {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 999;
+  top: 0;
+  left: 0;
+  background-color: var(--white-color) !important;
+  color: var(--black-color) !important;
+  /* backdrop-filter: blur(10px) !important; */
+  box-shadow: 1px 4px 19px 0px rgba(0, 0, 0, 0.37);
+  -webkit-box-shadow: 1px 4px 19px 0px rgba(0, 0, 0, 0.37);
+  -moz-box-shadow: 1px 4px 19px 0px rgba(0, 0, 0, 0.37);
+  overflow-y: auto;
+  overflow-x: hidden;
+  transition: 0.5s;
+  padding-top: 60px;
+}
+
+.sidebarSearchInput > input,
+span {
+  background-color: transparent !important;
+  border: none;
+}
+
+.sidebarSearchInput > input,
+input::placeholder {
+  color: var(--black-color) !important;
+}
+
+.input-group-text {
+  border: none !important;
+}
+
+.sidenav .closebtn {
+  color: var(--black-color) !important;
+  text-decoration: none !important;
+  position: absolute;
+  top: 0;
+  right: 25px;
+  cursor: pointer;
+  font-size: 50px;
+  margin-left: 50px;
+}
+
+.list-group-item {
+  font-size: 18px;
+  color: var(--black-color);
+  font-weight: 600;
+}
+
+.list-group-item > img {
+  margin-right: 10px;
+  object-fit: cover;
+  border-radius: 50%;
 }

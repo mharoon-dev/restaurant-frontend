@@ -58,28 +58,28 @@ const Home = ({ offersCard }) => {
 
   const reviews = [
     {
-      name: "John Doe",
+      name: "Emma Jones",
       img: "/assets/reviews/1.jpg",
       review:
-        "The positive aspect was undoubtedly the efficiency of the service. The queue moved quickly, the staff was friendly, and the food was up to the usual McDonald's standard – hot and satisfying.",
-      city: "South London",
-      date: "24th September, 2024",
+        "I absolutely loved my experience! The ordering was easy, and my food arrived hot and fresh. The delivery driver was friendly, making the whole process enjoyable. I’ll definitely be ordering again!",
+      city: "Westside",
+      date: "12th October, 2024",
     },
     {
-      name: "St Glx",
+      name: "Liam Brown",
       img: "/assets/reviews/2.jpg",
       review:
-        "The positive aspect was undoubtedly the efficiency of the service. The queue moved quickly, the staff was friendly, and the food was up to the usual McDonald's standard – hot and satisfying.",
-      city: "Allentown",
-      date: "30th July, 2024",
+        "This service is fantastic! The selection of restaurants is impressive, and my meal was delivered faster than expected. Everything tasted amazing. I appreciate the excellent service and will be a loyal customer!",
+      city: "Liam Brown",
+      date: "5th October, 2024",
     },
     {
-      name: "Chris Smith",
+      name: "Ava Smith",
       img: "/assets/reviews/3.avif",
       review:
-        "The positive aspect was undoubtedly the efficiency of the service. The queue moved quickly, the staff was friendly, and the food was up to the usual McDonald's standard – hot and satisfying.",
-      city: "Western Ontario",
-      date: "18th June, 2024",
+        "I had a great experience! The website is user-friendly, and my order arrived right on time. The food was delicious and exactly what I wanted. I can’t wait to order again soon!",
+      city: "Riverdale",
+      date: "22nd September, 2024",
     },
   ];
   useEffect(() => {
@@ -126,10 +126,7 @@ const Home = ({ offersCard }) => {
       <Slider />
       <br />
 
-      <div
-        className="container-fluid position-relative "
-        style={{ zIndex: "-1 !important" }}
-      >
+      <div className="container-fluid position-relative ">
         <div className="row">
           <div className="offset-xl-1 col-xl-10 col-12 deal-section indexClass">
             <div className="deal-header" data-aos="fade-right">
@@ -163,7 +160,7 @@ const Home = ({ offersCard }) => {
                 className="offerCard "
                 data-aos="fade-right"
                 data-aos-duration="2000"
-                style={{ zIndex: "99",position:"relative" }}
+                style={{ zIndex: "99", position: "relative" }}
               >
                 <Link to={`/deal/${item?._id}`} style={{ zIndex: "1" }}>
                   <img src={item?.img} alt="Chef Burgers London" />
@@ -212,7 +209,6 @@ const Home = ({ offersCard }) => {
 
       <div
         className="container-fluid position-relative indexClass"
-        style={{ zIndex: "-1 !important" }}
         data-aos="fade-right"
       >
         <div className="row">
@@ -283,10 +279,7 @@ const Home = ({ offersCard }) => {
       <br />
       <br />
       <br />
-      <div
-        className="container-fluid position-relative reviewsSectionDev indexClass"
-        style={{ zIndex: "-1 !important" }}
-      >
+      <div className="container-fluid position-relative reviewsSectionDev indexClass">
         <div className="row px-md-5 mx-md-5 ">
           <div className="col-12">
             <h1 className=" text-center text-lg-left mb-4">Customer Reviews</h1>

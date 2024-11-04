@@ -49,7 +49,7 @@ const Navbar = () => {
   const [dropdown2, setDropdown2] = useState(false);
   const [open, setOpen] = useState(false);
   const [cartBox, setCartBox] = useState(false);
-  const cartBoxRef = useRef(null); // Add a ref to the cart box
+  const cartBoxRef = useRef(null);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
   const dispatch = useDispatch();
@@ -63,11 +63,13 @@ const Navbar = () => {
   const isActive = (path) => location.pathname === path;
   const isCategoryActive = location.pathname.startsWith("/category");
   const categories = useSelector((state) => state?.categories?.categories);
+  const [searchQuery, setSearchQuery] = useState("");
   const totalAmount = cart?.reduce(
     (acc, item) =>
       acc + (item?.selectedVariation?.price || item?.price) * item?.quantity,
     0
   );
+  const [catSidebar, setCatSidebar] = useState(false);
 
   useEffect(() => {
     Aos.init();
@@ -112,10 +114,9 @@ const Navbar = () => {
     getCategories();
   }, []);
 
-  // Function to close cart box when clicking outside
   const handleClickOutside = (event) => {
     if (cartBoxRef.current && !cartBoxRef.current.contains(event.target)) {
-      setCartBox(false); // Close cartBox when clicking outside
+      setCartBox(false);
     }
   };
 
@@ -131,24 +132,36 @@ const Navbar = () => {
     };
   }, [cartBox]);
 
+  function openNav() {
+    // document.getElementById("mySidenav").style.width = "450px";
+    // document.getElementsByClassName("overlayDiv").style.display = "block";
+    setCatSidebar(true);
+  }
+
+  function closeNav() {
+    // document.getElementById("mySidenav").style.width = "0";
+    // document.getElementsByClassName("overlayDiv").style.display = "none";
+    setCatSidebar(false);
+  }
+
+  const filteredCategories = categories?.filter((category) =>
+    category.name.toLowerCase().includes(searchQuery.toLowerCase())
+  );
+
   return (
     <>
-      {/* dropDown 1 */}
-
       <div
         className="dropDown1"
-        style={{
-          display: dropDown ? "block" : "none",
-        }}
+        style={{ display: dropDown ? "block" : "none" }}
       >
         <ul>
           <li>
-            <Link className=" dropdown-item" to="/userProfile">
+            <Link className="dropdown-item" to="/userProfile">
               Profile
             </Link>
           </li>
           <li>
-            <Link className=" dropdown-item" to="/logout">
+            <Link className="dropdown-item" to="/logout">
               Logout
             </Link>
           </li>
@@ -161,16 +174,11 @@ const Navbar = () => {
               className="overlay"
               data-aos="fade-right"
               data-aos-duration="300"
-
-              //  data-aos="zoom-in"
             ></div>
             <div
               id="cartBoxNav"
               className="col-lg-3 d-flex justify-content-end col-12 p-3 pe-0 pt-0 pb-0 my-0 cartBox"
-              style={{
-                height: "100vh",
-                zIndex: "100",
-              }}
+              style={{ height: "100vh", zIndex: "100" }}
               data-aos="fade-left"
               data-aos-duration="300"
               ref={cartBoxRef}
@@ -242,15 +250,15 @@ const Navbar = () => {
           </div>
 
           <div className="cart-section p-0 m-0" data-aos="fade-down">
-            <div className="cart-icon p-3 h-100 m-0" style={{}}>
+            <div className="cart-icon p-3 h-100 m-0">
               <Link to="/cart">
                 <img src="/assets/icons/ShoppingBasket.png" width={30} />
               </Link>
             </div>
-            <div className="cart-details p-3 h-100 m-0" style={{}}>
+            <div className="cart-details p-3 h-100 m-0">
               <span className="cart-total">{cart?.length} items</span>
             </div>
-            <div className="cart-details p-3 h-100 m-0" style={{}}>
+            <div className="cart-details p-3 h-100 m-0">
               <span className="cart-total">GBP {totalAmount.toFixed(2)}</span>
             </div>
             <div
@@ -267,15 +275,11 @@ const Navbar = () => {
 
       <nav
         className="navbar navbarContainer"
-        style={{
-          backgroundColor: "#fff",
-        }}
+        style={{ backgroundColor: "#fff" }}
       >
         <div
           className="container-fluid p-3 d-flex justify-content-between"
-          style={{
-            zIndex: "9",
-          }}
+          style={{ zIndex: "9" }}
         >
           <Link to="/" className="nav-logo">
             <img className="ms-4" src={logo} width="150px" alt="" />
@@ -294,7 +298,6 @@ const Navbar = () => {
                   Home
                 </Link>
               </li>
-
               <li
                 className={`ms-5 nav-item dropdown position-static ${
                   isCategoryActive ? "activeLi" : ""
@@ -310,16 +313,11 @@ const Navbar = () => {
                   id="navbarDropdown"
                   role="button"
                   aria-expanded="false"
-                  // onClick={handleDropdownToggle}
+                  style={{ cursor: "pointer" }}
+                  onClick={openNav}
                 >
-                  <Link
-                    to={`/category/Burger`}
-                    style={{ textDecoration: "none", color: "inherit" }}
-                  >
-                    Menu
-                  </Link>
+                  Menu
                 </span>
-
                 <div
                   className={`dropdown-menu w-100 mt-0 ${
                     dropdown ? "show" : ""
@@ -337,14 +335,11 @@ const Navbar = () => {
                     <div className="row my-4">
                       <div className="col-lg-6 col-xl-4">
                         <div className="list-group list-group-flush">
-                          {catLine1?.map((item) => (
+                          {filteredCategories?.slice(0, 6).map((item) => (
                             <Link
                               key={item?._id}
                               to={`/category/${item?.name}`}
-                              style={{
-                                textDecoration: "none",
-                                color: "black",
-                              }}
+                              style={{ textDecoration: "none", color: "black" }}
                             >
                               <span className="list-group-item list-group-item-action p-4">
                                 <img
@@ -362,7 +357,6 @@ const Navbar = () => {
                   </div>
                 </div>
               </li>
-
               <li
                 className={`ms-5 ${isActive("/faqs") ? "activeLi" : ""}`}
                 style={{
@@ -375,23 +369,9 @@ const Navbar = () => {
                   FAQS
                 </Link>
               </li>
-
-              {/* <li
-                className={`ms-5 ${isActive("/cart") ? "activeLi" : ""}`}
-                style={{
-                  listStyle: "none",
-                  fontSize: "20px",
-                  fontWeight: "600",
-                }}
-              >
-                <Link to="/cart" className="nav-link">
-                  Checkout
-                </Link>
-              </li> */}
             </ul>
-
             <li
-              className="ms-xl-5 rightBtn "
+              className="ms-xl-5 rightBtn"
               style={{ listStyle: "none", fontSize: "20px", fontWeight: "600" }}
             >
               {!user ? (
@@ -427,9 +407,7 @@ const Navbar = () => {
             <MenuIcon style={{ fontSize: "55px" }} />
           </button>
           <div
-            style={{
-              zIndex: "9999999 !important",
-            }}
+            style={{ zIndex: "9999999 !important" }}
             className="offcanvas offcanvas-end"
             id="offcanvasNavbar"
             aria-labelledby="offcanvasNavbarLabel"
@@ -469,7 +447,7 @@ const Navbar = () => {
                 </li>
                 <li
                   style={{ fontWeight: "500" }}
-                  className={` nav-item p-2 text-center ${
+                  className={`nav-item p-2 text-center ${
                     isCategoryActive ? "activeLi" : ""
                   }`}
                 >
@@ -481,7 +459,6 @@ const Navbar = () => {
                   >
                     Menu
                   </span>
-
                   <div
                     className="container"
                     style={{ display: dropdown2 ? "block" : "none" }}
@@ -489,7 +466,7 @@ const Navbar = () => {
                     <div className="row my-4">
                       <div className="col-md-6 col-xl-4">
                         <div className="list-group list-group-flush">
-                          {catLine1?.map((item) => (
+                          {filteredCategories?.slice(0, 6).map((item) => (
                             <Link
                               key={item?._id}
                               to={`/category/${item?.name}`}
@@ -528,26 +505,7 @@ const Navbar = () => {
                     </Link>
                   </span>
                 </li>
-                {/* <li
-                  style={{
-                    fontWeight: "500",
-                    color: isActive("/cart") && "var(--white-color)",
-                  }}
-                  className={`nav-item p-2 text-center  ${
-                    isActive("/cart") ? "activeLi" : ""
-                  }`}
-                >
-                  <span className="text-center">
-                    <Link
-                      to={"/cart"}
-                      style={{ textDecoration: "none", color: "inherit" }}
-                    >
-                      Checkout
-                    </Link>
-                  </span>
-                </li> */}
               </ul>
-
               <form
                 className="d-flex justify-content-center align-items-center"
                 role="search"
@@ -615,6 +573,52 @@ const Navbar = () => {
           </Typography>
         </Box>
       </Modal>
+
+      <div className={` ${catSidebar ? "overlay" : ""}`}></div>
+
+      <div
+        id="mySidenav"
+        style={{ width: catSidebar ? "450px" : "0" }}
+        className="sidenav"
+      >
+        <a className="closebtn" onClick={closeNav}>
+          &times;
+        </a>
+        <div className="d-flex justify-content-center align-items-center">
+          <div className="input-group  m-3 ms-0 w-75 sidebarSearchInput">
+            <input
+              type="text"
+              className="form-control"
+              placeholder="Search Categories"
+              onChange={(e) => setSearchQuery(e.target.value)}
+            />
+            <span className="input-group-text  p-0" style={{ width: "55px" }}>
+              <button className="btn p-0" type="submit">
+                <SearchIcon
+                  style={{
+                    fontSize: "35px",
+                    color: "var(--main-color) !important",
+                  }}
+                />
+              </button>
+            </span>
+          </div>
+        </div>
+        {filteredCategories
+          ? filteredCategories?.map((item) => (
+              <Link
+                key={item?._id}
+                to={`/category/${item?.name}`}
+                style={{ textDecoration: "none", color: "inherit" }}
+              >
+                <span className="list-group-item list-group-item-action p-4">
+                  <img src={item?.img} width={50} alt={item?.name} />
+                  &nbsp;{item?.name}
+                </span>
+              </Link>
+            ))
+          : "No categories found"}
+      </div>
     </>
   );
 };
