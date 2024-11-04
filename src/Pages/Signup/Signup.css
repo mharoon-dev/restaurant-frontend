@@ -23,7 +23,7 @@
 
 h1>.s {
     font-size: 30px;
-    color: #458c00;
+    color: var(--main-color) !important;
 }
 
 label {
@@ -37,10 +37,10 @@ label {
     padding: 2.5px 3.75px;
     margin: 8px 0;
     display: inline-block;
-    border: 2px solid #458c00;
-    border-top: 0;
-    border-left: 0;
-    border-right: 0;
+    border-bottom: 2px solid var(--main-color) !important;
+    border-top: 0 !important;
+    border-left: 0 !important;
+    border-right: 0 !important;
 }
 
 .inp,
@@ -49,7 +49,7 @@ label {
 }
 
 #signupBtn {
-    background-color: #458c00;
+    background-color: var(--main-color) !important;
     color: white;
     padding: 12px 20px;
     margin: 8px 0;
@@ -75,7 +75,7 @@ button:hover {
 
 .signup a {
     font-weight: 800;
-    color: #458c00;
+    color: var(--main-color) !important;
     text-decoration: none;
 }
 

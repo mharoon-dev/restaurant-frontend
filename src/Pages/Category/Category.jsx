@@ -27,6 +27,11 @@ const Category = ({ offersCard }) => {
   const categories = useSelector((state) => state?.categories?.categories);
   const [searchQuery, setSearchQuery] = useState("");
   const [filteredProducts, setFilteredProducts] = useState(allProducts);
+  const deals = useSelector((state) => state?.deals?.deals);
+
+  useEffect(() => {
+    setSelectedCategory(pathName);
+  }, [pathName]);
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -68,78 +73,54 @@ const Category = ({ offersCard }) => {
     <>
       <Navbar />
 
-      <div className="container-fluid">
-        {/* Deal Section */}
+      <div className="container-fluid position-relative ">
         <div className="row">
-          <div className="offset-xl-1 col-xl-10 col-12 deal-section">
-            <div className="deal-header">
+          <div className="offset-xl-1 col-xl-10 col-12 deal-section indexClass">
+            <div className="deal-header" data-aos="fade-right">
               <h1>
                 Up to -40% <span className="icon">🎉</span> Exclusive deals
               </h1>
             </div>
-            <div className="categories">
-              <a href="#" className="category">
-                Vegan
+            {/* <div className="categories" data-aos="fade-left">
+              <a href="" className="category">
+                Offers
               </a>
-              <a href="#" className="category">
-                Sushi
+              <a href="" className="category">
+                Midnight
               </a>
-              <a href="#" className="category active">
+              <a href="" className="category active">
                 Pizza & Fast food
               </a>
-              <a href="#" className="category">
+              <a href="" className="category">
                 Others
               </a>
-            </div>
-          </div>
-          <div className="row catCardsRow align-items-center justify-content-center">
-            <div className="offerCard">
-              <img
-                src="/assets/OfferCards/offerCard1.png"
-                alt="Chef Burgers London"
-              />
-              <div className="discount">-40%</div>
-              <div className="info">
-                <div className="category">Restaurant</div>
-                <div className="title">Chef Burgers London</div>
-              </div>
-            </div>{" "}
-            <div className="offerCard">
-              <img
-                src="/assets/OfferCards/offerCard1.png"
-                alt="Chef Burgers London"
-              />
-              <div className="discount">-40%</div>
-              <div className="info">
-                <div className="category">Restaurant</div>
-                <div className="title">Chef Burgers London</div>
-              </div>
-            </div>{" "}
-            <div className="offerCard">
-              <img
-                src="/assets/OfferCards/offerCard1.png"
-                alt="Chef Burgers London"
-              />
-              <div className="discount">-40%</div>
-              <div className="info">
-                <div className="category">Restaurant</div>
-                <div className="title">Chef Burgers London</div>
-              </div>
-            </div>
-            {/* {categories.map((item) => {
-            return (
-              <Link
-                to={`/category/${item.name}`}
-                key={item.name}
-                className="catLink"
-              >
-                <CategoryCard item={item} />
-              </Link>
-            );
-          })} */}
+            </div> */}
           </div>
         </div>
-        <br />
+        <div
+          className="row catCardsRow align-items-center justify-content-center"
+          style={{ zIndex: "1" }}
+        >
+          {deals?.map((item) => {
+            return (
+              <div
+                className="offerCard "
+                data-aos="fade-right"
+                data-aos-duration="2000"
+                style={{ zIndex: "99", position: "relative" }}
+              >
+                <Link to={`/deal/${item?._id}`} style={{ zIndex: "1" }}>
+                  <img src={item?.img} alt="Chef Burgers London" />
+                  <div className="discount">-{item?.discountPercentage}%</div>
+                  <div className="info">
+                    <div className="dealTitle">{item?.title}</div>
+                    {/* <div className="title">{item?.description}</div> */}
+                  </div>
+                </Link>
+              </div>
+            );
+          })}
+        </div>
 
         {/* Search Section */}
         <div className="offer-section container">

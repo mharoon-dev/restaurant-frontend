@@ -15,6 +15,7 @@ const SingleProduct = () => {
   const mostSellsProducts = useSelector(
     (state) => state.mostSelles.mostSellsProducts
   );
+
   useEffect(() => {
     console.log("mostSellsProducts", mostSellsProducts);
   }, [mostSellsProducts]);

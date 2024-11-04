@@ -70,6 +70,11 @@ const Navbar = () => {
     0
   );
   const [catSidebar, setCatSidebar] = useState(false);
+  const [rightSidebar, setRightSidebar] = useState(false);
+
+  useEffect(() => {
+    console.log(rightSidebar);
+  }, [rightSidebar]);
 
   useEffect(() => {
     Aos.init();
@@ -93,6 +98,10 @@ const Navbar = () => {
 
   const dropDownDisplay = () => {
     setDropDown(!dropDown);
+  };
+
+  const dropDownDisplay2 = () => {
+    setDropDown2(!dropDown);
   };
 
   const dropDown2Display = () => {
@@ -142,6 +151,22 @@ const Navbar = () => {
     // document.getElementById("mySidenav").style.width = "0";
     // document.getElementsByClassName("overlayDiv").style.display = "none";
     setCatSidebar(false);
+    setDropDown2(false);
+    setDropDown(false);
+  }
+
+  const handleLogout = () => {
+    localStorage.removeItem("resUserToken");
+  };
+
+  function openRightSidebar() {
+    setRightSidebar(true);
+  }
+
+  function closeRightSidebar() {
+    setRightSidebar(false);
+    setDropDown2(false);
+    setDropDown(false);
   }
 
   const filteredCategories = categories?.filter((category) =>
@@ -150,6 +175,7 @@ const Navbar = () => {
 
   return (
     <>
+      {/* user dropDown 1  */}
       <div
         className="dropDown1"
         style={{ display: dropDown ? "block" : "none" }}
@@ -160,13 +186,29 @@ const Navbar = () => {
               Profile
             </Link>
           </li>
-          <li>
-            <Link className="dropdown-item" to="/logout">
-              Logout
-            </Link>
+          <li onClick={handleLogout}>
+            <Link className="dropdown-item">Logout</Link>
           </li>
         </ul>
       </div>
+
+      {/* user dropDown 2*/}
+      <div
+        className="dropDown2"
+        style={{ display: dropDown2 ? "block" : "none" }}
+      >
+        <ul>
+          <li>
+            <Link className="dropdown-item" to="/userProfile">
+              Profile
+            </Link>
+          </li>
+          <li onClick={handleLogout}>
+            <Link className="dropdown-item">Logout</Link>
+          </li>
+        </ul>
+      </div>
+
       <div className="container-fluid header-container p-0">
         {cartBox && (
           <>
@@ -273,6 +315,7 @@ const Navbar = () => {
         </div>
       </div>
 
+      {/* main navbar */}
       <nav
         className="navbar navbarContainer"
         style={{ backgroundColor: "#fff" }}
@@ -318,44 +361,6 @@ const Navbar = () => {
                 >
                   Menu
                 </span>
-                <div
-                  className={`dropdown-menu w-100 mt-0 ${
-                    dropdown ? "show" : ""
-                  }`}
-                  aria-labelledby="navbarDropdown"
-                  style={{
-                    borderTopLeftRadius: 0,
-                    borderTopRightRadius: 0,
-                    left: 0,
-                    top: "90%",
-                    zIndex: "999 !important",
-                  }}
-                >
-                  <div className="container">
-                    <div className="row my-4">
-                      <div className="col-lg-6 col-xl-4">
-                        <div className="list-group list-group-flush">
-                          {filteredCategories?.slice(0, 6).map((item) => (
-                            <Link
-                              key={item?._id}
-                              to={`/category/${item?.name}`}
-                              style={{ textDecoration: "none", color: "black" }}
-                            >
-                              <span className="list-group-item list-group-item-action p-4">
-                                <img
-                                  src={item?.img}
-                                  width={50}
-                                  alt={item?.name}
-                                />
-                                &nbsp; {item?.name}
-                              </span>
-                            </Link>
-                          ))}
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
               </li>
               <li
                 className={`ms-5 ${isActive("/faqs") ? "activeLi" : ""}`}
@@ -399,148 +404,10 @@ const Navbar = () => {
           <button
             className="hamburger"
             type="button"
-            data-bs-toggle="offcanvas"
-            data-bs-target="#offcanvasNavbar"
-            aria-controls="offcanvasNavbar"
-            aria-label="Toggle navigation"
+            onClick={() => openRightSidebar()}
           >
             <MenuIcon style={{ fontSize: "55px" }} />
           </button>
-          <div
-            style={{ zIndex: "9999999 !important" }}
-            className="offcanvas offcanvas-end"
-            id="offcanvasNavbar"
-            aria-labelledby="offcanvasNavbarLabel"
-          >
-            <div className="offcanvas-header">
-              <h5 className="offcanvas-title" id="offcanvasNavbarLabel">
-                <img
-                  src="https://foodic-store-demo.myshopify.com/cdn/shop/files/logo.png?v=1658832482"
-                  width="100px"
-                  alt="Shop Logo"
-                />
-              </h5>
-              <button
-                type="button"
-                className="btn-close"
-                data-bs-dismiss="offcanvas"
-                aria-label="Close"
-              ></button>
-            </div>
-            <div className="offcanvas-body">
-              <ul className="navbar-nav justify-content-end">
-                <li
-                  style={{
-                    fontWeight: "500",
-                    color: isActive("/") && "var(--white-color)",
-                  }}
-                  className={`nav-item p-2 text-center  ${
-                    isActive("/") ? "activeLi" : ""
-                  }`}
-                >
-                  <Link
-                    to="/"
-                    style={{ textDecoration: "none", color: "inherit" }}
-                  >
-                    Home
-                  </Link>
-                </li>
-                <li
-                  style={{ fontWeight: "500" }}
-                  className={`nav-item p-2 text-center ${
-                    isCategoryActive ? "activeLi" : ""
-                  }`}
-                >
-                  <span
-                    className="text-center"
-                    id="navbarDropdown"
-                    role="button"
-                    onClick={handleDropdownToggle2}
-                  >
-                    Menu
-                  </span>
-                  <div
-                    className="container"
-                    style={{ display: dropdown2 ? "block" : "none" }}
-                  >
-                    <div className="row my-4">
-                      <div className="col-md-6 col-xl-4">
-                        <div className="list-group list-group-flush">
-                          {filteredCategories?.slice(0, 6).map((item) => (
-                            <Link
-                              key={item?._id}
-                              to={`/category/${item?.name}`}
-                              style={{ textDecoration: "none", color: "black" }}
-                            >
-                              <span className="list-group-item list-group-item-action p-4">
-                                <img
-                                  src={item?.img}
-                                  width={50}
-                                  alt={item?.name}
-                                />
-                                &nbsp;{item?.name}
-                              </span>
-                            </Link>
-                          ))}
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </li>
-                <li
-                  style={{
-                    fontWeight: "500",
-                    color: isActive("/faqs") && "var(--white-color)",
-                  }}
-                  className={`nav-item p-2 text-center  ${
-                    isActive("/faqs") ? "activeLi" : ""
-                  }`}
-                >
-                  <span className="text-center">
-                    <Link
-                      to={"/faqs"}
-                      style={{ textDecoration: "none", color: "inherit" }}
-                    >
-                      FAQS
-                    </Link>
-                  </span>
-                </li>
-              </ul>
-              <form
-                className="d-flex justify-content-center align-items-center"
-                role="search"
-              >
-                <li
-                  className="ms-xl-5 rightBtn py-3"
-                  style={{
-                    listStyle: "none",
-                    fontSize: "20px",
-                    fontWeight: "600",
-                  }}
-                >
-                  {!user ? (
-                    <Link to="/login" className="authBtn">
-                      <img
-                        src="/assets/icons/user-icon.png"
-                        width={50}
-                        alt="Login Icon"
-                      />
-                      Login/Signup
-                    </Link>
-                  ) : (
-                    <img
-                      src={
-                        user?.img ||
-                        "https://cdn-icons-png.flaticon.com/512/3135/3135715.png"
-                      }
-                      style={{ width: "55px", borderRadius: "50%" }}
-                      alt="User Profile"
-                    />
-                  )}
-                </li>
-              </form>
-            </div>
-          </div>
         </div>
       </nav>
 
@@ -574,8 +441,8 @@ const Navbar = () => {
         </Box>
       </Modal>
 
-      <div className={` ${catSidebar ? "overlay" : ""}`}></div>
-
+      {/* left sidebar */}
+      <div className={` ${catSidebar || rightSidebar ? "overlay" : ""}`}></div>
       <div
         id="mySidenav"
         style={{ width: catSidebar ? "450px" : "0" }}
@@ -608,10 +475,16 @@ const Navbar = () => {
           ? filteredCategories?.map((item) => (
               <Link
                 key={item?._id}
-                to={`/category/${item?.name}`}
+                to={`/category/${item?.name.split(" ").join("-")}`}
                 style={{ textDecoration: "none", color: "inherit" }}
               >
-                <span className="list-group-item list-group-item-action p-4">
+                <span
+                  className={` list-group-item list-group-item-action p-4 ${
+                    isActive("/category/" + item?.name.split(" ").join("-"))
+                      ? "activeLeftSidebar"
+                      : ""
+                  }`}
+                >
                   <img src={item?.img} width={50} alt={item?.name} />
                   &nbsp;{item?.name}
                 </span>
@@ -619,6 +492,141 @@ const Navbar = () => {
             ))
           : "No categories found"}
       </div>
+
+      {/* right dropDown */}
+      {rightSidebar && (
+        <div
+          id="mySidenav"
+          style={{ width: setRightSidebar ? "300px" : "0" }}
+          className="sidenav2"
+        >
+          <div className="container-fluid mb-5">
+            <div className="row">
+              <div className="col-12 d-flex justify-content-between align-items-center">
+                <img src="/assets/logo.png" width={100} alt="" />
+                <a className="closebtn" onClick={closeRightSidebar}>
+                  &times;
+                </a>
+              </div>
+            </div>
+          </div>
+          <div className="offcanvas-body">
+            <ul className="navbar-nav justify-content-end ">
+              <li
+                style={{
+                  fontWeight: "500",
+                  color: isActive("/") && "var(--white-color)",
+                }}
+                className={`nav-item p-2 text-center  ${
+                  isActive("/") ? "activeLi" : ""
+                }`}
+              >
+                <Link
+                  to="/"
+                  style={{ textDecoration: "none", color: "inherit" }}
+                >
+                  Home
+                </Link>
+              </li>
+              <li
+                style={{ fontWeight: "500" }}
+                className={`nav-item p-2 text-center ${
+                  isCategoryActive ? "activeLi" : ""
+                }`}
+              >
+                <span
+                  className="text-center"
+                  id="navbarDropdown"
+                  role="button"
+                  onClick={handleDropdownToggle2}
+                >
+                  Menu
+                </span>
+                <div
+                  className="container"
+                  style={{ display: dropdown2 ? "block" : "none" }}
+                >
+                  <div className="row my-4">
+                    <div className="col-xl-4">
+                      <div className="list-group list-group-flush">
+                        {filteredCategories?.slice(0, 6).map((item) => (
+                          <Link
+                            key={item?._id}
+                            to={`/category/${item?.name}`}
+                            style={{ textDecoration: "none", color: "black" }}
+                          >
+                            <span className="list-group-item list-group-item-action p-4">
+                              <img
+                                src={item?.img}
+                                width={50}
+                                alt={item?.name}
+                              />
+                              &nbsp;{item?.name}
+                            </span>
+                          </Link>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </li>
+              <li
+                style={{
+                  fontWeight: "500",
+                  color: isActive("/faqs") && "var(--white-color)",
+                }}
+                className={`nav-item p-2 text-center  ${
+                  isActive("/faqs") ? "activeLi" : ""
+                }`}
+              >
+                <span className="text-center">
+                  <Link
+                    to={"/faqs"}
+                    style={{ textDecoration: "none", color: "inherit" }}
+                  >
+                    FAQS
+                  </Link>
+                </span>
+              </li>
+              <br />
+            </ul>
+            <form
+              className="d-flex justify-content-center align-items-center"
+              role="search"
+            >
+              <li
+                className="ms-xl-5 rightBtn"
+                style={{
+                  listStyle: "none",
+                  fontSize: "20px",
+                  fontWeight: "600",
+                }}
+              >
+                {!user ? (
+                  <Link to="/login" className="authBtn">
+                    <img
+                      src="/assets/icons/user-icon.png"
+                      width={50}
+                      alt="Login Icon"
+                    />
+                    Login/Signup
+                  </Link>
+                ) : (
+                  <img
+                    onClick={() => dropDownDisplay2()}
+                    src={
+                      user?.img ||
+                      "https://cdn-icons-png.flaticon.com/512/3135/3135715.png"
+                    }
+                    style={{ width: "55px", borderRadius: "50%" }}
+                    alt="User Profile"
+                  />
+                )}
+              </li>
+            </form>
+          </div>
+        </div>
+      )}
     </>
   );
 };

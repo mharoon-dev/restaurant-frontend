@@ -29,7 +29,13 @@
   background-color: var(--main-color) !important;
   color: var(--white-color) !important;
   border-radius: 30px;
-  text-align: center;
+}
+
+.activeLeftSidebar {
+  background-color: var(--main-color) !important;
+  color: var(--white-color) !important;
+  border-radius: 30px;
+  text-align: left;
 }
 
 .hamburger {
@@ -50,7 +56,7 @@
   font-weight: 700 !important;
   font-size: 20px !important;
   border-radius: 25px;
-  padding: 3px  15px;
+  padding: 3px 15px;
 }
 
 .sidebarSearchInput:focus {
@@ -272,6 +278,19 @@
   padding: 10px 20px;
 }
 
+.dropDown2 {
+  background-color: white;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.8);
+  border-radius: 4px;
+  overflow: hidden;
+  z-index: 1000 !important;
+  position: absolute;
+  top: 265px;
+  right: 8%;
+  z-index: 1000;
+  padding: 10px 20px;
+}
+
 .dropdownItem {
   border-bottom: 1px solid #ccc;
 }
@@ -283,16 +302,28 @@
 }
 
 @media (max-width: 768px) {
-  /* .cartBox {
-    right: 240px;
-    width: 100%;
-    left: 120px;
-  } */
+  .dropDown2 {
+    right: 10% !important;
+  }
 }
 
 @media (max-width: 576px) {
   #cartBoxNav {
     width: 85% !important;
+  }
+  .dropDown2 {
+    right: 19% !important;
+  }
+}
+
+@media (max-width: 420px) {
+  .dropDown2 {
+    right: 22% !important;
+  }
+}
+@media (max-width: 325px) {
+  .dropDown2 {
+    right: 25% !important;
   }
 }
 
@@ -316,6 +347,25 @@
   padding-top: 60px;
 }
 
+.sidenav2 {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 999;
+  top: 0;
+  right: 0;
+  background-color: var(--white-color) !important;
+  color: var(--black-color) !important;
+  /* backdrop-filter: blur(10px) !important; */
+  box-shadow: 1px 4px 19px 0px rgba(0, 0, 0, 0.37);
+  -webkit-box-shadow: 1px 4px 19px 0px rgba(0, 0, 0, 0.37);
+  -moz-box-shadow: 1px 4px 19px 0px rgba(0, 0, 0, 0.37);
+  overflow-y: auto;
+  overflow-x: hidden;
+  transition: 0.5s;
+  padding-top: 20px;
+}
+
 .sidebarSearchInput > input,
 span {
   background-color: transparent !important;
@@ -332,6 +382,17 @@ input::placeholder {
 }
 
 .sidenav .closebtn {
+  color: var(--black-color) !important;
+  text-decoration: none !important;
+  position: absolute;
+  top: 0;
+  right: 25px;
+  cursor: pointer;
+  font-size: 50px;
+  margin-left: 50px;
+}
+
+.sidenav2 .closebtn {
   color: var(--black-color) !important;
   text-decoration: none !important;
   position: absolute;
