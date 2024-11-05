@@ -323,12 +323,21 @@
 
 /* // offer card */
 .offerCard {
-  max-width: 530px !important;
-  margin: 0 !important;
+  max-width: 500px !important;
+  padding: 0 !important;
+  margin: 15px;
   position: relative;
   border-radius: 10px !important;
   overflow: hidden;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease-in-out !important;
+}
+
+.offerCard:hover {
+  scale: 1.05;
+  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.4);
+  -webkit-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.4);
+  -moz-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.4);
 }
 
 .offerCard img {
@@ -348,8 +357,6 @@
   font-size: 16px;
   color: var(--main-color);
 }
-
-
 
 .offerCard .info .title {
   font-size: 16px;
@@ -463,6 +470,17 @@
 
 .menu-item:hover {
   background-color: var(--white-color);
+}
+
+.menuItemHover {
+  transition: all 0.3s ease-in-out;
+}
+
+.menuItemHover:hover {
+  scale: 1.05 !important;
+  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.4) !important;
+  -webkit-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.4) !important;
+  -moz-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.4) !important;
 }
 
 .menu-item.active {

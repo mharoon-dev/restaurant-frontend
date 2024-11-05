@@ -233,7 +233,7 @@ const UserProfile = () => {
                             />
                             <p>Product: {product.title}</p>
                             <p>Quantity: {product.quantity}</p>
-                            <p>Category: {product.categories.join(", ")}</p>
+                            <p>Category: {product?.categories?.join(", ")}</p>
                             <p>Size: {product.selectedVariation?.size}</p>
                             <p>Price: ${product?.selectedVariation?.price}</p>
                           </div>

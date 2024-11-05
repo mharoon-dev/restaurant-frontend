@@ -638,6 +638,15 @@ input[type="text"] {
   margin-left: 10px;
 }
 
+.minusBtn {
+  background-color: transparent;
+  border: none;
+  color: red;
+  font-size: 16px;
+  cursor: pointer;
+  margin-left: 10px;
+}
+
 @media (max-width: 1440px) {
   .nav-logo {
     margin-left: 0px;

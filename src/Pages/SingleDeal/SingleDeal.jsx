@@ -45,6 +45,7 @@ const SingleDeal = () => {
 
     // Dispatch addCartSuccess with the deal data
     dispatch(addCartSuccess(cartItem));
+    alert("Added to cart");
   };
 
   return (
@@ -53,6 +54,10 @@ const SingleDeal = () => {
       <br />
       <br />
       <br />
+      <br />
+      <br />
+      <br />
+      
       <div className="singleDealContainer">
         <div className="singleDeal-image">
           <img src={deal?.img} alt={deal?.title} />
@@ -66,15 +71,21 @@ const SingleDeal = () => {
             <ul>
               {deal?.productsIncluded.map((product) => (
                 <li key={product._id}>
-                  {product.selectedVariation.size} - GBP {product.selectedVariation.price}
+                  {product.selectedVariation.size} - GBP{" "}
+                  {product.selectedVariation.price}
                 </li>
               ))}
             </ul>
           </div>
           <div className="deal-duration">
             <p>Available on: {deal?.daysOfWeek.join(", ")}</p>
-            <p>From: {new Date(deal?.startDate).toLocaleDateString()} to {new Date(deal?.endDate).toLocaleDateString()}</p>
-            <p>Time: {deal?.startTime} - {deal?.endTime}</p>
+            <p>
+              From: {new Date(deal?.startDate).toLocaleDateString()} to{" "}
+              {new Date(deal?.endDate).toLocaleDateString()}
+            </p>
+            <p>
+              Time: {deal?.startTime} - {deal?.endTime}
+            </p>
           </div>
           <br />
           {/* Quantity input field */}

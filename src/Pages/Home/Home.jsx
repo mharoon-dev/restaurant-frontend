@@ -123,7 +123,14 @@ const Home = ({ offersCard }) => {
   return (
     <>
       <Navbar />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <div className="mt-2">
       <Slider />
+      </div>
       <br />
 
       <div className="container-fluid position-relative ">

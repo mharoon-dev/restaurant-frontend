@@ -141,3 +141,15 @@
   justify-content: center;
   background-color: var(--white-color);
 }
+
+.itemCard {
+  transition: all 0.3s ease !important;
+  margin: 15px !important;
+}
+
+.itemCard:hover {
+  scale: 1.05 !important;
+  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.4) !important;
+  -webkit-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.4) !important;
+  -moz-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.4) !important;
+}

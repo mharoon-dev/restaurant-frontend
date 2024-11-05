@@ -19,7 +19,7 @@ const Card = ({ category, imgSize, item }) => {
   }, [category]);
 
   return (
-    <div className={`meal-card mb-3 p-0 ${flipped ? "flip" : ""}`}>
+    <div className={`meal-card mb-3 p-0 itemCard ${flipped ? "flip" : ""}`}>
       <div className="meal-card-inner">
         <div className="meal-card-front">
           <div className="meal-image">

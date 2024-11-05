@@ -6,6 +6,11 @@ export default function Privacy() {
   return (
     <>
       <Navbar />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
       <Banner img="/assets/privacy/banner.avif" text="Privacy Policy" />
 
       <div className="container">

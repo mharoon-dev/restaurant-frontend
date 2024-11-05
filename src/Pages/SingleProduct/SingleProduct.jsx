@@ -70,11 +70,16 @@ const SingleProduct = () => {
 
     // Dispatch addCartSuccess with the product data
     dispatch(addCartSuccess(cartItem));
+    alert("Added to cart");
   };
 
   return (
     <>
       <Navbar />
+      <br />
+      <br />
+      <br />
+      <br />
       <br />
       <br />
       <br />
@@ -100,10 +105,25 @@ const SingleProduct = () => {
                       ? "var(--white-color) !important"
                       : "var(--black-color) !important",
                 }}
-                className={`size large `} // Apply selected class only to the selected variation
+                className={`size large text-left `} // Apply selected class only to the selected variation
                 onClick={() => handleVariationChange(variation)} // Set the variation on button click
               >
-                {variation?.size} <span>GBP {variation?.price}</span>
+                {variation?.size}{" "}
+                <span
+                  style={{
+                    border: "2px solid var(--secondary-color) !important",
+                    backgroundColor:
+                      selectedVariation?._id === variation._id
+                        ? "var(--black-color) !important"
+                        : "var(--white-color) !important",
+                    color:
+                      selectedVariation?._id === variation._id
+                        ? "var(--white-color) !important"
+                        : "var(--black-color) !important",
+                  }}
+                >
+                  GBP {variation?.price}
+                </span>
               </button>
             ))}
           </div>

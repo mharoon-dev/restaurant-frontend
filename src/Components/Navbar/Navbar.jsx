@@ -220,7 +220,7 @@ const Navbar = () => {
             <div
               id="cartBoxNav"
               className="col-lg-3 d-flex justify-content-end col-12 p-3 pe-0 pt-0 pb-0 my-0 cartBox"
-              style={{ height: "100vh", zIndex: "100" }}
+              style={{ height: "100vh" }}
               data-aos="fade-left"
               data-aos-duration="300"
               ref={cartBoxRef}
@@ -283,7 +283,7 @@ const Navbar = () => {
             </div>
           </>
         )}
-        <div className="container-fluid d-flex justify-content-md-around justify-content-center align-items-center">
+        {/* <div className="container-fluid d-flex justify-content-md-around justify-content-center align-items-center">
           <div className="promo-section" data-aos="zoom-in">
             <span className="promo-text">🌟 Get 5% Off your first order, </span>
             <span className="promo-code">
@@ -291,28 +291,8 @@ const Navbar = () => {
             </span>
           </div>
 
-          <div className="cart-section p-0 m-0" data-aos="fade-down">
-            <div className="cart-icon p-3 h-100 m-0">
-              <Link to="/cart">
-                <img src="/assets/icons/ShoppingBasket.png" width={30} />
-              </Link>
-            </div>
-            <div className="cart-details p-3 h-100 m-0">
-              <span className="cart-total">{cart?.length} items</span>
-            </div>
-            <div className="cart-details p-3 h-100 m-0">
-              <span className="cart-total">GBP {totalAmount.toFixed(2)}</span>
-            </div>
-            <div
-              className="cart-icon p-3 h-100 m-0"
-              onClick={() => setCartBox((prev) => !prev)}
-            >
-              <span>
-                <img src="/assets/icons/ForwardButton.png" width={30} />
-              </span>
-            </div>
-          </div>
-        </div>
+          
+        </div> */}
       </div>
 
       {/* main navbar */}
@@ -328,7 +308,7 @@ const Navbar = () => {
             <img className="ms-4" src={logo} width="150px" alt="" />
           </Link>
           <div className="nav-ul">
-            <ul className="nav-ul justify-content-end d-flex flex-grow-1 pe-3">
+            <ul className="nav-ul justify-content-end d-flex flex-grow-1 pe-0">
               <li
                 className={`ms-5 ${isActive("/") ? "activeLi" : ""}`}
                 style={{
@@ -375,10 +355,34 @@ const Navbar = () => {
                 </Link>
               </li>
             </ul>
+          </div>
+          <div className="nav-ul">
+            <li>
+              <div className="cart-section p-0 m-0" data-aos="fade-down">
+            <div className="cart-icon p-3 h-100 m-0">
+              <img src="/assets/icons/ShoppingBasket.png" width={30} />
+            </div>
+            <div className="cart-details p-3 h-100 m-0">
+              <span className="cart-total">{cart?.length} items</span>
+            </div>
+            <div className="cart-details p-3 h-100 m-0">
+              <span className="cart-total">GBP {totalAmount.toFixed(2)}</span>
+            </div>
+            <div
+              className="cart-icon p-3 h-100 m-0"
+              onClick={() => setCartBox((prev) => !prev)}
+            >
+              <span style={{ cursor: "pointer" }}>
+                <img src="/assets/icons/ForwardButton.png" width={30} />
+              </span>
+            </div>
+          </div>
+            </li>
             <li
               className="ms-xl-5 rightBtn"
               style={{ listStyle: "none", fontSize: "20px", fontWeight: "600" }}
             >
+              
               {!user ? (
                 <Link to="/login" className="authBtn">
                   <img

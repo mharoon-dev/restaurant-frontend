@@ -7,6 +7,11 @@ export const Terms = () => {
   return (
     <>
       <Navbar />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
       <Banner
         img="https://img.freepik.com/premium-photo/woman-is-holding-plate-food-possibly-salad-is-wearing-apron_957244-19884.jpg?w=1380"
         text="Terms and Conditions"

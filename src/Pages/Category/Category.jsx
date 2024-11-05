@@ -72,6 +72,12 @@ const Category = ({ offersCard }) => {
   return (
     <>
       <Navbar />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
 
       <div className="container-fluid position-relative ">
         <div className="row">

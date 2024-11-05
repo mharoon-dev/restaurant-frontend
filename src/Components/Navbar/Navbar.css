@@ -1,10 +1,13 @@
 .navbarContainer {
   border: none !important;
-  /* border-top: 1px solid #eaeaea !important; */
-  box-shadow: 0px 4px 3px 0px rgba(0, 0, 0, 0.26);
-  -webkit-box-shadow: 0px 4px 3px 0px rgba(0, 0, 0, 0.26);
-  -moz-box-shadow: 0px 4px 3px 0px rgba(0, 0, 0, 0.26);
-  position: sticky !important;
+  position: fixed !important;
+  top: 0 !important;
+  z-index: 99999999 !important;
+  width: 100% !important;
+  background-color: #fff !important;
+  box-shadow: 0px 2px 6px 0px rgba(0, 0, 0, 0.55);
+  -webkit-box-shadow: 0px 2px 6px 0px rgba(0, 0, 0, 0.55);
+  -moz-box-shadow: 0px 2px 6px 0px rgba(0, 0, 0, 0.55);
 }
 
 .nav-logo {
@@ -285,10 +288,14 @@
   overflow: hidden;
   z-index: 1000 !important;
   position: absolute;
-  top: 265px;
+  top: 285px;
   right: 8%;
   z-index: 1000;
   padding: 10px 20px;
+}
+
+#cartBoxNav {
+  z-index: 1000 !important;
 }
 
 .dropdownItem {

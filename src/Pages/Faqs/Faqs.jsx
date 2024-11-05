@@ -30,6 +30,11 @@ export default function Faqs() {
   return (
     <>
       <Navbar />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
       <Banner
         img="https://www.shutterstock.com/image-illustration/question-mark-front-color-wall-260nw-1706677192.jpg"
         text="FAQS"

@@ -8,6 +8,7 @@ import { useSelector, useDispatch } from "react-redux";
 import Aos from "aos";
 import "aos/dist/aos.css";
 import {
+  deleteCartSuccess,
   reset,
   updateCartFailure,
   updateCartStart,
@@ -242,6 +243,12 @@ const Cart = () => {
   return (
     <>
       <Navbar />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
 
       {cart && cart?.length > 0 ? (
         <div className="container-fluid">
@@ -282,12 +289,12 @@ const Cart = () => {
                         </button>
                       </>
                     )}
-                    {/* <button
-                      onClick={() => dispatch(removeFromCart(item))}
-                      className="remove-button"
+                    <button
+                      className="minusBtn"
+                      onClick={() => dispatch(deleteCartSuccess(item._id))}
                     >
                       Remove
-                    </button> */}
+                    </button>
                   </div>
                   <div className="product-image">
                     <img src={item?.img} alt="Pizza" />

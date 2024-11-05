@@ -7,6 +7,11 @@ export const DeliveryPolicy = () => {
   return (
     <>
       <Navbar />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
       <Banner
         img="
         https://www.shutterstock.com/image-vector/banner-design-smartphone-food-delivery-260nw-2240547755.jpg
