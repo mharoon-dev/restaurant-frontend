@@ -396,7 +396,7 @@
   border: none;
   border-radius: 5px;
   cursor: pointer;
-  margin-right: 130px !important;
+  margin-right: 50px !important;
   transition: all 0.3s ease-in-out;
 }
 
@@ -540,6 +540,10 @@
     display: inline-flex;
     flex: 0 0 auto;
     margin-right: 15px;
+  }
+
+  .deal-section {
+    padding-right: 0 !important;
   }
 }
 

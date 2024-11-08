@@ -175,23 +175,6 @@ const Navbar = () => {
 
   return (
     <>
-      {/* user dropDown 1  */}
-      <div
-        className="dropDown1"
-        style={{ display: dropDown ? "block" : "none" }}
-      >
-        <ul>
-          <li>
-            <Link className="dropdown-item" to="/userProfile">
-              Profile
-            </Link>
-          </li>
-          <li onClick={handleLogout}>
-            <Link className="dropdown-item">Logout</Link>
-          </li>
-        </ul>
-      </div>
-
       {/* user dropDown 2*/}
       <div
         className="dropDown2"
@@ -359,49 +342,78 @@ const Navbar = () => {
           <div className="nav-ul">
             <li>
               <div className="cart-section p-0 m-0" data-aos="fade-down">
-            <div className="cart-icon p-3 h-100 m-0">
-              <img src="/assets/icons/ShoppingBasket.png" width={30} />
-            </div>
-            <div className="cart-details p-3 h-100 m-0">
-              <span className="cart-total">{cart?.length} items</span>
-            </div>
-            <div className="cart-details p-3 h-100 m-0">
-              <span className="cart-total">GBP {totalAmount.toFixed(2)}</span>
-            </div>
-            <div
-              className="cart-icon p-3 h-100 m-0"
-              onClick={() => setCartBox((prev) => !prev)}
-            >
-              <span style={{ cursor: "pointer" }}>
-                <img src="/assets/icons/ForwardButton.png" width={30} />
-              </span>
-            </div>
-          </div>
+                <div className="cart-icon p-3 h-100 m-0">
+                  <img src="/assets/icons/ShoppingBasket.png" width={30} />
+                </div>
+                <div className="cart-details p-3 h-100 m-0">
+                  <span className="cart-total">{cart?.length} items</span>
+                </div>
+                <div className="cart-details p-3 h-100 m-0">
+                  <span className="cart-total">
+                    GBP {totalAmount.toFixed(2)}
+                  </span>
+                </div>
+                <div
+                  className="cart-icon p-3 h-100 m-0"
+                  onClick={() => setCartBox((prev) => !prev)}
+                >
+                  <span style={{ cursor: "pointer" }}>
+                    <img src="/assets/icons/ForwardButton.png" width={30} />
+                  </span>
+                </div>
+              </div>
             </li>
             <li
               className="ms-xl-5 rightBtn"
               style={{ listStyle: "none", fontSize: "20px", fontWeight: "600" }}
             >
-              
               {!user ? (
-                <Link to="/login" className="authBtn">
-                  <img
-                    src="/assets/icons/user-icon.png"
-                    width={50}
-                    alt="Login Icon"
-                  />
-                  Login/Signup
-                </Link>
+                // <Link to="/login" className="authBtn">
+                //   <img
+                //     src="/assets/icons/user-icon.png"
+                //     width={50}
+                //     alt="Login Icon"
+                //   />
+                //   Login/Signup
+                // </Link>
+                <>
+                  <Link to="/login">
+                    <img
+                      src="/assets/icons/loginIcon.png"
+                      width={50}
+                      alt="Login Icon"
+                    />
+                    {/* Login/Signup */}
+                  </Link>
+                </>
               ) : (
-                <img
-                  onClick={() => dropDownDisplay()}
-                  src={
-                    user?.img ||
-                    "https://cdn-icons-png.flaticon.com/512/3135/3135715.png"
-                  }
-                  style={{ width: "55px", borderRadius: "50%" }}
-                  alt="User Profile"
-                />
+                <>
+                  <img
+                    onClick={() => dropDownDisplay()}
+                    src={
+                      user?.img ||
+                      "https://cdn-icons-png.flaticon.com/512/3135/3135715.png"
+                    }
+                    style={{ width: "55px", borderRadius: "50%" }}
+                    alt="User Profile"
+                  />
+
+                  <div
+                    className="dropDown1"
+                    style={{ display: dropDown ? "block" : "none" }}
+                  >
+                    <ul>
+                      <li>
+                        <Link className="dropdown-item" to="/userProfile">
+                          Profile
+                        </Link>
+                      </li>
+                      <li onClick={handleLogout}>
+                        <Link className="dropdown-item">Logout</Link>
+                      </li>
+                    </ul>
+                  </div>
+                </>
               )}
             </li>
           </div>
@@ -607,14 +619,24 @@ const Navbar = () => {
                 }}
               >
                 {!user ? (
-                  <Link to="/login" className="authBtn">
-                    <img
-                      src="/assets/icons/user-icon.png"
-                      width={50}
-                      alt="Login Icon"
-                    />
-                    Login/Signup
-                  </Link>
+                  // <Link to="/login" className="authBtn">
+                  //   <img
+                  //     src="/assets/icons/user-icon.png"
+                  //     width={50}
+                  //     alt="Login Icon"
+                  //   />
+                  //   Login/Signup
+                  // </Link>
+                  <>
+                    <Link to="/login">
+                      <img
+                        src="/assets/icons/loginIcon.png"
+                        width={50}
+                        alt="Login Icon"
+                      />
+                      {/* Login/Signup */}
+                    </Link>
+                  </>
                 ) : (
                   <img
                     onClick={() => dropDownDisplay2()}

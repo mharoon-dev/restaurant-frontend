@@ -33,83 +33,71 @@ export const DeliveryPolicy = () => {
           </div>
           <div className="col-12">
             <p className="deliveryPolicyP">
-              This website is operated by Namaste Village Norwich Limited .
-              Throughout the site, the deliveryPolicy “we”, “us” and “our” refer
-              to Namaste Village Norwich Limited . Namaste Village Norwich
-              Limited offers this website, including all information, tools and
-              services available from this site to you, the user, conditioned
-              upon your acceptance of all deliveryPolicy, conditions, policies
-              and notices stated here. The following information applies to all
-              our restaurants and ventures at all locations in the UK.
+              DishDelight is proudly operated by DishDelight Limited. Throughout
+              our website, the terms “we,” “us,” and “our” refer to DishDelight
+              Limited. We provide a comprehensive platform, offering a range of
+              food delivery services, tools, and information to you, the user,
+              conditioned upon your acceptance of all delivery policies,
+              conditions, and notices stated herein.
             </p>
           </div>
           <div className="col-12">
             <p className="deliveryPolicyP">
-              By visiting our site and/ or purchasing something from us, you
-              engage in our “Service” and agree to be bound by the following
-              deliveryPolicy and conditions (“deliveryPolicy of Service”,
-              “deliveryPolicy”), including those additional deliveryPolicy and
-              conditions and policies referenced herein and/or available by
-              hyperlink. These deliveryPolicy of Service apply to all users of
-              the site, including without limitation users who are browsers,
-              vendors, customers, merchants, and/ or contributors of content.
+              By visiting our site and/or placing an order with us, you engage
+              in our “Service” and agree to be bound by these delivery policies
+              and conditions (“Delivery Policy of Service,” “Delivery Policy”).
+              This policy applies to all users of the site, including browsers,
+              vendors, customers, and contributors.
             </p>
           </div>
           <div className="col-12">
             <p className="deliveryPolicyP">
-              Please read these deliveryPolicy of Service carefully before
-              accessing or using our website. By accessing or using any part of
-              the site, you agree to be bound by these deliveryPolicy of
-              Service. If you do not agree to all the deliveryPolicy and
-              conditions of this agreement, then you may not access the website
-              or use any services. If these deliveryPolicy of Service are
-              considered an offer, acceptance is expressly limited to these
-              deliveryPolicy of Service.
+              Please read these Delivery Policies carefully before accessing or
+              using our website. By using any part of the site, you agree to
+              comply with these policies. If you do not agree to all policies
+              and conditions, you may not access the website or utilize our
+              services. Any new features or tools added to our platform will
+              also be subject to these Delivery Policies. You can review the
+              most current version at any time on this page. We reserve the
+              right to update, change, or replace any part of these policies by
+              posting updates on our website. It is your responsibility to check
+              this page periodically for changes, and your continued use of the
+              website following changes constitutes acceptance of those updates.
             </p>
           </div>
           <div className="col-12">
             <p className="deliveryPolicyP">
-              Any new features or tools which are added to the current store
-              shall also be subject to the deliveryPolicy of Service. You can
-              review the most current version of the deliveryPolicy of Service
-              at any time on this page. We reserve the right to update, change
-              or replace any part of these deliveryPolicy of Service by posting
-              updates and/or changes to our website. It is your responsibility
-              to check this page periodically for changes. Your continued use of
-              or access to the website following the posting of any changes
-              constitutes acceptance of those changes.
+              Our website is expertly designed and developed by CodeFusion
+              Solutions, enabling us to deliver exceptional food delivery
+              experiences.
             </p>
           </div>
           <div className="col-12">
             <p className="deliveryPolicyP">
-              Our store is hosted on Shopify Inc. They provide us with the
-              online e-commerce platform that allows us to sell our products and
-              services to you.
+              By agreeing to these Delivery Policies, you affirm that you are of
+              legal age in your jurisdiction or have consent from a parent or
+              guardian for minors using this site.
             </p>
           </div>
           <div className="col-12">
             <p className="deliveryPolicyP">
-              By agreeing to these deliveryPolicy of Service, you represent that
-              you are at least the age of majority in your state or province of
-              residence, or that you are the age of majority in your state or
-              province of residence and you have given us your consent to allow
-              any of your minor dependents to use this site.
+              You may not use our services for any illegal or unauthorized
+              purposes, nor may you violate any laws in your jurisdiction,
+              including copyright laws.
             </p>
           </div>
           <div className="col-12">
             <p className="deliveryPolicyP">
-              You may not use our products for any illegal or unauthorized
-              purpose nor may you, in the use of the Service, violate any laws
-              in your jurisdiction (including but not limited to copyright
-              laws).
+              You must not transmit any harmful code or viruses.
             </p>
           </div>
           <div className="col-12">
             <p className="deliveryPolicyP">
-              You must not transmit any worms or viruses or any code of a
-              destructive nature.
+              A breach of any policies will result in immediate termination of
+              your Services.
             </p>
           </div>
+
           <div className="col-12">
             <p className="deliveryPolicyP">
               A breach or violation of any of the deliveryPolicy will result in
@@ -117,14 +105,13 @@ export const DeliveryPolicy = () => {
             </p>
           </div>
           <div className="col-12">
-            <p className="deliveryPolicyP">What cookies we use</p>
+            <p className="deliveryPolicySpan">Cookies Policy</p>
           </div>
           <div className="col-12">
             <p className="deliveryPolicyP">
-              We may use cookies (and other technology) to improve the
-              performance of our website and to personalise your experience,
-              including showing you relevant advertising on social media
-              platforms and other advertising platforms (Further detail below.)
+              We utilize cookies and similar technologies to enhance website
+              performance and personalize your experience, including targeted
+              advertising across social media and other platforms.
             </p>
           </div>
           <div className="col-12">
@@ -140,31 +127,28 @@ export const DeliveryPolicy = () => {
           </div>
           <div className="col-12">
             <p className="deliveryPolicyP">
-              You understand that your content (not including credit card
-              information), may be transferred unencrypted and involve (a)
-              transmissions over various networks; and (b) changes to conform
-              and adapt to technical requirements of connecting networks or
-              devices. Credit card information is always encrypted during
-              transfer over networks.
+              You understand that your content (excluding credit card
+              information) may be transferred unencrypted and involve (a)
+              transmissions over various networks; and (b) changes to conform to
+              technical requirements. Credit card information is always
+              encrypted during transfer.
             </p>
           </div>
           <div className="col-12">
-            <p className="deliveryPolicyP">Third party links</p>
+            <p className="deliveryPolicySpan">Third-Party Links</p>
           </div>
           <div className="col-12">
             <p className="deliveryPolicyP">
-              Our website may contain links to other sites and platforms (such
-              as our reservations provider) which are not owned or managed by
-              us, and which have their own privacy policies. (Further detail
-              below.)
+              Our website may contain links to third-party sites and platforms
+              that are not owned or managed by us and have their own privacy
+              policies.
             </p>
           </div>
           <div className="col-12">
             <p className="deliveryPolicyP">
-              You agree not to reproduce, duplicate, copy, sell, resell or
-              exploit any portion of the Service, use of the Service, or access
-              to the Service or any contact on the website through which the
-              service is provided, without express written permission by us.
+              You agree not to reproduce, duplicate, copy, sell, resell, or
+              exploit any portion of the Service without express written
+              permission from us.
             </p>
           </div>
         </div>

@@ -129,9 +129,8 @@ const Home = ({ offersCard }) => {
       <br />
       <br />
       <div className="mt-2">
-      <Slider />
+        <Slider />
       </div>
-      <br />
 
       <div className="container-fluid position-relative ">
         <div className="row">
@@ -140,6 +139,7 @@ const Home = ({ offersCard }) => {
               <h1>
                 Up to -40% <span className="icon">🎉</span> Exclusive deals
               </h1>
+              <br />
             </div>
             {/* <div className="categories" data-aos="fade-left">
               <a href="" className="category">
