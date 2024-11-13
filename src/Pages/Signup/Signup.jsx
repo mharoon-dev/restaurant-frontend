@@ -26,7 +26,14 @@ const Signup = () => {
     }
 
     try {
-      let data = { userName: username, email, contact: cNo, address, password, zipCode };
+      let data = {
+        userName: username,
+        email,
+        contact: cNo,
+        address,
+        password,
+        zipCode,
+      };
       console.log(data, "====>> data");
 
       const response = await api.post("/auth/signup", data);
@@ -43,76 +50,159 @@ const Signup = () => {
     }
   };
   return (
-    <div className="signupContainer">
-      <div className="header">
-        <h1>
-          <span className="s">S</span>ignup
-        </h1>
-      </div>
-      <form onSubmit={handleSubmit}>
+    // <div className="signupContainer">
+    //   <div className="header">
+    //     <h1>
+    //       <span className="s">S</span>ignup
+    //     </h1>
+    //   </div>
+    //   <form onSubmit={handleSubmit}>
 
-        <label htmlFor="username">UserName</label>
-        <input
-          type=""
-          className="inp"
-          name="username"
-          onChange={(e) => setUsername(e.target.value)}
-          required
-        />
-        <label htmlFor="email">Email</label>
-        <input
-          type="email"
-          className="inp"
-          name="email"
-          onChange={(e) => setEmail(e.target.value)}
-          required
-        />
-        <label htmlFor="cNo">Contact Number</label>
-        <input
-          type="tel"
-          className="inp"
-          name="cNo"
-          onChange={(e) => setCNo(e.target.value)}
-          required
-        />
-        <label htmlFor="address">Address</label>
-        <input
-          type="tel"
-          className="inp"
-          name="address"
-          onChange={(e) => setAddress(e.target.value)}
-          required
-        />
-        <label htmlFor="zipCode">Zip Code</label>
-        <input
-          type="tel"
-          className="inp"
-          name="zipCode"
-          onChange={(e) => setZipCode(e.target.value)}
-          required
-        />
+    //     <label htmlFor="username">UserName</label>
+    //     <input
+    //       type=""
+    //       className="inp"
+    //       name="username"
+    //       onChange={(e) => setUsername(e.target.value)}
+    //       required
+    //     />
+    //     <label htmlFor="email">Email</label>
+    //     <input
+    //       type="email"
+    //       className="inp"
+    //       name="email"
+    //       onChange={(e) => setEmail(e.target.value)}
+    //       required
+    //     />
+    //     <label htmlFor="cNo">Contact Number</label>
+    //     <input
+    //       type="tel"
+    //       className="inp"
+    //       name="cNo"
+    //       onChange={(e) => setCNo(e.target.value)}
+    //       required
+    //     />
+    //     <label htmlFor="address">Address</label>
+    //     <input
+    //       type="tel"
+    //       className="inp"
+    //       name="address"
+    //       onChange={(e) => setAddress(e.target.value)}
+    //       required
+    //     />
+    //     <label htmlFor="zipCode">Zip Code</label>
+    //     <input
+    //       type="tel"
+    //       className="inp"
+    //       name="zipCode"
+    //       onChange={(e) => setZipCode(e.target.value)}
+    //       required
+    //     />
 
+    //     <label htmlFor="password">Password</label>
+    //     <input
+    //       type="password"
+    //       className="inp"
+    //       name="password"
+    //       onChange={(e) => setPassword(e.target.value)}
+    //       required
+    //     />
+    //     <button type="submit" id="signupBtn">
+    //       Enter
+    //     </button>
+    //   </form>
+    //   <div className="signup">
+    //     <b>Already have an account?</b>
+    //     <a>
+    //       <Link to="/login" style={{ textDecoration: "none" }}>
+    //         Login
+    //       </Link>{" "}
+    //     </a>
+    //   </div>
+    // </div>
 
-        <label htmlFor="password">Password</label>
-        <input
-          type="password"
-          className="inp"
-          name="password"
-          onChange={(e) => setPassword(e.target.value)}
-          required
-        />
-        <button type="submit" id="signupBtn">
-          Enter
-        </button>
-      </form>
-      <div className="signup">
-        <b>Already have an account?</b>
-        <a>
-          <Link to="/login" style={{ textDecoration: "none" }}>
-            Login
-          </Link>{" "}
-        </a>
-      </div>
+    <div
+      style={{
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+        minHeight: "100vh",
+        width: "100%",
+        padding: "40px 20px",
+      }}
+    >
+      <main className="main">
+        <div className="left-side"></div>
+
+        <div className="right-side">
+          <div className="header">
+            <h1>
+              <img src="/assets/logo.svg" alt="logo" width={200} />
+              {/* <span className="l">L</span>OGIN */}
+            </h1>
+          </div>
+          <form onSubmit={handleSubmit}>
+            <label htmlFor="username">UserName</label>
+            <input
+              type=""
+              className="inp"
+              name="username"
+              onChange={(e) => setUsername(e.target.value)}
+              required
+            />
+            <label htmlFor="email">Email</label>
+            <input
+              type="email"
+              className="inp"
+              name="email"
+              onChange={(e) => setEmail(e.target.value)}
+              required
+            />
+            <label htmlFor="cNo">Contact Number</label>
+            <input
+              type="tel"
+              className="inp"
+              name="cNo"
+              onChange={(e) => setCNo(e.target.value)}
+              required
+            />
+            <label htmlFor="address">Address</label>
+            <input
+              type="tel"
+              className="inp"
+              name="address"
+              onChange={(e) => setAddress(e.target.value)}
+              required
+            />
+            <label htmlFor="zipCode">Zip Code</label>
+            <input
+              type="tel"
+              className="inp"
+              name="zipCode"
+              onChange={(e) => setZipCode(e.target.value)}
+              required
+            />
+
+            <label htmlFor="password">Password</label>
+            <input
+              type="password"
+              className="inp"
+              name="password"
+              onChange={(e) => setPassword(e.target.value)}
+              required
+            />
+            <button type="submit" id="signupBtn">
+              Enter
+            </button>
+          </form>
+          <div className="signup">
+            <b>Already have an account?</b>
+            <Link to="/login" style={{ textDecoration: "none" }}>
+              <a>Login</a>
+            </Link>
+          </div>
+        </div>
+      </main>
     </div>
   );
 };
