@@ -76,3 +76,122 @@ input:focus {
     padding: 0;
   }
 }
+
+.profile-bg-picture {
+  background-image: url("../../../public/assets/bg-profile.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.profile-bg-picture {
+  position: relative;
+  min-height: 400px;
+  margin: -24px -24px 0px -24px;
+  background-position: center;
+  background-size: cover;
+}
+
+.profile-user {
+  background-color: var(--white-color);
+  padding: 20px;
+  margin-bottom: 20px;
+  border: none;
+  box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 2px, rgba(0, 0, 0, 0.07) 0px 2px 4px,
+    rgba(0, 0, 0, 0.07) 0px 4px 8px, rgba(0, 0, 0, 0.07) 0px 8px 16px,
+    rgba(0, 0, 0, 0.07) 0px 16px 32px, rgba(0, 0, 0, 0.07) 0px 32px 64px;
+  border-radius: 15px;
+  margin-top: -65px;
+  position: relative;
+}
+
+.profile-user-img img {
+  border: 4px solid var(--main-color);
+  background-color: white;
+}
+
+/* .profile-content {
+  .nav-underline {
+    .nav-item {
+      .nav-link {
+        color: red;
+        font-weight: 600;
+        border-bottom: 0.15rem solid yellow;
+        font-size: 16px;
+
+        &.active {
+          color: white !important;
+          border-bottom-color: var(--main-color) !important;
+        }
+      }
+    }
+  }
+} */
+
+/* Timeline-2 */
+.timeline-2 {
+  position: relative;
+  border-left: 2px solid black;
+
+  .time-item {
+    position: relative;
+    padding-bottom: 1px;
+    border-color: white;
+
+    :before,
+    :after {
+      display: table;
+      content: " ";
+    }
+
+    :after {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 5px;
+      width: 14px;
+      height: 14px;
+      margin-left: -8px;
+      background-color: purple;
+      border-color: indianred;
+      border-style: solid;
+      border-width: 2px;
+      border-radius: 50%;
+    }
+  }
+}
+
+.editProfileBtn {
+  background-color: var(--main-color);
+  color: white;
+  margin-top: 25px !important;
+  padding: 15px 10px;
+  border: none;
+  width: 40%;
+  border-radius: 5px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.profileBtn {
+  /* background-color: var(--main-color); */
+  color: var(--main-color);
+  margin-top: 25px !important;
+  padding: 15px 40px !important;
+  text-decoration: none !important;
+  border: none;
+  border-radius: 5px;
+  font-size: 20px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.activedTabBtn {
+  background-color: var(--main-color);
+  color: var(--white-color);
+}
+
+.actived {
+  display: block !important;
+}
