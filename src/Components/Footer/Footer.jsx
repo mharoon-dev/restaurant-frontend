@@ -20,7 +20,7 @@ const Footer = () => {
                   <div className="footer-logo">
                     <a href="index.html">
                       <img
-                        src="/assets/logo.png"
+                        src="/assets/logo.svg"
                         className="img-fluid"
                         alt="logo"
                       />

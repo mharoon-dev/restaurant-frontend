@@ -1,4 +1,4 @@
-import logo from "../../../public/assets/logo.png";
+import logo from "../../../public/assets/logo.svg";
 import { Link, useLocation } from "react-router-dom";
 import "./Navbar.css";
 import MenuIcon from "@mui/icons-material/Menu";
@@ -173,6 +173,8 @@ const Navbar = () => {
     category.name.toLowerCase().includes(searchQuery.toLowerCase())
   );
 
+  const screenWidth = window.width 
+
   return (
     <>
       {/* user dropDown 2*/}
@@ -288,7 +290,7 @@ const Navbar = () => {
           style={{ zIndex: "9" }}
         >
           <Link to="/" className="nav-logo">
-            <img className="ms-4" src={logo} width="150px" alt="" />
+            <img className="ms-4" src={logo} width="200px" alt="" />
           </Link>
           <div className="nav-ul">
             <ul className="nav-ul justify-content-end d-flex flex-grow-1 pe-0">
@@ -519,7 +521,7 @@ const Navbar = () => {
           <div className="container-fluid mb-5">
             <div className="row">
               <div className="col-12 d-flex justify-content-between align-items-center">
-                <img src="/assets/logo.png" width={100} alt="" />
+                <img src="/assets/logo.svg" width={150} alt="" />
                 <a className="closebtn" onClick={closeRightSidebar}>
                   &times;
                 </a>
